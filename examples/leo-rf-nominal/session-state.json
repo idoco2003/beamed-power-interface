@@ -1,0 +1,31 @@
+{
+  "bpiVersion": "0.1.0-draft",
+  "msgType": "SessionState",
+  "msgId": "018f3a10-0000-7000-8000-000000000202",
+  "issuedAt": "2026-08-22T06:12:04.100Z",
+  "issuer": {
+    "org": "Solaris Orbital Power Ltd",
+    "role": "SPACE"
+  },
+  "sig": {
+    "alg": "Ed25519",
+    "keyId": "key-2026-08",
+    "value": "BASE64URL_DETACHED_JWS_PLACEHOLDER"
+  },
+  "sessionId": "sess-2026-08-22-0612",
+  "state": "DELIVERING",
+  "radiatedPower_kW": 94210.0,
+  "radiatedPower_kW_prov": "measured",
+  "honouringToken": {
+    "tokenId": "tok-4211",
+    "seq": 4211
+  },
+  "pointing": {
+    "lockState": "LOCKED",
+    "quality": 0.97,
+    "corridorErrorDeg": 0.031,
+    "solutionSource": "FUSED",
+    "pilotAuthenticated": true
+  },
+  "faults": []
+}

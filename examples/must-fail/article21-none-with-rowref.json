@@ -1,0 +1,91 @@
+{
+  "bpiVersion": "0.1.0-draft",
+  "msgType": "AttestationBundle",
+  "msgId": "018f3a10-0000-7000-8000-000000000101",
+  "issuedAt": "2026-08-22T06:12:00.000Z",
+  "issuer": {
+    "org": "Kiruna Power Receiving AB",
+    "role": "RECEIVING"
+  },
+  "sig": {
+    "alg": "Ed25519",
+    "keyId": "key-2026-08",
+    "value": "BASE64URL_DETACHED_JWS_PLACEHOLDER"
+  },
+  "subject": {
+    "segmentId": "RX-ESRANGE-01",
+    "role": "RECEIVING"
+  },
+  "validFrom": "2026-08-01T00:00:00.000Z",
+  "validUntil": "2027-08-01T00:00:00.000Z",
+  "spectrum": {
+    "jurisdiction": "SE",
+    "authority": "PTS",
+    "instrument": "experimental_authorisation",
+    "instrumentRef": "PTS-EXP-2026-0417",
+    "issuedOn": "2026-06-01",
+    "expiresOn": "2027-06-01",
+    "band": {
+      "centre_GHz": 5.8,
+      "occupied_bandwidth_Hz": 10000
+    },
+    "allocationStatus": "ism_not_allocated_for_this_use",
+    "ituFilingRef": null,
+    "article21": {
+      "applicability": "none",
+      "rowRef": "21.16-Table-21-4-8025-8500",
+      "declaredPfd_dBW_m2": 15.3,
+      "refBandwidthHz": 4000,
+      "arrivalAngleDeg": 65.0,
+      "marginDb": -155.3,
+      "basis": "screening"
+    }
+  },
+  "exposure": {
+    "guideline": "ICNIRP-2020",
+    "limitClass": "general_public",
+    "limit_W_m2": 10,
+    "averagingTimeS": 1800,
+    "averagingAreaCm2": 30,
+    "peakToMeanFactor": 2.5584,
+    "peakToMeanBasis": "10 dB Gaussian edge taper; mean over the disc = (1-0.1)/ln(10) = 0.391 of centre",
+    "declaredPeak_W_m2": 34.04,
+    "ratioToLimit": 3.404,
+    "assessmentType": "screening",
+    "assessedBy": {
+      "org": "Kiruna Power Receiving AB",
+      "role": "internal",
+      "licensed": false
+    },
+    "signed": false,
+    "localExposureBasis": "not_assessed"
+  },
+  "environmentalReview": {
+    "regime": "SE-MKB",
+    "status": "not_commenced",
+    "ref": null,
+    "challengesPending": false
+  },
+  "aviation": {
+    "coordinatingAuthority": "LFV",
+    "restrictionType": "segregated_area_planned",
+    "ref": null,
+    "notamProcedure": "NOTAM D issued T-24h",
+    "externalAbortChannel": "dedicated line to Kiruna ACC"
+  },
+  "externalAbortAuthorities": [
+    {
+      "org": "LFV Kiruna ACC",
+      "channel": "dedicated-line",
+      "credentialRef": "LFV-2026-KRN-11"
+    }
+  ],
+  "unclaimed": [
+    "itu-rr-art21-space-to-earth-pfd-limit-for-this-band",
+    "primary-allocation-for-space-to-earth-wireless-power-transfer",
+    "itu-r-recommendation-governing-this-application",
+    "national-type-approval-for-transmitter-at-rated-power",
+    "local-exposure-assessment-on-sar-basis-below-6-ghz"
+  ],
+  "operatingPosture": "operating_without_specific_authorisation_by_declaration"
+}

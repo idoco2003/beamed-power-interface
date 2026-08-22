@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/profile.schema.json",
+  "title": "Timing profile",
+  "description": "[R-S-025] Every tunable number lives here rather than in a normative sentence.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "profileId": {
+      "type": "string",
+      "enum": [
+        "FAST",
+        "STANDARD",
+        "RELAXED"
+      ]
+    },
+    "bpiVersion": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "tokenRefreshHz": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "tokenLifetimeS": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "consecutiveLossesTolerated": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "abortToSafeS": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "pointingLossToSafeMs": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "armLeadS": {
+      "type": "number",
+      "minimum": 0
+    },
+    "clearanceValidityS": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "acquireMaxS": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "rampUpMaxPercentPerS": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 100
+    },
+    "holdS": {
+      "type": "number",
+      "minimum": 0
+    },
+    "probeLevelFractionOfPublicLimit": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 1
+    },
+    "corridorHalfAngleDeg": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 90
+    },
+    "rationale": {
+      "type": "object",
+      "description": "Every number shows its arithmetic.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "objections": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "profileId",
+    "bpiVersion",
+    "tokenRefreshHz",
+    "tokenLifetimeS",
+    "consecutiveLossesTolerated",
+    "abortToSafeS",
+    "probeLevelFractionOfPublicLimit",
+    "corridorHalfAngleDeg",
+    "rationale"
+  ],
+  "additionalProperties": false
+}

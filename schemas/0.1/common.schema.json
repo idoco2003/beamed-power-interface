@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/common.schema.json",
+  "title": "BPI 0.1 common types",
+  "$defs": {
+    "Provenance": {
+      "type": "string",
+      "enum": ["measured", "derived", "estimated", "declared"],
+      "description": "[R-C-011] How this value came to exist."
+    },
+    "Timestamp": {
+      "type": "string",
+      "description": "[R-C-001] CCSDS 301.0-B-4 ASCII Time Code A, UTC, ms, trailing Z.",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$"
+    },
+    "GeodeticPoint": {
+      "type": "object",
+      "description": "[R-C-003][R-C-004] WGS-84 geodetic. heightRef is mandatory.",
+      "properties": {
+        "latDeg": { "type": "number", "minimum": -90, "maximum": 90 },
+        "lonDeg": { "type": "number", "minimum": -180, "maximum": 180 },
+        "height_m": { "type": "number" },
+        "heightRef": { "type": "string", "enum": ["ellipsoidal", "orthometric"] },
+        "geoidModel": { "type": "string" }
+      },
+      "required": ["latDeg", "lonDeg", "height_m", "heightRef"],
+      "allOf": [
+        {
+          "if": { "properties": { "heightRef": { "const": "orthometric" } }, "required": ["heightRef"] },
+          "then": { "required": ["geoidModel"] }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "Pfd": {
+      "type": "object",
+      "description": "[R-C-008] A power flux-density is invalid without its reference bandwidth.",
+      "properties": {
+        "value_dBW_m2": { "type": "number" },
+        "refBandwidthHz": { "type": "number", "exclusiveMinimum": 0 },
+        "arrivalAngleDeg": { "type": "number", "minimum": 0, "maximum": 90 },
+        "_prov": { "$ref": "#/$defs/Provenance" }
+      },
+      "required": ["value_dBW_m2", "refBandwidthHz", "_prov"],
+      "additionalProperties": false
+    },
+    "ExposureQuantity": {
+      "type": "object",
+      "description": "[R-C-009] An incident power density is invalid without its averaging time and area.",
+      "properties": {
+        "value_W_m2": { "type": "number", "minimum": 0 },
+        "averagingTimeS": { "type": "number", "exclusiveMinimum": 0 },
+        "averagingAreaCm2": { "type": "number", "exclusiveMinimum": 0 },
+        "_prov": { "$ref": "#/$defs/Provenance" }
+      },
+      "required": ["value_W_m2", "averagingTimeS", "averagingAreaCm2", "_prov"],
+      "additionalProperties": false
+    },
+    "Efficiency": {
+      "type": "object",
+      "description": "[R-C-010][R-M-023] An efficiency is invalid without both endpoints and the path length.",
+      "properties": {
+        "value": { "type": "number", "minimum": 0, "maximum": 1 },
+        "numeratorPoint": { "type": "string" },
+        "denominatorPoint": { "type": "string" },
+        "pathLength_m": { "type": "number", "exclusiveMinimum": 0 },
+        "_prov": { "$ref": "#/$defs/Provenance" }
+      },
+      "required": ["value", "numeratorPoint", "denominatorPoint", "pathLength_m", "_prov"],
+      "additionalProperties": false
+    },
+    "ModelRef": {
+      "type": "object",
+      "description": "[R-RF-051] A model reference carries its edition.",
+      "properties": {
+        "doc": { "type": "string" },
+        "edition": { "type": "string" }
+      },
+      "required": ["doc", "edition"],
+      "additionalProperties": false
+    },
+    "SignatureBlock": {
+      "type": "object",
+      "description": "[R-C-015] Detached JWS, Ed25519, over RFC 8785 canonical JSON.",
+      "properties": {
+        "alg": { "type": "string", "enum": ["Ed25519"] },
+        "keyId": { "type": "string" },
+        "value": { "type": "string" }
+      },
+      "required": ["alg", "keyId", "value"],
+      "additionalProperties": false
+    },
+    "Issuer": {
+      "type": "object",
+      "properties": {
+        "org": { "type": "string" },
+        "orgId": { "type": "string" },
+        "role": { "type": "string", "enum": ["SPACE", "RECEIVING", "BROKER"] }
+      },
+      "required": ["org", "role"],
+      "additionalProperties": false
+    },
+    "Envelope": {
+      "type": "object",
+      "description": "[R-C-013] Present on every message.",
+      "properties": {
+        "bpiVersion": { "type": "string", "pattern": "^0\\.1\\.[0-9]+(-draft)?$" },
+        "msgType": { "type": "string" },
+        "msgId": { "type": "string", "format": "uuid" },
+        "issuedAt": { "$ref": "#/$defs/Timestamp" },
+        "issuer": { "$ref": "#/$defs/Issuer" },
+        "sig": { "$ref": "#/$defs/SignatureBlock" }
+      },
+      "required": ["bpiVersion", "msgType", "msgId", "issuedAt", "issuer"]
+    },
+    "SessionStateName": {
+      "type": "string",
+      "enum": ["OFFLINE","ENROLLED","SCHEDULED","ARMED","ACQUIRING","RAMPING_UP",
+               "DELIVERING","RAMPING_DOWN","SAFING","SAFE","INHIBITED","FAULT"]
+    },
+    "AbortReason": {
+      "type": "string",
+      "enum": ["EXPOSURE_EXCURSION","POINTING_AUTHORITY_LOSS","UNAUTHENTICATED_PILOT",
+               "CORRIDOR_VIOLATION","E_STOP","REGULATORY_ORDER","INTRUSION_CONFIRMED",
+               "AVIATION_TRANSIT","WEATHER_BELOW_RATE_FLOOR","RECEIVER_PLANT_TRIP",
+               "SCHEDULED_PAUSE","CONJUNCTION_MANOEUVRE","GRID_CURTAILMENT",
+               "TOKEN_EXPIRY","ARM_TIMEOUT","ACQUIRE_TIMEOUT"]
+    },
+    "CauseCode": {
+      "type": "string",
+      "enum": ["WEATHER_BELOW_RATE_FLOOR","AVIATION_TRANSIT","PERSON_INTRUSION",
+               "RECEIVER_PLANT_TRIP","GRID_CURTAILMENT","SPACE_FAULT","POINTING_LOSS",
+               "EFFICIENCY_ANOMALY","CONJUNCTION_MANOEUVRE","REGULATORY_ORDER",
+               "TOKEN_EXPIRY","SCHEDULED_END"]
+    }
+  }
+}

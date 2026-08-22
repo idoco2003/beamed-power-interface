@@ -1,0 +1,668 @@
+{
+  "bpiVersion": "0.1.0-draft",
+  "generated": "2026-08-22",
+  "note": "Generated from spec/*.md by tools/gen-checklist.py. tools/check-requirements.sh fails the build if this drifts from the specification.",
+  "count": 110,
+  "requirements": [
+    {
+      "id": "R-A-001",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "`article21.applicability` SHALL be `exact` only where a row of Article 21 covers this band and service. Where the nearest tabulated row is used as a yardstick, it SHALL be `analogue`. Where no row\u2026"
+    },
+    {
+      "id": "R-A-002",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "`article21.rowRef` SHALL be `null` when `applicability` is `none`. A null here is a legal, expected value."
+    },
+    {
+      "id": "R-A-003",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "`refBandwidthHz` SHALL be present whenever `declaredPfd_dBW_m2` is present, per [R-C-008]. There is no exception."
+    },
+    {
+      "id": "R-A-004",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "`marginDb` MAY be negative. A negative margin is a disclosure, not an error, and SHALL NOT be suppressed or clamped. ## 7.3 Exposure ``` exposure { guideline: 'ICNIRP-2020' | 'IEEE-C95.1-2019' |\u2026"
+    },
+    {
+      "id": "R-A-010",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "`limit_W_m2` SHALL be accompanied by `averagingTimeS` and `averagingAreaCm2`, per [R-C-009]."
+    },
+    {
+      "id": "R-A-011",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "`peakToMeanFactor` SHALL be accompanied by `peakToMeanBasis` stating how it was obtained \u2014 for example, *\"2.5584, from a 10 dB Gaussian edge taper\"*. *A beam is not a top hat. Illuminating an\u2026"
+    },
+    {
+      "id": "R-A-012",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "`assessmentType: 'screening'` SHALL NOT be used to support an L3 conformance claim. L3 requires `modelled` or `measured`, signed, with a named assessor."
+    },
+    {
+      "id": "R-A-013",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "`localExposureBasis` SHALL be declared. > **A known gap, disclosed rather than hidden.** ICNIRP 2020 switches the local-exposure > basis at 6 GHz: below it, specific absorption rate; above it,\u2026"
+    },
+    {
+      "id": "R-A-020",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "Any party listed in `externalAbortAuthorities[]` SHALL have a working abort channel per [R-S-050]. ## 7.5 `unclaimed[]` \u2014 the negative declaration"
+    },
+    {
+      "id": "R-A-030",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "`unclaimed[]` SHALL be present and SHALL enumerate every regulatory basis the operator is explicitly **not** claiming."
+    },
+    {
+      "id": "R-A-031",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "`operatingPosture` SHALL be one of `authorised`, `authorised_experimental`, or `operating_without_specific_authorisation_by_declaration`. For a 5.8 GHz space-to-Earth system as of 2026-08, an honest\u2026"
+    },
+    {
+      "id": "R-A-032",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "An empty `unclaimed[]` SHALL be accompanied by `operatingPosture: 'authorised'` and a resolvable `instrumentRef` for every applicable regime. An empty array is a strong claim and is treated as one."
+    },
+    {
+      "id": "R-C-001",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "All timestamps SHALL use CCSDS 301.0-B-4 ASCII Time Code A in UTC with millisecond resolution and a mandatory trailing `Z`: ``` YYYY-MM-DDThh:mm:ss.sssZ ```"
+    },
+    {
+      "id": "R-C-002",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "A segment SHALL declare `clockSource` and `maxClockOffsetMs`, and SHALL NOT enter `DELIVERING` while its declared offset exceeds one tenth of the active profile's `tokenLifetimeS`. *Rationale: a\u2026"
+    },
+    {
+      "id": "R-C-003",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "Positions SHALL be WGS-84 geodetic, in decimal degrees, and SHALL carry an explicit height reference: ```json { \"latDeg\": 67.8833, \"lonDeg\": 21.0667, \"height_m\": 341.0, \"heightRef\": \"orthometric\",\u2026"
+    },
+    {
+      "id": "R-C-004",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "`heightRef` SHALL be present on every `GeodeticPoint`. `geoidModel` SHALL be present when `heightRef` is `orthometric`. *Rationale: surveyed site elevations are normally orthometric \u2014 height above\u2026"
+    },
+    {
+      "id": "R-C-005",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "Azimuth SHALL be degrees from **true** north, clockwise, in [0, 360)."
+    },
+    {
+      "id": "R-C-006",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "Elevation SHALL be degrees above the **local ellipsoid horizon** \u2014 the plane normal to the WGS-84 ellipsoid at the site \u2014 not above the geocentric radial horizon. *Rationale: the ellipsoid normal and\u2026"
+    },
+    {
+      "id": "R-C-007",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "A physical quantity SHALL NOT appear without the measurement conditions that give it meaning, in the same object. Concretely, and enforced by the schemas rather than by good intentions: -"
+    },
+    {
+      "id": "R-C-008",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "A power flux-density SHALL carry `refBandwidthHz`. -"
+    },
+    {
+      "id": "R-C-009",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "An incident power density compared against an exposure limit SHALL carry `averagingTimeS` and `averagingAreaCm2`. -"
+    },
+    {
+      "id": "R-C-010",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "An efficiency SHALL carry `numeratorPoint` and `denominatorPoint`, each naming a declared measurement point, and `pathLength_m`. *Rationale: \u2212140 dB(W/m\u00b2) means nothing until you know whether it is\u2026"
+    },
+    {
+      "id": "R-C-011",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "Every field carrying a physical value SHALL carry a sibling provenance field named by appending `_prov`, with one of: | Value | Meaning | |---|---| | `measured` | An instrument read this, at the time\u2026"
+    },
+    {
+      "id": "R-C-012",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "A `MeteringRecord` containing any `estimated` or `declared` value in the settled energy path SHALL NOT settle without explicit countersignature of that specific field by both parties (\u00a76.3).\u2026"
+    },
+    {
+      "id": "R-C-013",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "Every message SHALL carry the common envelope: ```json { \"bpiVersion\": \"0.1.0-draft\", \"msgType\": \"EnableToken\", \"msgId\": \"018f3a...\", \"issuedAt\": \"2026-08-22T06:12:00.000Z\", \"issuer\": { \"org\": \"...\",\u2026"
+    },
+    {
+      "id": "R-C-014",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "`msgId` SHALL be a UUID; UUIDv7 is RECOMMENDED so that identifiers sort by creation time."
+    },
+    {
+      "id": "R-C-015",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "Signatures SHALL be detached JWS using Ed25519 over the RFC 8785 canonicalisation of the message with the `sig.value` member absent."
+    },
+    {
+      "id": "R-C-016",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "A segment SHALL declare its signing keys, a rotation interval, and a revocation endpoint in its capability message."
+    },
+    {
+      "id": "R-C-017",
+      "part": "C",
+      "source": "spec/02-conventions.md",
+      "summary": "A receiver of any message SHALL reject it if the signature does not verify, if `bpiVersion` has a MAJOR component it does not implement, or if `issuedAt` is further from local time than the declared\u2026"
+    },
+    {
+      "id": "R-C-020",
+      "part": "C",
+      "source": "spec/03-architecture.md",
+      "summary": "The enable token SHALL be issued by the receiving segment's safety authority. The space segment SHALL NOT issue, forge, extend or self-authorise a token under any circumstance. *Rationale: the entity\u2026"
+    },
+    {
+      "id": "R-C-021",
+      "part": "C",
+      "source": "spec/03-architecture.md",
+      "summary": "The safety authority SHOULD be co-located with the receiving aperture and SHOULD have a direct command path to the space segment."
+    },
+    {
+      "id": "R-C-022",
+      "part": "C",
+      "source": "spec/03-architecture.md",
+      "summary": "A segment whose p99 command-path latency exceeds one third of the active profile's `tokenLifetimeS` SHALL NOT enter `DELIVERING`. *Rationale: routing tokens through a store-and-forward ground network\u2026"
+    },
+    {
+      "id": "R-C-023",
+      "part": "C",
+      "source": "spec/03-architecture.md",
+      "summary": "Messages 1\u20137, 12 and 13 SHALL be exchanged between ground systems. Only `EnableToken`, `Abort` and `PointingReference` need to reach the spacecraft."
+    },
+    {
+      "id": "R-C-024",
+      "part": "C",
+      "source": "spec/03-architecture.md",
+      "summary": "BPI does not define a space-link protocol. A space segment SHALL declare which existing service carries its tokens and aborts, and SHALL declare the measured p50 and p99 latency and the availability\u2026"
+    },
+    {
+      "id": "R-C-025",
+      "part": "C",
+      "source": "spec/03-architecture.md",
+      "summary": "A space segment and a receiving segment SHALL have exchanged and validated capability and attestation messages before a commitment referencing them is created."
+    },
+    {
+      "id": "R-C-026",
+      "part": "C",
+      "source": "spec/03-architecture.md",
+      "summary": "A session SHALL reference exactly one `commitmentId`, and a commitment SHALL be referenced by at most one session. ## 3.4 Transport bindings"
+    },
+    {
+      "id": "R-C-027",
+      "part": "C",
+      "source": "spec/03-architecture.md",
+      "summary": "The mandatory-to-implement ground-to-ground binding SHALL be HTTPS with TLS 1.3 or later, carrying `application/bpi+json`."
+    },
+    {
+      "id": "R-C-028",
+      "part": "C",
+      "source": "spec/03-architecture.md",
+      "summary": "Message-level signatures (\u00a72.7) SHALL be applied regardless of transport security. Transport authentication is not a substitute: a token that transits an operator's own command system must remain\u2026"
+    },
+    {
+      "id": "R-C-029",
+      "part": "C",
+      "source": "spec/03-architecture.md",
+      "summary": "The interlock messages \u2014 `EnableToken`, `SessionState`, `Abort` \u2014 MAY be carried in a compact binary encoding. RFC 8949 CBOR of the same information model is RECOMMENDED where bandwidth is\u2026"
+    },
+    {
+      "id": "R-C-030",
+      "part": "C",
+      "source": "spec/04-core.md",
+      "summary": "`abortToSafe_ms` SHALL be the segment's *measured* worst case, not a design target, and SHALL carry `_prov`. A segment that has not measured it SHALL declare `estimated` and SHALL NOT claim\u2026"
+    },
+    {
+      "id": "R-C-031",
+      "part": "C",
+      "source": "spec/04-core.md",
+      "summary": "`keepOutVolume` SHALL satisfy the dead-man buffer requirement of [R-S-024]. A capability message whose declared volume is smaller than the buffer its own declared `intruderSpeedMax_m_s` and timing\u2026"
+    },
+    {
+      "id": "R-C-032",
+      "part": "C",
+      "source": "spec/04-core.md",
+      "summary": "A receiving segment SHALL declare `maskBasis`. Where `computed`, it SHALL name the models used. A mask presented without its basis is a number with no argument behind it. ## 4.3 AttestationBundle\u2026"
+    },
+    {
+      "id": "R-C-033",
+      "part": "C",
+      "source": "spec/04-core.md",
+      "summary": "`predictedEnergy_kWh` SHALL carry `_prov`, which SHALL be `estimated` or `derived` \u2014 never `measured`, since the window has not happened. This message profiles the CCSDS 902.1 Simple Schedule Format\u2026"
+    },
+    {
+      "id": "R-C-034",
+      "part": "C",
+      "source": "spec/04-core.md",
+      "summary": "`timingProfile` SHALL be frozen at commitment and SHALL NOT change during a session. A profile change requires a `WindowAmendment` and a new commitment. ## 4.7 WindowAmendment `commitmentId`,\u2026"
+    },
+    {
+      "id": "R-C-035",
+      "part": "C",
+      "source": "spec/04-core.md",
+      "summary": "An amendment issued after a session has entered `ARMED` SHALL NOT be used in place of an `Abort`. Amendments are scheduling instruments; stopping a live beam is \u00a75.6 and nothing else. ## 4.8 Common\u2026"
+    },
+    {
+      "id": "R-CONF-001",
+      "part": "CONF",
+      "source": "spec/08-conformance.md",
+      "summary": "An implementer claiming conformance SHALL publish `bpi-conformance.json` in a location they control, enumerating **every** normative requirement identifier in this specification with one of: | Status\u2026"
+    },
+    {
+      "id": "R-CONF-002",
+      "part": "CONF",
+      "source": "spec/08-conformance.md",
+      "summary": "`not-applicable` SHALL carry a `reason`. **`not-claimed` is first-class and deliberate.** It lets an implementer say \"we do this, but it is untested, or we are unwilling to stand behind it yet\" \u2014 a\u2026"
+    },
+    {
+      "id": "R-CONF-003",
+      "part": "CONF",
+      "source": "spec/08-conformance.md",
+      "summary": "A claim SHALL name the specification version it is against, and SHALL be re-issued on a MAJOR version change. ## 8.3 What is not offered There is **no certification**. There is no test authority, no\u2026"
+    },
+    {
+      "id": "R-CONF-004",
+      "part": "CONF",
+      "source": "spec/08-conformance.md",
+      "summary": "No party SHALL describe an implementation as certified, accredited or approved under this specification. A conformance claim under BPI is a self-declaration, published where anyone can check it\u2026"
+    },
+    {
+      "id": "R-M-001",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "Both segments SHALL declare their metering points, each with a name, a one-line-diagram reference, and the physical boundary it represents. | Point | Owned by | Definition | |---|---|---| | **Revenue\u2026"
+    },
+    {
+      "id": "R-M-002",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "The **settled quantity SHALL be the receiving-side delivered energy at the revenue metering point.** *Rationale: that is what the customer actually receives. The space-side figure is not a competing\u2026"
+    },
+    {
+      "id": "R-M-010",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "Interior samples SHALL be taken at 1 Hz at each declared metering point, timestamped per \u00a72.2."
+    },
+    {
+      "id": "R-M-011",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "Energy SHALL be aggregated **both** per delivery window and into the receiving segment's declared `settlementIntervalMin`. *A LEO delivery window is 1.5\u20133 minutes, shorter than any electricity market\u2026"
+    },
+    {
+      "id": "R-M-012",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "A revenue meter SHALL be of accuracy class **IEC 62053-22 class 0.2S or 0.5S**, or **ANSI C12.20 class 0.2 or 0.5**, and the record SHALL carry its class, serial number and calibration certificate\u2026"
+    },
+    {
+      "id": "R-M-013",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "Every value in the settled energy path SHALL carry provenance per \u00a72.6. ## 6.3 The MeteringRecord ``` MeteringRecord { recordId, commitmentId, sessionId, window { start, end }, delivered {\u2026"
+    },
+    {
+      "id": "R-M-020",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "A record is **settleable** only when it carries signatures from two opposing roles **and** the two independent energy figures reconcile within the declared tolerance: ``` | E_delivered \u2212\u2026"
+    },
+    {
+      "id": "R-M-021",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "`\u03b7_expected` SHALL be computed from the declared propagation models using the *actual* elevation and weather over the window. A nameplate efficiency SHALL NOT be used."
+    },
+    {
+      "id": "R-M-022",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "A record containing any `estimated` or `declared` value in the settled energy path SHALL NOT settle without explicit countersignature of that specific field by both parties."
+    },
+    {
+      "id": "R-M-023",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "`efficiency` SHALL name both endpoints and the path length, per [R-C-010]. A bare efficiency figure is invalid. *This last one is worth a sentence of motivation. Two public demonstrations currently\u2026"
+    },
+    {
+      "id": "R-M-030",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "Every second of shortfall inside a committed window SHALL be attributed to a cause code. Each code carries a **default** cost bearer. The default is a starting point for a commercial agreement, which\u2026"
+    },
+    {
+      "id": "R-M-031",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "Where the cause is `TOKEN_EXPIRY`, both segments SHALL produce their `SessionLog` covering \u00b160 s around the event, and the bearer SHALL be determined from the hash-chained `seq` on both sides.\u2026"
+    },
+    {
+      "id": "R-M-032",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "A `SessionLog` SHALL be produced by both segments for any session containing a non-nominal event, at 1 Hz, signed, and retained for the period declared in capability. ## 6.5 Dispute ladder"
+    },
+    {
+      "id": "R-M-040",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "Disputes SHALL be resolved in this order, declared in advance so that no discretion is exercised at settlement time: 1. The receiving-side revenue meter, **if** its calibration certificate is current\u2026"
+    },
+    {
+      "id": "R-RF-001",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "A segment claiming the `RF` annex SHALL declare `centre_GHz`, `occupied_bandwidth_Hz`, polarisation, and \u2014 where a national regime uses one \u2014 an emission designator."
+    },
+    {
+      "id": "R-RF-002",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "Transmit aperture dimensions, illumination taper and the resulting peak-to-mean factor SHALL be declared, with `peakToMeanBasis` per [R-A-011]. ## RF.2 Power flux-density"
+    },
+    {
+      "id": "R-RF-010",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "PFD SHALL be expressed in dB(W/m\u00b2) with a mandatory `refBandwidthHz`."
+    },
+    {
+      "id": "R-RF-011",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "PFD SHALL be screened against ITU Radio Regulations Article 21 \u00a721.16 using the `applicability` discipline of [R-A-001]. *Note on why this matters more here than elsewhere. Article 21's limits are\u2026"
+    },
+    {
+      "id": "R-RF-020",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "The abstract pointing reference of [R-S-030] SHALL be bound to a pilot signal transmitted from the receiving segment."
+    },
+    {
+      "id": "R-RF-021",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "The pilot SHALL be authenticated by a per-session spreading code or an equivalent rolling-code scheme, and the segment SHALL declare the scheme, the code length and the re-key interval."
+    },
+    {
+      "id": "R-RF-022",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "`corridorHalfAngleDeg` SHALL be declared. It SHOULD be no larger than the angle the receiving aperture subtends at the minimum operational slant range. *Worked example: a 2 km aperture at 547 km\u2026"
+    },
+    {
+      "id": "R-RF-030",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "A segment using a phased array SHALL declare its element spacing and the maximum scan angle, and SHALL declare the geometry and power flux-density of any grating lobes over the full scan range."
+    },
+    {
+      "id": "R-RF-031",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "Grating lobes SHALL be screened under \u00a77 exactly as the main beam is, including against the keep-out volume of [R-S-024]. *This is the requirement most likely to be missed, and the arithmetic is\u2026"
+    },
+    {
+      "id": "R-RF-040",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "The defocused pattern produced by the abort action of [R-S-043] SHALL be declared and screened, per [R-S-044]. ## RF.6 Atmospheric models"
+    },
+    {
+      "id": "R-RF-050",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "Where a rate profile, a mask or an expected efficiency depends on propagation, the segment SHALL declare which models were used, by reference. Commonly applicable: ITU-R P.525 (free-space), P.676\u2026"
+    },
+    {
+      "id": "R-RF-051",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "A declared model reference SHALL carry the edition. ## RF.7 Exposure basis"
+    },
+    {
+      "id": "R-RF-060",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "Human exposure SHALL be assessed on an incident power-density basis against ICNIRP 2020 or IEEE C95.1-2019 as declared, **and** `localExposureBasis` SHALL be declared per [R-A-013]. *Below 6 GHz,\u2026"
+    },
+    {
+      "id": "R-RF-070",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "A segment SHALL declare harmonic and spurious emission levels, and the coordination undertaken with incumbent services in the band."
+    },
+    {
+      "id": "R-RF-071",
+      "part": "RF",
+      "source": "spec/annex-rf.md",
+      "summary": "Where the illuminated area or any grating lobe intersects airspace, the segment SHALL declare the avionics electromagnetic-compatibility threshold used and the coordination performed with the\u2026"
+    },
+    {
+      "id": "R-S-001",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "A space segment SHALL NOT radiate above the probe level except while holding an unexpired, signature-valid `EnableToken` whose `sessionId` matches the active session."
+    },
+    {
+      "id": "R-S-002",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "On expiry of the last valid token without a successor, a space segment SHALL transition to `SAFING` immediately and without further instruction. ## 5.2 States | State | Radiating | Meaning |\u2026"
+    },
+    {
+      "id": "R-S-010",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "In `ACQUIRING`, radiated power SHALL be such that the power flux-density anywhere on the receiving body's surface does not exceed **one hundredth** of the applicable general-public exposure reference\u2026"
+    },
+    {
+      "id": "R-S-011",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "Transition from `ACQUIRING` to `RAMPING_UP` SHALL require all three of: 1. the space segment asserts pointing lock; 2. the geometric corridor check of [R-S-031] passes; 3. **the receiving segment\u2026"
+    },
+    {
+      "id": "R-S-020",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "Tokens SHALL be hash-chained: `prevHash` SHALL be the SHA-256 of the RFC 8785 canonicalisation of the immediately preceding token in the session. *Rationale: replay of an old token becomes\u2026"
+    },
+    {
+      "id": "R-S-021",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "`notAfter` SHALL be absolute UTC. A segment SHALL additionally maintain a **monotonic** elapsed-time check since the last valid token, and SHALL act on whichever expires first. *Rationale: never\u2026"
+    },
+    {
+      "id": "R-S-022",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "`maxPower_kW` SHALL be an authorisation, not merely a liveness proof. The space segment SHALL radiate at no more than `min(committedPowerCeiling_kW, token.maxPower_kW)`. *Rationale: this gives the\u2026"
+    },
+    {
+      "id": "R-S-024",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "The declared keep-out volume SHALL include a dead-man buffer of at least ``` intruderSpeedMax_m_s \u00d7 (tokenLifetimeS + abortToSafeS) ``` measured from the outer edge of the assessed illuminated area.\u2026"
+    },
+    {
+      "id": "R-S-025",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "Timing parameters SHALL be taken from a named profile in `profiles/`, declared in capability and frozen at commitment. | Profile | Refresh | Lifetime | Losses tolerated | Buffer @ 250 m/s | Intended\u2026"
+    },
+    {
+      "id": "R-S-026",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "`tokenLifetimeS` SHALL be at least three times the declared p99 command-path latency. *Why 1 Hz and not 10 Hz for the default: five seconds at 1 Hz tolerates four consecutive losses, and a link that\u2026"
+    },
+    {
+      "id": "R-S-030",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "A space segment SHALL NOT radiate above the probe level unless it is continuously receiving a valid, **authenticated**, receiving-segment-originated pointing reference, and SHALL transition to\u2026"
+    },
+    {
+      "id": "R-S-031",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "Both of the following SHALL hold: 1. **Authenticated pointing reference.** Spread-spectrum with a per-session secret code, or an equivalent rolling-code scheme. An unauthenticated lock SHALL be\u2026"
+    },
+    {
+      "id": "R-S-032",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "An ephemeris derived from general-perturbations elements \u2014 an OEM generated from SGP4/SDP4 \u2014 SHALL NOT be used as the geometric corridor reference. It remains admissible for scheduling. *Rationale,\u2026"
+    },
+    {
+      "id": "R-S-033",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "A space segment SHALL declare `ephemerisSource` and `positionAccuracy_m`, and SHALL NOT claim L2 or L3 conformance with `ephemerisSource: SGP4_GP`. > **Limitation at GEO, stated.** A 2 km aperture at\u2026"
+    },
+    {
+      "id": "R-S-040",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "Ramp-up SHALL be monotone non-decreasing at no more than 10% of committed rate per second."
+    },
+    {
+      "id": "R-S-041",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "Ramp-up SHALL include a dwell hold at approximately 10% of committed rate for `holdS` (default 5 s), during which both segments SHALL confirm received power lies within the predicted band before\u2026"
+    },
+    {
+      "id": "R-S-042",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "Abort ramp-down SHALL reach the probe level within the segment's declared `abortToSafe_ms`, target \u2264 250 ms."
+    },
+    {
+      "id": "R-S-043",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "The primary abort action SHALL be `DEFOCUS` where the physical layer supports it, with `POWER_DOWN` following. *For a phased array, de-phasing the aperture spreads the beam far faster than DC power\u2026"
+    },
+    {
+      "id": "R-S-044",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "The defocused pattern's power flux-density SHALL be declared and screened under \u00a77, exactly as the main beam is. *Rationale, and it is a trap: spreading a beam reduces peak flux by orders of\u2026"
+    },
+    {
+      "id": "R-S-045",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "BPI specifies the **beam** power ramp only. The space segment SHALL honour the receiving segment's declared `maxDownRamp_kW_per_s` for *nominal* ramps."
+    },
+    {
+      "id": "R-S-046",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "A safety abort SHALL override `maxDownRamp_kW_per_s` without exception. *The consequence \u2014 that a fast abort may trip the receiving plant \u2014 is the receiving segment's problem to solve with storage, a\u2026"
+    },
+    {
+      "id": "R-S-050",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "Any of the following SHALL be able to abort: 1. either segment, over the interface; 2. **a local physical emergency stop at the receiving site**, hard-wired into the token issuer so that operating it\u2026"
+    },
+    {
+      "id": "R-S-051",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "`eStopPresent` and `eStopWiredToIssuer` SHALL both be true for any L3 conformance claim. *A software-only abort at a site with people on it is not credible to a safety regulator, and both paths \u2014\u2026"
+    },
+    {
+      "id": "R-S-052",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "Abort SHALL reach the probe level within 1 s of receipt, of which the one-way light time is irreducible. ### Reason codes | Latching \u2014 two-party signed reset required | Resumable \u2014 may re-arm within\u2026"
+    },
+    {
+      "id": "R-S-053",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "A latching abort SHALL NOT be cleared by a timer, by a new commitment, or by either party acting alone. ## 5.9 Fail-safe behaviour, by failure mode"
+    },
+    {
+      "id": "R-S-060",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "Every failure mode below SHALL result in the stated action without requiring a message to arrive. | Failure | Detected by | Action | |---|---|---| | Token stream stops | Space, on expiry | `SAFING`,\u2026"
+    },
+    {
+      "id": "R-S-061",
+      "part": "S",
+      "source": "spec/05-interlock.md",
+      "summary": "Loss of the command link and expiry of the token SHALL be handled by the same code path. *There is no separate \"link lost\" branch to get wrong, because there is no way to distinguish the two from the\u2026"
+    },
+    {
+      "id": "R-SEC-001",
+      "part": "SEC",
+      "source": "spec/09-security.md",
+      "summary": "Signing keys for the safety authority SHALL be distinct from keys used for commercial or scheduling messages, and SHALL NOT be shared between roles."
+    },
+    {
+      "id": "R-SEC-002",
+      "part": "SEC",
+      "source": "spec/09-security.md",
+      "summary": "Key rotation interval and revocation endpoint SHALL be declared, and a segment SHALL check revocation before entering `ARMED`."
+    },
+    {
+      "id": "R-SEC-003",
+      "part": "SEC",
+      "source": "spec/09-security.md",
+      "summary": "A revoked key SHALL invalidate tokens issued under it from the moment of revocation, and the space segment SHALL treat the absence of a fresh valid token in the normal way \u2014 that is, by safing. ##\u2026"
+    },
+    {
+      "id": "R-SEC-004",
+      "part": "SEC",
+      "source": "spec/09-security.md",
+      "summary": "A segment SHALL NOT extend a token's validity on the basis of a wall clock that has moved backwards. The monotonic check of [R-S-021] is normative for this reason: GNSS spoofing that steps a clock\u2026"
+    },
+    {
+      "id": "R-SEC-010",
+      "part": "SEC",
+      "source": "spec/09-security.md",
+      "summary": "`sensors[]` coverage detail MAY be withheld from public publication and disclosed only to counterparties and regulators; a redacted capability SHALL declare `redacted: true` and list the withheld\u2026"
+    }
+  ]
+}

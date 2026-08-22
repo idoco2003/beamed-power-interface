@@ -1,0 +1,445 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/attestation-bundle.schema.json",
+  "title": "AttestationBundle",
+  "description": "[R-A-001..032] The regulatory and exposure basis, INCLUDING the parts where no basis exists. unclaimed[] is mandatory.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    },
+    {
+      "if": {
+        "properties": {
+          "unclaimed": {
+            "maxItems": 0
+          }
+        },
+        "required": [
+          "unclaimed"
+        ]
+      },
+      "then": {
+        "properties": {
+          "operatingPosture": {
+            "const": "authorised"
+          }
+        }
+      }
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "AttestationBundle"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "subject": {
+      "type": "object",
+      "properties": {
+        "segmentId": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "SPACE",
+            "RECEIVING"
+          ]
+        }
+      },
+      "required": [
+        "segmentId",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "validFrom": {
+      "$ref": "common.schema.json#/$defs/Timestamp"
+    },
+    "validUntil": {
+      "$ref": "common.schema.json#/$defs/Timestamp"
+    },
+    "spectrum": {
+      "type": "object",
+      "properties": {
+        "jurisdiction": {
+          "type": "string"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "instrument": {
+          "type": "string",
+          "enum": [
+            "licence",
+            "experimental_authorisation",
+            "special_temporary_authority",
+            "exemption",
+            "notification",
+            "under_application",
+            "none_claimed"
+          ]
+        },
+        "instrumentRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "issuedOn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expiresOn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "band": {
+          "type": "object",
+          "properties": {
+            "centre_GHz": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "occupied_bandwidth_Hz": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "emissionDesignator": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "centre_GHz",
+            "occupied_bandwidth_Hz"
+          ],
+          "additionalProperties": false
+        },
+        "allocationStatus": {
+          "type": "string",
+          "enum": [
+            "primary",
+            "secondary",
+            "ism_not_allocated_for_this_use",
+            "none"
+          ]
+        },
+        "ituFilingRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "article21": {
+          "type": "object",
+          "properties": {
+            "applicability": {
+              "type": "string",
+              "enum": [
+                "exact",
+                "analogue",
+                "none"
+              ],
+              "description": "[R-A-001] 'exact' only where a row covers this band AND service."
+            },
+            "rowRef": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "[R-A-002] null is a legal, expected value when applicability is 'none'."
+            },
+            "declaredPfd_dBW_m2": {
+              "type": "number"
+            },
+            "refBandwidthHz": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "[R-A-003] No exception."
+            },
+            "arrivalAngleDeg": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 90
+            },
+            "marginDb": {
+              "type": "number",
+              "description": "[R-A-004] May be negative. A negative margin is a disclosure."
+            },
+            "basis": {
+              "type": "string",
+              "enum": [
+                "screening",
+                "modelled",
+                "measured"
+              ]
+            }
+          },
+          "required": [
+            "applicability",
+            "rowRef",
+            "declaredPfd_dBW_m2",
+            "refBandwidthHz",
+            "arrivalAngleDeg",
+            "marginDb",
+            "basis"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "applicability": {
+                    "const": "none"
+                  }
+                },
+                "required": [
+                  "applicability"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "rowRef": {
+                    "type": "null"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "jurisdiction",
+        "authority",
+        "instrument",
+        "band",
+        "allocationStatus",
+        "article21"
+      ],
+      "additionalProperties": false
+    },
+    "exposure": {
+      "type": "object",
+      "properties": {
+        "guideline": {
+          "type": "string",
+          "enum": [
+            "ICNIRP-2020",
+            "IEEE-C95.1-2019",
+            "national"
+          ]
+        },
+        "nationalRef": {
+          "type": "string"
+        },
+        "limitClass": {
+          "type": "string",
+          "enum": [
+            "general_public",
+            "occupational"
+          ]
+        },
+        "limit_W_m2": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "averagingTimeS": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "[R-A-010]"
+        },
+        "averagingAreaCm2": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "[R-A-010]"
+        },
+        "peakToMeanFactor": {
+          "type": "number",
+          "minimum": 1
+        },
+        "peakToMeanBasis": {
+          "type": "string",
+          "description": "[R-A-011] How the factor was obtained."
+        },
+        "declaredPeak_W_m2": {
+          "type": "number",
+          "minimum": 0
+        },
+        "ratioToLimit": {
+          "type": "number",
+          "minimum": 0
+        },
+        "assessmentType": {
+          "type": "string",
+          "enum": [
+            "screening",
+            "modelled",
+            "measured"
+          ],
+          "description": "[R-A-012] 'screening' cannot support an L3 claim."
+        },
+        "assessedBy": {
+          "type": "object",
+          "properties": {
+            "org": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string"
+            },
+            "licensed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "org"
+          ],
+          "additionalProperties": false
+        },
+        "signed": {
+          "type": "boolean"
+        },
+        "reportRef": {
+          "type": "string"
+        },
+        "localExposureBasis": {
+          "type": "string",
+          "enum": [
+            "SAR",
+            "absorbed_power_density",
+            "not_assessed"
+          ],
+          "description": "[R-A-013] Below 6 GHz ICNIRP's local basis is SAR; a power-density screening does not cover it."
+        }
+      },
+      "required": [
+        "guideline",
+        "limitClass",
+        "limit_W_m2",
+        "averagingTimeS",
+        "averagingAreaCm2",
+        "peakToMeanFactor",
+        "peakToMeanBasis",
+        "declaredPeak_W_m2",
+        "ratioToLimit",
+        "assessmentType",
+        "localExposureBasis"
+      ],
+      "additionalProperties": false
+    },
+    "environmentalReview": {
+      "type": "object",
+      "properties": {
+        "regime": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "challengesPending": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "regime",
+        "status",
+        "challengesPending"
+      ],
+      "additionalProperties": false
+    },
+    "aviation": {
+      "type": "object",
+      "properties": {
+        "coordinatingAuthority": {
+          "type": "string"
+        },
+        "restrictionType": {
+          "type": "string"
+        },
+        "ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notamProcedure": {
+          "type": "string"
+        },
+        "externalAbortChannel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "coordinatingAuthority"
+      ],
+      "additionalProperties": false
+    },
+    "externalAbortAuthorities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "org": {
+            "type": "string"
+          },
+          "channel": {
+            "type": "string"
+          },
+          "credentialRef": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "org",
+          "channel"
+        ],
+        "additionalProperties": false
+      },
+      "description": "[R-A-020] Each must have a working abort channel."
+    },
+    "unclaimed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "[R-A-030] REQUIRED. Every regulatory basis explicitly NOT claimed. An empty array is a strong claim."
+    },
+    "operatingPosture": {
+      "type": "string",
+      "enum": [
+        "authorised",
+        "authorised_experimental",
+        "operating_without_specific_authorisation_by_declaration"
+      ],
+      "description": "[R-A-031]"
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "subject",
+    "validFrom",
+    "validUntil",
+    "spectrum",
+    "exposure",
+    "unclaimed",
+    "operatingPosture"
+  ]
+}

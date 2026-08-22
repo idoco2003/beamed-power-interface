@@ -1,0 +1,32 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+The specification prose in this repository — everything under spec/, together with
+README.md, GOVERNANCE.md, CONTRIBUTING.md, OBJECTIONS.md, DISPOSITIONS.md,
+CHANGELOG.md and gap-analysis.md — is licensed under the Creative Commons Attribution
+4.0 International License.
+
+Full text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:   https://creativecommons.org/licenses/by/4.0/
+
+You are free to share and adapt this material for any purpose, including commercially,
+provided you give appropriate credit, link to the license, and indicate if changes were
+made.
+
+WHY THIS LICENCE
+
+A specification that cannot be quoted, translated or forked is not a specification, it
+is a brochure. Attribution-only was chosen deliberately over ShareAlike (which would be
+viral into other documents that quote it) and over NoDerivatives (which would prevent
+forking, and forking is the entire point of publishing a draft).
+
+If a standards body later wishes to adopt this text as the basis for its own work, this
+licence is intended not to be an obstacle.
+
+SCOPE
+
+Schemas, examples, profiles and tooling — everything under schemas/, examples/,
+profiles/, conformance/ and tools/ — are licensed separately under Apache-2.0. See
+LICENSE-CODE. That split is deliberate: the code half carries a patent grant, and the
+prose half needs to be maximally quotable.
+
+NO PATENT LICENCE IS GRANTED BY THIS FILE. See GOVERNANCE.md, section IPR.

@@ -1,0 +1,26 @@
+{
+  "$schema": "../schemas/0.1/profile.schema.json",
+  "profileId": "STANDARD",
+  "bpiVersion": "0.1.0-draft",
+  "description": "Default timing profile. Suitable for a remote site with a co-located safety authority and a direct command path.",
+  "tokenRefreshHz": 1,
+  "tokenLifetimeS": 5,
+  "consecutiveLossesTolerated": 4,
+  "abortToSafeS": 0.4,
+  "pointingLossToSafeMs": 500,
+  "armLeadS": 120,
+  "clearanceValidityS": 30,
+  "acquireMaxS": 30,
+  "rampUpMaxPercentPerS": 10,
+  "holdS": 5,
+  "probeLevelFractionOfPublicLimit": 0.01,
+  "corridorHalfAngleDeg": 0.2,
+  "rationale": {
+    "tokenLifetimeS": "Intruder budget, not exposure averaging. 5000 ms token + 100 ms detect + 50 ms defocus + 250 ms ramp = 5400 ms worst-case unsafe duration. At a declared 250 m/s that is 1350 m of intruder travel, which becomes the required dead-man buffer under [R-S-024]. Exposure averaging is NOT the constraint: at 41 W/m2 the ICNIRP 30-minute average tolerates a 439 s excursion.",
+    "tokenRefreshHz": "1 Hz gives 4 tolerated consecutive losses at a 5 s lifetime; a link dropping 5 consecutive seconds should not be carrying megawatts. Also sits ~4x outside the 239 ms GEO round trip, whereas 10 Hz would put the refresh interval inside it.",
+    "probeLevelFractionOfPublicLimit": "20 dB below the general-public reference level means a total mispoint is non-hazardous by two orders of magnitude while leaving 20 dB of dynamic range for a closed pointing loop. UNVERIFIED as to loop SNR adequacy - see OBJECTIONS.md O-2.",
+    "corridorHalfAngleDeg": "A 2 km aperture at 547 km slant range subtends 0.21 deg. +/-0.2 deg is approximately 'on the aperture' for LEO. Far coarser than required at GEO - see OBJECTIONS.md O-4.",
+    "holdS": "A dwell at ~10% of committed rate is where a pointing error, an atmospheric surprise or a metering fault reveals itself at a power level where it is diagnostic rather than dangerous."
+  },
+  "objections": ["O-2", "O-4"]
+}

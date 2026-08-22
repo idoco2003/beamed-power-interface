@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/WindowAmendment.schema.json",
+  "title": "WindowAmendment",
+  "description": "[R-C-035] A scheduling instrument. Never a substitute for an Abort.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "WindowAmendment"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "commitmentId": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "MOVE",
+        "SHRINK",
+        "CANCEL",
+        "PREEMPT"
+      ]
+    },
+    "reasonCode": {
+      "type": "string"
+    },
+    "noticeGiven_min": {
+      "type": "number",
+      "minimum": 0
+    },
+    "compensationFlag": {
+      "type": "boolean"
+    },
+    "newStart": {
+      "$ref": "common.schema.json#/$defs/Timestamp"
+    },
+    "newDuration_min": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "commitmentId",
+    "action",
+    "reasonCode",
+    "noticeGiven_min"
+  ]
+}

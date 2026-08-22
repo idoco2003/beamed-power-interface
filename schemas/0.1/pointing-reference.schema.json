@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/PointingReference.schema.json",
+  "title": "PointingReference",
+  "description": "[R-S-030] Abstract in the core; bound to a pilot beam by Annex RF.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "PointingReference"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "refId": {
+      "type": "string"
+    },
+    "sessionId": {
+      "type": "string"
+    },
+    "authMode": {
+      "type": "string",
+      "enum": [
+        "SPREAD_SPECTRUM",
+        "ROLLING_CODE",
+        "NONE"
+      ],
+      "description": "[R-S-031] NONE is invalid above probe level."
+    },
+    "codeLengthBits": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "rekeyIntervalS": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "expectedLockMetric": {
+      "type": "number"
+    },
+    "corridorHalfAngleDeg": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 90
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "refId",
+    "sessionId",
+    "authMode",
+    "corridorHalfAngleDeg"
+  ]
+}

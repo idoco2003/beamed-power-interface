@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/SessionState.schema.json",
+  "title": "SessionState",
+  "description": "The space segment's declared state, at the profile refresh rate.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "SessionState"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "sessionId": {
+      "type": "string"
+    },
+    "state": {
+      "$ref": "common.schema.json#/$defs/SessionStateName"
+    },
+    "radiatedPower_kW": {
+      "type": "number",
+      "minimum": 0
+    },
+    "radiatedPower_kW_prov": {
+      "$ref": "common.schema.json#/$defs/Provenance",
+      "description": ""
+    },
+    "honouringToken": {
+      "type": "object",
+      "properties": {
+        "tokenId": {
+          "type": "string"
+        },
+        "seq": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "tokenId",
+        "seq"
+      ],
+      "additionalProperties": false
+    },
+    "pointing": {
+      "type": "object",
+      "properties": {
+        "lockState": {
+          "type": "string",
+          "enum": [
+            "NONE",
+            "ACQUIRING",
+            "LOCKED"
+          ]
+        },
+        "quality": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "corridorErrorDeg": {
+          "type": "number",
+          "minimum": 0
+        },
+        "solutionSource": {
+          "type": "string",
+          "enum": [
+            "PILOT",
+            "EPHEMERIS",
+            "FUSED"
+          ]
+        },
+        "pilotAuthenticated": {
+          "type": "boolean",
+          "description": "[R-S-031] An unauthenticated lock is no lock."
+        }
+      },
+      "required": [
+        "lockState",
+        "solutionSource",
+        "pilotAuthenticated"
+      ],
+      "additionalProperties": false
+    },
+    "faults": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "sessionId",
+    "state",
+    "radiatedPower_kW",
+    "radiatedPower_kW_prov",
+    "pointing"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "bpiVersion": "0.1.0-draft",
+  "msgType": "EnableToken",
+  "msgId": "018f3a10-0000-7000-8000-000000000201",
+  "issuedAt": "2026-08-22T06:12:04.000Z",
+  "issuer": {
+    "org": "Kiruna Power Receiving AB",
+    "role": "RECEIVING"
+  },
+  "sig": {
+    "alg": "Ed25519",
+    "keyId": "key-2026-08",
+    "value": "BASE64URL_DETACHED_JWS_PLACEHOLDER"
+  },
+  "tokenId": "tok-4211",
+  "sessionId": "sess-2026-08-22-0612",
+  "seq": 4211,
+  "prevHash": "sha256:9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f",
+  "notAfter": "2026-08-22T06:12:09.000Z",
+  "maxPower_kW": 95000,
+  "aimPoint": {
+    "latDeg": 67.8833,
+    "lonDeg": 21.0667,
+    "height_m": 341.0,
+    "heightRef": "orthometric"
+  },
+  "constraints": {
+    "notes": "STANDARD profile; 1 Hz refresh, 5 s lifetime"
+  },
+  "issuerKeyId": "key-2026-08"
+}

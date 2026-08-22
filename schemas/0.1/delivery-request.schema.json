@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/DeliveryRequest.schema.json",
+  "title": "DeliveryRequest",
+  "description": "What the receiving segment wants.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "DeliveryRequest"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "requestId": {
+      "type": "string"
+    },
+    "apertureId": {
+      "type": "string"
+    },
+    "energyRequested_kWh": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "powerCeiling_kW": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "earliest": {
+      "$ref": "common.schema.json#/$defs/Timestamp"
+    },
+    "latest": {
+      "$ref": "common.schema.json#/$defs/Timestamp"
+    },
+    "priority": {
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3
+      ]
+    },
+    "preemptible": {
+      "type": "boolean"
+    },
+    "commercialRef": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "requestId",
+    "apertureId",
+    "energyRequested_kWh",
+    "powerCeiling_kW",
+    "earliest",
+    "latest",
+    "priority"
+  ]
+}

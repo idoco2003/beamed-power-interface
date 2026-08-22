@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/Abort.schema.json",
+  "title": "Abort",
+  "description": "[R-S-050][R-S-052] Stop. Reaches probe level within 1 s of receipt.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "Abort"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "abortId": {
+      "type": "string"
+    },
+    "sessionId": {
+      "type": "string"
+    },
+    "reasonCode": {
+      "$ref": "common.schema.json#/$defs/AbortReason"
+    },
+    "latching": {
+      "type": "boolean",
+      "description": "[R-S-053] A latching abort is never cleared by a timer."
+    },
+    "requestedAction": {
+      "type": "string",
+      "enum": [
+        "DEFOCUS",
+        "POWER_DOWN",
+        "BOTH"
+      ]
+    },
+    "authority": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "SEGMENT",
+            "E_STOP",
+            "EXTERNAL"
+          ]
+        },
+        "org": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "abortId",
+    "sessionId",
+    "reasonCode",
+    "latching",
+    "requestedAction",
+    "authority"
+  ]
+}

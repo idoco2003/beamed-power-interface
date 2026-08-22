@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/DeliveryOpportunity.schema.json",
+  "title": "DeliveryOpportunity",
+  "description": "[R-C-033] Offers, never commitments. Profiles the CCSDS 902.1 information model; not schema-validated against it.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "DeliveryOpportunity"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "apertureId": {
+      "type": "string"
+    },
+    "windows": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "aos": {
+            "$ref": "common.schema.json#/$defs/Timestamp"
+          },
+          "los": {
+            "$ref": "common.schema.json#/$defs/Timestamp"
+          },
+          "maxElDeg": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 90
+          },
+          "aosAzDeg": {
+            "type": "number",
+            "minimum": 0,
+            "exclusiveMaximum": 360
+          },
+          "losAzDeg": {
+            "type": "number",
+            "minimum": 0,
+            "exclusiveMaximum": 360
+          },
+          "rateProfile": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "t": {
+                  "$ref": "common.schema.json#/$defs/Timestamp"
+                },
+                "kW": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "t",
+                "kW"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "rateBasis": {
+            "type": "string",
+            "enum": [
+              "declared",
+              "computed"
+            ]
+          },
+          "rateModelRefs": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/ModelRef"
+            }
+          },
+          "predictedEnergy_kWh": {
+            "type": "number",
+            "minimum": 0
+          },
+          "predictedEnergy_kWh_prov": {
+            "$ref": "common.schema.json#/$defs/Provenance",
+            "description": "[R-C-033] never 'measured'"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "aos",
+          "los",
+          "maxElDeg",
+          "predictedEnergy_kWh",
+          "predictedEnergy_kWh_prov",
+          "rateBasis"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "apertureId",
+    "windows"
+  ]
+}

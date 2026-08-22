@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/ReceivingSegmentCapability.schema.json",
+  "title": "ReceivingSegmentCapability",
+  "description": "[R-C-031][R-C-032] What a receiving segment can accept, and what protects it.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "ReceivingSegmentCapability"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "apertureId": {
+      "type": "string"
+    },
+    "aimPoint": {
+      "$ref": "common.schema.json#/$defs/GeodeticPoint"
+    },
+    "apertureBoundary": {
+      "type": "object",
+      "description": "RFC 7946 GeoJSON Polygon, WGS-84"
+    },
+    "apertureArea_m2": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "beamMaskDeg": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 90
+    },
+    "maskBasis": {
+      "type": "string",
+      "enum": [
+        "declared",
+        "computed"
+      ],
+      "description": "[R-C-032] A mask without its basis is a number with no argument behind it."
+    },
+    "maskModelRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ModelRef"
+      }
+    },
+    "acceptPower_kW": {
+      "type": "number",
+      "minimum": 0
+    },
+    "maxDownRamp_kW_per_s": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "description": "[R-S-045] Plant tolerance. Honoured for nominal ramps; a safety abort overrides it."
+    },
+    "meteringPoints": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "revenue",
+              "check",
+              "radiation"
+            ]
+          },
+          "diagramRef": {
+            "type": "string"
+          },
+          "meterClass": {
+            "type": "string"
+          },
+          "meterSerial": {
+            "type": "string"
+          },
+          "calibrationDate": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "kind"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "keepOutVolume": {
+      "type": "object",
+      "properties": {
+        "boundary": {
+          "type": "object"
+        },
+        "ceiling_m": {
+          "type": "number",
+          "minimum": 0
+        },
+        "bufferApplied_m": {
+          "type": "number",
+          "minimum": 0,
+          "description": "[R-S-024] intruderSpeedMax_m_s x (tokenLifetimeS + abortToSafeS)"
+        }
+      },
+      "required": [
+        "boundary",
+        "ceiling_m",
+        "bufferApplied_m"
+      ],
+      "additionalProperties": false
+    },
+    "intruderSpeedMax_m_s": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "sensors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "coverage": {
+            "type": "string"
+          },
+          "_prov": {
+            "$ref": "common.schema.json#/$defs/Provenance"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "redacted": {
+      "type": "boolean",
+      "description": "[R-SEC-010]"
+    },
+    "redactedPaths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "safetyAuthority": {
+      "type": "object",
+      "properties": {
+        "org": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "string"
+        },
+        "eStopPresent": {
+          "type": "boolean"
+        },
+        "eStopWiredToIssuer": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "org",
+        "contact",
+        "eStopPresent",
+        "eStopWiredToIssuer"
+      ],
+      "additionalProperties": false
+    },
+    "settlementIntervalMin": {
+      "type": "integer",
+      "enum": [
+        5,
+        15,
+        30,
+        60
+      ]
+    },
+    "timingProfiles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "FAST",
+          "STANDARD",
+          "RELAXED"
+        ]
+      }
+    },
+    "attestationRef": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "keys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "keyId": {
+            "type": "string"
+          },
+          "publicKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "keyId",
+          "publicKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "keyRotationDays": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "revocationUrl": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "apertureId",
+    "aimPoint",
+    "apertureArea_m2",
+    "beamMaskDeg",
+    "maskBasis",
+    "acceptPower_kW",
+    "meteringPoints",
+    "keepOutVolume",
+    "intruderSpeedMax_m_s",
+    "safetyAuthority",
+    "settlementIntervalMin",
+    "timingProfiles",
+    "attestationRef"
+  ]
+}

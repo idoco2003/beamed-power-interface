@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/SpaceSegmentCapability.schema.json",
+  "title": "SpaceSegmentCapability",
+  "description": "[R-C-030] What a space segment can do. abortToSafe_ms must be measured for an L3 claim.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "SpaceSegmentCapability"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "segmentId": {
+      "type": "string"
+    },
+    "orbitRegime": {
+      "type": "string",
+      "enum": [
+        "LEO",
+        "MEO",
+        "GEO",
+        "HEO",
+        "OTHER"
+      ]
+    },
+    "ephemerisSource": {
+      "type": "string",
+      "enum": [
+        "GNSS_ONBOARD",
+        "OD_SOLUTION",
+        "SGP4_GP"
+      ],
+      "description": "[R-S-032][R-S-033] SGP4_GP is inadmissible for the corridor check and bars L2/L3."
+    },
+    "positionAccuracy_m": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "description": "1 sigma"
+    },
+    "phy": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "RF",
+          "OPT"
+        ]
+      }
+    },
+    "ratedDeliveryPower_kW": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "minPower_kW": {
+      "type": "number",
+      "minimum": 0
+    },
+    "probeLevelPower_kW": {
+      "type": "number",
+      "minimum": 0
+    },
+    "rampUpMax_kW_per_s": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "rampDownMax_kW_per_s": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "abortToSafe_ms": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "abortToSafe_ms_prov": {
+      "$ref": "common.schema.json#/$defs/Provenance",
+      "description": "[R-C-030] Measured, not a design target. 'estimated' bars L3."
+    },
+    "defocusToSafe_ms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "commandPath": {
+      "type": "object",
+      "properties": {
+        "service": {
+          "type": "string"
+        },
+        "latencyMs_p50": {
+          "type": "number",
+          "minimum": 0
+        },
+        "latencyMs_p99": {
+          "type": "number",
+          "minimum": 0
+        },
+        "availability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "continuous": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "service",
+        "latencyMs_p50",
+        "latencyMs_p99",
+        "continuous"
+      ],
+      "additionalProperties": false
+    },
+    "timingProfiles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "FAST",
+          "STANDARD",
+          "RELAXED"
+        ]
+      }
+    },
+    "clockSource": {
+      "type": "string"
+    },
+    "maxClockOffsetMs": {
+      "type": "number",
+      "minimum": 0
+    },
+    "attestationRef": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "keys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "keyId": {
+            "type": "string"
+          },
+          "publicKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "keyId",
+          "publicKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "keyRotationDays": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "revocationUrl": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "segmentId",
+    "orbitRegime",
+    "ephemerisSource",
+    "positionAccuracy_m",
+    "phy",
+    "ratedDeliveryPower_kW",
+    "probeLevelPower_kW",
+    "abortToSafe_ms",
+    "abortToSafe_ms_prov",
+    "commandPath",
+    "timingProfiles",
+    "clockSource",
+    "maxClockOffsetMs",
+    "attestationRef"
+  ]
+}

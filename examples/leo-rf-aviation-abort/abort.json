@@ -1,0 +1,24 @@
+{
+  "bpiVersion": "0.1.0-draft",
+  "msgType": "Abort",
+  "msgId": "018f3a10-0000-7000-8000-000000000301",
+  "issuedAt": "2026-08-22T06:14:31.220Z",
+  "issuer": {
+    "org": "Kiruna Power Receiving AB",
+    "role": "RECEIVING"
+  },
+  "sig": {
+    "alg": "Ed25519",
+    "keyId": "key-2026-08",
+    "value": "BASE64URL_DETACHED_JWS_PLACEHOLDER"
+  },
+  "abortId": "abt-0091",
+  "sessionId": "sess-2026-08-22-0612",
+  "reasonCode": "AVIATION_TRANSIT",
+  "latching": false,
+  "requestedAction": "BOTH",
+  "authority": {
+    "kind": "EXTERNAL",
+    "org": "LFV Kiruna ACC"
+  }
+}

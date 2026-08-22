@@ -1,0 +1,304 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/metering-record.schema.json",
+  "title": "MeteringRecord",
+  "description": "[R-M-020..023] The settleable artefact. Settles only with two opposing-role signatures and reconciliation within tolerance.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "MeteringRecord"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "recordId": {
+      "type": "string"
+    },
+    "commitmentId": {
+      "type": "string"
+    },
+    "sessionId": {
+      "type": "string"
+    },
+    "window": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        },
+        "end": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    },
+    "delivered": {
+      "type": "object",
+      "properties": {
+        "energy_kWh": {
+          "type": "number",
+          "minimum": 0
+        },
+        "_prov": {
+          "$ref": "common.schema.json#/$defs/Provenance"
+        },
+        "meteringPointRef": {
+          "type": "string"
+        },
+        "meterClass": {
+          "type": "string"
+        },
+        "meterSerial": {
+          "type": "string"
+        },
+        "calibrationDate": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "energy_kWh",
+        "_prov",
+        "meteringPointRef",
+        "meterClass",
+        "calibrationDate"
+      ],
+      "additionalProperties": false
+    },
+    "transmitted": {
+      "type": "object",
+      "properties": {
+        "energy_kWh": {
+          "type": "number",
+          "minimum": 0
+        },
+        "_prov": {
+          "$ref": "common.schema.json#/$defs/Provenance"
+        },
+        "radiationPointRef": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "energy_kWh",
+        "_prov",
+        "radiationPointRef"
+      ],
+      "additionalProperties": false
+    },
+    "efficiency": {
+      "$ref": "common.schema.json#/$defs/Efficiency"
+    },
+    "samples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "t": {
+            "$ref": "common.schema.json#/$defs/Timestamp"
+          },
+          "receivedPower_kW": {
+            "type": "number",
+            "minimum": 0
+          },
+          "transmittedPower_kW": {
+            "type": "number",
+            "minimum": 0
+          },
+          "elevationDeg": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "rainRate_mmh": {
+            "type": "number",
+            "minimum": 0
+          },
+          "_prov": {
+            "$ref": "common.schema.json#/$defs/Provenance"
+          }
+        },
+        "required": [
+          "t",
+          "receivedPower_kW",
+          "_prov"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "settlementIntervals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "$ref": "common.schema.json#/$defs/Timestamp"
+          },
+          "end": {
+            "$ref": "common.schema.json#/$defs/Timestamp"
+          },
+          "energy_kWh": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "start",
+          "end",
+          "energy_kWh"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "nonDelivery": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "$ref": "common.schema.json#/$defs/Timestamp"
+          },
+          "end": {
+            "$ref": "common.schema.json#/$defs/Timestamp"
+          },
+          "energy_kWh_shortfall": {
+            "type": "number",
+            "minimum": 0
+          },
+          "causeCode": {
+            "$ref": "common.schema.json#/$defs/CauseCode"
+          },
+          "bearer": {
+            "type": "string",
+            "enum": [
+              "SPACE",
+              "RECEIVING",
+              "NEITHER",
+              "FROM_EVIDENCE"
+            ]
+          },
+          "evidenceRef": {
+            "type": "string"
+          },
+          "disputed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "start",
+          "end",
+          "energy_kWh_shortfall",
+          "causeCode",
+          "bearer"
+        ],
+        "additionalProperties": false
+      },
+      "description": "[R-M-030] Every second of shortfall carries a cause code."
+    },
+    "atmosphericConditions": {
+      "type": "object",
+      "properties": {
+        "modelRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/ModelRef"
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "_prov": {
+          "$ref": "common.schema.json#/$defs/Provenance"
+        }
+      },
+      "required": [
+        "modelRefs",
+        "_prov"
+      ],
+      "additionalProperties": false
+    },
+    "countersignedFields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "[R-M-022] Field paths whose 'estimated' or 'declared' provenance both parties explicitly accepted."
+    },
+    "attestationRef": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "sessionLogRef": {
+      "type": "string"
+    },
+    "signatures": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "SPACE",
+              "RECEIVING",
+              "BROKER"
+            ]
+          },
+          "org": {
+            "type": "string"
+          },
+          "keyId": {
+            "type": "string"
+          },
+          "sig": {
+            "type": "string"
+          },
+          "signedAt": {
+            "$ref": "common.schema.json#/$defs/Timestamp"
+          }
+        },
+        "required": [
+          "role",
+          "org",
+          "keyId",
+          "sig",
+          "signedAt"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "settleable": {
+      "type": "boolean",
+      "description": "[R-M-020] True only with two opposing-role signatures and reconciliation within tolerance."
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "recordId",
+    "commitmentId",
+    "sessionId",
+    "window",
+    "delivered",
+    "transmitted",
+    "efficiency",
+    "settlementIntervals",
+    "attestationRef",
+    "signatures",
+    "settleable"
+  ]
+}

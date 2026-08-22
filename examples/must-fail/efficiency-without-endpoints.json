@@ -1,0 +1,94 @@
+{
+  "bpiVersion": "0.1.0-draft",
+  "msgType": "MeteringRecord",
+  "msgId": "018f3a10-0000-7000-8000-000000000401",
+  "issuedAt": "2026-08-22T06:45:00.000Z",
+  "issuer": {
+    "org": "Kiruna Power Receiving AB",
+    "role": "RECEIVING"
+  },
+  "sig": {
+    "alg": "Ed25519",
+    "keyId": "key-2026-08",
+    "value": "BASE64URL_DETACHED_JWS_PLACEHOLDER"
+  },
+  "recordId": "mr-2026-08-22-0612",
+  "commitmentId": "cmt-88120",
+  "sessionId": "sess-2026-08-22-0612",
+  "window": {
+    "start": "2026-08-22T06:12:00.000Z",
+    "end": "2026-08-22T06:15:00.000Z"
+  },
+  "delivered": {
+    "energy_kWh": 3921.4,
+    "_prov": "measured",
+    "meteringPointRef": "MV-TERMINALS-PCS-1",
+    "meterClass": "IEC 62053-22 class 0.2S",
+    "meterSerial": "SE-4471-0091",
+    "calibrationDate": "2026-03-11"
+  },
+  "transmitted": {
+    "energy_kWh": 5602.0,
+    "_prov": "measured",
+    "radiationPointRef": "ANT-RF-OUT"
+  },
+  "efficiency": {
+    "value": 0.7,
+    "_prov": "derived"
+  },
+  "samples": [
+    {
+      "t": "2026-08-22T06:12:00.000Z",
+      "receivedPower_kW": 91200.0,
+      "transmittedPower_kW": 130200.0,
+      "elevationDeg": 65.0,
+      "rainRate_mmh": 0.0,
+      "_prov": "measured"
+    }
+  ],
+  "settlementIntervals": [
+    {
+      "start": "2026-08-22T06:00:00.000Z",
+      "end": "2026-08-22T06:15:00.000Z",
+      "energy_kWh": 3921.4
+    }
+  ],
+  "nonDelivery": [
+    {
+      "start": "2026-08-22T06:14:31.220Z",
+      "end": "2026-08-22T06:15:00.000Z",
+      "energy_kWh_shortfall": 742.0,
+      "causeCode": "AVIATION_TRANSIT",
+      "bearer": "RECEIVING",
+      "evidenceRef": "sessionlog-sess-2026-08-22-0612",
+      "disputed": true
+    }
+  ],
+  "atmosphericConditions": {
+    "modelRefs": [
+      {
+        "doc": "ITU-R P.676",
+        "edition": "13"
+      },
+      {
+        "doc": "ITU-R P.618",
+        "edition": "14"
+      }
+    ],
+    "source": "site AWS + model",
+    "_prov": "derived"
+  },
+  "countersignedFields": [],
+  "attestationRef": "sha256:abababababababababababababababababababababababababababababababab",
+  "sessionLogRef": "sessionlog-sess-2026-08-22-0612",
+  "signatures": [
+    {
+      "role": "RECEIVING",
+      "org": "Kiruna Power Receiving AB",
+      "keyId": "key-2026-08",
+      "sig": "PLACEHOLDER",
+      "signedAt": "2026-08-22T06:45:00.000Z"
+    }
+  ],
+  "settleable": false
+}

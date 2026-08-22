@@ -1,0 +1,458 @@
+{
+  "bpiVersion": "0.1.0-draft",
+  "implementation": {
+    "name": "YOUR IMPLEMENTATION",
+    "org": "YOUR ORG",
+    "url": "",
+    "version": ""
+  },
+  "claim": {
+    "role": "BROKER",
+    "level": "L1",
+    "annexes": [],
+    "claimString": "BPI/0.1 \u00b7 BROKER \u00b7 L1 \u00b7 no-annex"
+  },
+  "publishedAt": "YYYY-MM-DDThh:mm:ss.sssZ",
+  "requirements": {
+    "R-A-001": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-A-002": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-A-003": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-A-004": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-A-010": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-A-011": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-A-012": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-A-013": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-A-020": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-A-030": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-A-031": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-A-032": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-001": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-002": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-003": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-004": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-005": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-006": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-007": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-008": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-009": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-010": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-011": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-012": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-013": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-014": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-015": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-016": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-017": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-020": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-021": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-022": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-023": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-024": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-025": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-026": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-027": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-028": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-029": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-030": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-031": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-032": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-033": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-034": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-C-035": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-CONF-001": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-CONF-002": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-CONF-003": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-CONF-004": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-001": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-002": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-010": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-011": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-012": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-013": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-020": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-021": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-022": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-023": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-030": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-031": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-032": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-M-040": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-001": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-002": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-010": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-011": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-020": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-021": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-022": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-030": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-031": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-040": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-050": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-051": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-060": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-070": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-RF-071": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-001": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-002": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-010": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-011": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-020": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-021": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-022": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-024": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-025": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-026": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-030": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-031": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-032": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-033": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-040": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-041": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-042": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-043": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-044": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-045": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-046": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-050": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-051": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-052": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-053": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-060": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-S-061": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-SEC-001": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-SEC-002": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-SEC-003": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-SEC-004": {
+      "status": "not-implemented",
+      "reason": ""
+    },
+    "R-SEC-010": {
+      "status": "not-implemented",
+      "reason": ""
+    }
+  }
+}

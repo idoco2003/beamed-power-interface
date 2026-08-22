@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/DeliveryCommitment.schema.json",
+  "title": "DeliveryCommitment",
+  "description": "[R-C-034] The binding window, and the object a contract settles against.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "DeliveryCommitment"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "commitmentId": {
+      "type": "string"
+    },
+    "apertureId": {
+      "type": "string"
+    },
+    "start": {
+      "$ref": "common.schema.json#/$defs/Timestamp"
+    },
+    "duration_min": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "committedEnergy_kWh": {
+      "type": "number",
+      "minimum": 0
+    },
+    "committedPowerCeiling_kW": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "aimPoint": {
+      "$ref": "common.schema.json#/$defs/GeodeticPoint"
+    },
+    "timingProfile": {
+      "type": "string",
+      "enum": [
+        "FAST",
+        "STANDARD",
+        "RELAXED"
+      ],
+      "description": "[R-C-034] Frozen at commitment."
+    },
+    "tokenIssuer": {
+      "type": "object",
+      "properties": {
+        "org": {
+          "type": "string"
+        },
+        "keyId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "org",
+        "keyId"
+      ],
+      "additionalProperties": false
+    },
+    "curtailmentTerms": {
+      "type": "string"
+    },
+    "commercialRef": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "commitmentId",
+    "apertureId",
+    "start",
+    "duration_min",
+    "committedEnergy_kWh",
+    "committedPowerCeiling_kW",
+    "aimPoint",
+    "timingProfile",
+    "tokenIssuer"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/SessionLog.schema.json",
+  "title": "SessionLog",
+  "description": "[R-M-031][R-M-032] Signed telemetry around a non-nominal event. Resolves TOKEN_EXPIRY attribution as a question of fact.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "SessionLog"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "sessionId": {
+      "type": "string"
+    },
+    "samples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "t": {
+            "$ref": "common.schema.json#/$defs/Timestamp"
+          },
+          "state": {
+            "$ref": "common.schema.json#/$defs/SessionStateName"
+          },
+          "radiatedPower_kW": {
+            "type": "number",
+            "minimum": 0
+          },
+          "tokenSeq": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "t",
+          "state"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "t": {
+            "$ref": "common.schema.json#/$defs/Timestamp"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "t",
+          "kind"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "sessionId",
+    "samples"
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bpi.spec/0.1/enable-token.schema.json",
+  "title": "EnableToken",
+  "description": "[R-S-001][R-S-020][R-S-022] The dead-man. Issued only by the receiving segment's safety authority; the space segment may not radiate above probe level without an unexpired, valid one.",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/Envelope"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "bpiVersion": true,
+    "msgType": {
+      "const": "EnableToken"
+    },
+    "msgId": true,
+    "issuedAt": true,
+    "issuer": true,
+    "sig": true,
+    "tokenId": {
+      "type": "string"
+    },
+    "sessionId": {
+      "type": "string"
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "prevHash": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "[R-S-020] SHA-256 of the canonicalised preceding token. Null only for seq 0."
+    },
+    "notAfter": {
+      "$ref": "common.schema.json#/$defs/Timestamp",
+      "description": "[R-S-021] Absolute UTC. A monotonic check runs alongside."
+    },
+    "maxPower_kW": {
+      "type": "number",
+      "minimum": 0,
+      "description": "[R-S-022] A power authorisation, not just a liveness proof. Lowering it curtails within one refresh."
+    },
+    "aimPoint": {
+      "$ref": "common.schema.json#/$defs/GeodeticPoint"
+    },
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "maxElevationRateDegPerS": {
+          "type": "number"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "issuerKeyId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "bpiVersion",
+    "msgType",
+    "msgId",
+    "issuedAt",
+    "issuer",
+    "tokenId",
+    "sessionId",
+    "seq",
+    "prevHash",
+    "notAfter",
+    "maxPower_kW",
+    "aimPoint",
+    "issuerKeyId",
+    "sig"
+  ],
+  "if": {
+    "properties": {
+      "seq": {
+        "const": 0
+      }
+    },
+    "required": [
+      "seq"
+    ]
+  },
+  "then": {
+    "properties": {
+      "prevHash": {
+        "type": "null"
+      }
+    }
+  },
+  "else": {
+    "properties": {
+      "prevHash": {
+        "type": "string"
+      }
+    }
+  }
+}
