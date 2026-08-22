@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bpi.spec/0.1/SpaceSegmentCapability.schema.json",
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
   "title": "SpaceSegmentCapability",
   "description": "[R-C-030] What a space segment can do. abortToSafe_ms must be measured for an L3 claim.",
   "allOf": [

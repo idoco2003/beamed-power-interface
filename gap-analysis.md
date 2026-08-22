@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # Gap analysis — why this is not already covered
 
 Every row is a first-party check against the issuing body's own site. Secondary

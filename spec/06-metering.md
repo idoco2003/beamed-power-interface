@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # §6 BPI-M — Metering and Settlement
 
 ## 6.1 Metering points

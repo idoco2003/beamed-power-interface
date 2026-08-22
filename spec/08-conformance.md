@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # §8 BPI-CONF — Conformance
 
 ## 8.1 A claim is a triple

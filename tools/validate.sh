@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: Apache-2.0
 # Validate every example against its schema, and confirm every must-fail case fails.
 # Exit non-zero if any valid example is rejected OR any must-fail case is accepted.
 set -uo pipefail

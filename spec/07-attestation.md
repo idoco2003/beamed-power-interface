@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # §7 BPI-A — Regulatory and Exposure Attestation
 
 ## 7.1 The principle

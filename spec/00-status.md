@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # §0 Status of This Document
 
 *This section is placed before the abstract deliberately, following IETF practice. It

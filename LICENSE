@@ -1,0 +1,56 @@
+Beamed Power Interface (BPI)
+Copyright 2026 Ido Yahalomi and BPI contributors
+
+This repository is deliberately licensed in two halves. Which licence applies
+depends on which half of the repository a file is in.
+
+-----------------------------------------------------------------------
+  SPECIFICATION PROSE          Creative Commons Attribution 4.0
+  SPDX: CC-BY-4.0              full text in LICENSE-TEXT
+-----------------------------------------------------------------------
+  spec/**                      README.md          GOVERNANCE.md
+  gap-analysis.md              OBJECTIONS.md      CONTRIBUTING.md
+  CHANGELOG.md                 DISPOSITIONS.md    conformance/checklist.md
+  examples/**/README.md
+-----------------------------------------------------------------------
+  SCHEMAS, EXAMPLES, TOOLING   Apache License 2.0
+  SPDX: Apache-2.0             full text in LICENSE-CODE
+-----------------------------------------------------------------------
+  schemas/**                   examples/**/*.json
+  profiles/**                  conformance/*.json
+  tools/**
+-----------------------------------------------------------------------
+
+WHY TWO LICENCES
+
+They are doing two different jobs.
+
+The prose needs to be maximally quotable, translatable and forkable, because a
+specification nobody may quote is a brochure, and because a standards body that
+later adopts this text must not be blocked by its licence. CC BY 4.0 does that.
+ShareAlike would be viral into any document quoting it; NoDerivatives would
+forbid forking, which is the point of publishing a draft.
+
+The schemas and tooling need a patent grant, and that is not theoretical in this
+field: power beaming is dense with patents on retrodirective arrays, rectenna
+topologies and beam-forming control. Apache-2.0 carries an express patent grant
+from contributors covering their own contributions. MIT carries none, and a
+schema repository with no grant is something corporate legal will block adoption
+on.
+
+NO PATENT SEARCH HAS BEEN PERFORMED
+
+No patent search has been performed. No essentiality claim is made. No patent
+licence is granted by this repository beyond the express grant Apache-2.0 gives
+over contributors' own contributions. It is entirely possible that implementing
+parts of this specification requires a licence from a third party. This project
+has not investigated that and is not in a position to. Implementers should take
+their own advice.
+
+See GOVERNANCE.md, section IPR.
+
+NOTE ON AUTOMATED LICENCE DETECTION
+
+Automated tools generally report a single licence per repository and will pick
+one of the two above. Neither answer is complete. This file is the authoritative
+statement.

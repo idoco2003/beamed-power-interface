@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bpi.spec/0.1/WindowAmendment.schema.json",
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
   "title": "WindowAmendment",
   "description": "[R-C-035] A scheduling instrument. Never a substitute for an Abort.",
   "allOf": [

@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # §4 BPI-C — Core information model
 
 Thirteen messages. Each is defined here by purpose and key fields; the authoritative

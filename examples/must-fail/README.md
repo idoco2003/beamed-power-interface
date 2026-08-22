@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # Must-fail examples
 
 These are **invalid on purpose**. Each violates exactly one normative requirement, and

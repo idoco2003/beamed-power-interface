@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # Comment dispositions
 
 Every substantive comment received on this specification is recorded here with a

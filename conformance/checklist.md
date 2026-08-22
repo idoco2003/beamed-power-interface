@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # Conformance checklist
 
 `checklist.json` is the machine-readable register of every normative requirement in this

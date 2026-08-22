@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # Objections to this draft
 
 The strongest arguments against this specification, written as their proponents would

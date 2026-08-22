@@ -1,4 +1,5 @@
 {
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
   "$schema": "../schemas/0.1/profile.schema.json",
   "profileId": "RELAXED",
   "bpiVersion": "0.1.0-draft",
@@ -19,5 +20,7 @@
     "tokenLifetimeS": "The intruder budget of [R-S-024] does not apply without a ground keep-out volume. The binding constraint for space-to-space is relative velocity against a cooperative receiver, which this document has not analysed. 30 s is a placeholder and is NOT derived.",
     "profileId": "Provided so the information model reserves the case. NOT usable at v0.1."
   },
-  "objections": ["O-8"]
+  "objections": [
+    "O-8"
+  ]
 }

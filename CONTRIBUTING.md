@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # Contributing
 
 Comments are wanted, and the useful ones are mostly the ones saying this is wrong.

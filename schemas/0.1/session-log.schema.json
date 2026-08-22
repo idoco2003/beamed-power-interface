@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bpi.spec/0.1/SessionLog.schema.json",
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
   "title": "SessionLog",
   "description": "[R-M-031][R-M-032] Signed telemetry around a non-nominal event. Resolves TOKEN_EXPIRY attribution as a question of fact.",
   "allOf": [

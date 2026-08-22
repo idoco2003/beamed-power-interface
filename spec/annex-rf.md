@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # Annex RF (normative) — BPI-RF, radio-frequency microwave physical layer
 
 Applies where the beam is a radio-frequency carrier.

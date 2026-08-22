@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bpi.spec/0.1/attestation-bundle.schema.json",
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
   "title": "AttestationBundle",
   "description": "[R-A-001..032] The regulatory and exposure basis, INCLUDING the parts where no basis exists. unclaimed[] is mandatory.",
   "allOf": [

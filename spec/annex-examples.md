@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # Annex EX (informative) — worked examples
 
 All examples live in `examples/`. They are informative: where an example and a normative

@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # Annex OPT (reserved) — BPI-OPT, optical / near-infrared physical layer
 
 **Status: reserved and unwritten.** This annex exists to state precisely what is missing,

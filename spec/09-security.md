@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # §9 Security considerations
 
 The threat model here is unusual: the asset being protected is not data. It is a

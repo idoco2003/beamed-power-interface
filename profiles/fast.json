@@ -1,4 +1,5 @@
 {
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
   "$schema": "../schemas/0.1/profile.schema.json",
   "profileId": "FAST",
   "bpiVersion": "0.1.0-draft",
@@ -19,5 +20,8 @@
     "tokenLifetimeS": "1000 + 100 + 50 + 250 = 1400 ms worst case, giving a 330 m buffer at 250 m/s. Buys a tighter site at the cost of requiring a command path with p99 latency under 333 ms per [R-C-022], which effectively means co-location.",
     "tokenRefreshHz": "10 Hz is inside the GEO round trip and this profile is therefore unsuitable for GEO."
   },
-  "objections": ["O-2", "O-6"]
+  "objections": [
+    "O-2",
+    "O-6"
+  ]
 }

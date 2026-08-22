@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # §1 Introduction
 
 ## 1.1 What this specifies

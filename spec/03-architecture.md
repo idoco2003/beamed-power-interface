@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # §3 Architecture
 
 ## 3.1 Segments and roles

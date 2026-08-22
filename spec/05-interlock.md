@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # §5 BPI-S — Safety Interlock
 
 ## 5.1 The invariant

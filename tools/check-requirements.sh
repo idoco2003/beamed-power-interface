@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: Apache-2.0
 # The requirement ids in the spec and in conformance/checklist.json must be the same set.
 # A specification whose checklist has drifted from its own SHALLs is worse than no checklist.
 set -euo pipefail

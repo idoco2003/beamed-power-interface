@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bpi.spec/0.1/metering-record.schema.json",
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
   "title": "MeteringRecord",
   "description": "[R-M-020..023] The settleable artefact. Settles only with two opposing-role signatures and reconciliation within tolerance.",
   "allOf": [

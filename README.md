@@ -91,7 +91,21 @@ including the ones we reject and why.
 
 ## Licence
 
-Specification prose: [CC BY 4.0](LICENSE-TEXT).
-Schemas, examples, tooling: [Apache-2.0](LICENSE-CODE) — chosen for its patent grant.
-Neither licence is a patent clearance; see the IPR statement in
-[`GOVERNANCE.md`](GOVERNANCE.md#ipr).
+Dual licensed, deliberately. [`LICENSE`](LICENSE) is the authoritative statement.
+
+| Half | Licence | Full text |
+|---|---|---|
+| Specification prose — `spec/`, and the top-level `.md` files | **CC BY 4.0** | [`LICENSE-TEXT`](LICENSE-TEXT) |
+| Schemas, examples, profiles, tooling | **Apache-2.0** | [`LICENSE-CODE`](LICENSE-CODE) |
+
+The prose is attribution-only so it can be quoted, translated and forked — and so a
+standards body that later adopts it is not blocked by the licence. The code half is
+Apache-2.0 for its patent grant, which is not theoretical in a field dense with
+retrodirective-array and rectenna patents.
+
+Every file carries an `SPDX-License-Identifier`, so the split is machine-readable and
+not merely asserted here.
+
+**No patent search has been performed and no essentiality claim is made.** See
+[`GOVERNANCE.md`](GOVERNANCE.md#ipr). Automated tools report one licence per repository
+and will pick one of the two; neither answer is complete.

@@ -1,4 +1,5 @@
 {
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
   "$schema": "../schemas/0.1/profile.schema.json",
   "profileId": "STANDARD",
   "bpiVersion": "0.1.0-draft",
@@ -22,5 +23,8 @@
     "corridorHalfAngleDeg": "A 2 km aperture at 547 km slant range subtends 0.21 deg. +/-0.2 deg is approximately 'on the aperture' for LEO. Far coarser than required at GEO - see OBJECTIONS.md O-4.",
     "holdS": "A dwell at ~10% of committed rate is where a pointing error, an atmospheric surprise or a metering fault reveals itself at a power level where it is diagnostic rather than dangerous."
   },
-  "objections": ["O-2", "O-4"]
+  "objections": [
+    "O-2",
+    "O-4"
+  ]
 }

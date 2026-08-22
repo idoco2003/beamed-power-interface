@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
 """Regenerate conformance/checklist.json from the requirement ids in spec/*.md.
 
 The checklist is generated rather than hand-maintained because a checklist that has
@@ -27,7 +28,8 @@ for f in sorted(glob.glob('spec/*.md')):
 if dupes:
     print("duplicate requirement ids:", dupes, file=sys.stderr); sys.exit(1)
 reqs.sort(key=lambda r: (r['part'], int(r['id'].split('-')[2])))
-json.dump({"bpiVersion": "0.1.0-draft", "generated": "2026-08-22",
+json.dump({"$comment": "SPDX-License-Identifier: Apache-2.0",
+           "bpiVersion": "0.1.0-draft", "generated": "2026-08-22",
            "note": "Generated from spec/*.md by tools/gen-checklist.py. "
                    "tools/check-requirements.sh fails the build if this drifts from the specification.",
            "count": len(reqs), "requirements": reqs},

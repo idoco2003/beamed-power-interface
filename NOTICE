@@ -1,8 +1,10 @@
 Beamed Power Interface (BPI)
 Copyright 2026 Ido Yahalomi and BPI contributors
 
-Specification prose is licensed under CC BY 4.0 (LICENSE-TEXT).
-Schemas, examples, profiles and tooling are licensed under Apache-2.0 (LICENSE-CODE).
+Dual licensed. See LICENSE for the authoritative statement.
+
+  Specification prose            CC-BY-4.0     (LICENSE-TEXT)
+  Schemas, examples, tooling     Apache-2.0    (LICENSE-CODE)
 
 This product includes no third-party code.
 

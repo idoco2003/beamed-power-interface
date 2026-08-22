@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bpi.spec/0.1/profile.schema.json",
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
   "title": "Timing profile",
   "description": "[R-S-025] Every tunable number lives here rather than in a normative sentence.",
   "type": "object",
@@ -85,6 +86,9 @@
       "items": {
         "type": "string"
       }
+    },
+    "$comment": {
+      "type": "string"
     }
   },
   "required": [
