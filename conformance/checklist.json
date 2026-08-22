@@ -3,7 +3,7 @@
   "bpiVersion": "0.1.0-draft",
   "generated": "2026-08-22",
   "note": "Generated from spec/*.md by tools/gen-checklist.py. tools/check-requirements.sh fails the build if this drifts from the specification.",
-  "count": 110,
+  "count": 111,
   "requirements": [
     {
       "id": "R-A-001",
@@ -15,7 +15,7 @@
       "id": "R-A-002",
       "part": "A",
       "source": "spec/07-attestation.md",
-      "summary": "`article21.rowRef` SHALL be `null` when `applicability` is `none`. A null here is a legal, expected value."
+      "summary": "`article21.rowRef` SHALL be `null` when `applicability` is `none`, and SHALL name the row otherwise. A null here is a legal, expected value."
     },
     {
       "id": "R-A-003",
@@ -28,6 +28,12 @@
       "part": "A",
       "source": "spec/07-attestation.md",
       "summary": "`marginDb` MAY be negative. A negative margin is a disclosure, not an error, and SHALL NOT be suppressed or clamped. ## 7.3 Exposure ``` exposure { guideline: 'ICNIRP-2020' | 'IEEE-C95.1-2019' |\u2026"
+    },
+    {
+      "id": "R-A-005",
+      "part": "A",
+      "source": "spec/07-attestation.md",
+      "summary": "Where `applicability` is `none`, `marginDb` SHALL also be `null`. *A margin is a distance from a limit. Declaring that no limit applies and then reporting a distance from one is incoherent, and an\u2026"
     },
     {
       "id": "R-A-010",

@@ -39,6 +39,7 @@ check_invalid schemas/0.1/attestation-bundle.schema.json examples/must-fail/pfd-
 check_invalid schemas/0.1/attestation-bundle.schema.json examples/must-fail/exposure-without-averaging-time.json
 check_invalid schemas/0.1/attestation-bundle.schema.json examples/must-fail/empty-unclaimed-without-authorisation.json
 check_invalid schemas/0.1/attestation-bundle.schema.json examples/must-fail/article21-none-with-rowref.json
+check_invalid schemas/0.1/attestation-bundle.schema.json examples/must-fail/article21-analogue-without-rowref.json
 check_invalid schemas/0.1/enable-token.schema.json       examples/must-fail/aimpoint-without-heightref.json
 check_invalid schemas/0.1/enable-token.schema.json       examples/must-fail/orthometric-without-geoidmodel.json
 check_invalid schemas/0.1/metering-record.schema.json    examples/must-fail/efficiency-without-endpoints.json

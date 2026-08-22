@@ -14,7 +14,8 @@ validates.
 | `pfd-without-refbandwidth.json` | [R-C-008], [R-A-003] | A power flux-density without its reference bandwidth is meaningless — is it in 4 kHz or 1 MHz? |
 | `exposure-without-averaging-time.json` | [R-C-009], [R-A-010] | 10 W/m² means nothing without knowing whether it is averaged over 6 minutes or 30 |
 | `empty-unclaimed-without-authorisation.json` | [R-A-032] | An empty `unclaimed[]` is a strong claim and requires `operatingPosture: authorised` |
-| `article21-none-with-rowref.json` | [R-A-002] | Citing a row while declaring no row applies |
+| `article21-none-with-rowref.json` | [R-A-002], [R-A-005] | Citing a row, and a margin against it, while declaring no row applies |
+| `article21-analogue-without-rowref.json` | [R-A-002] | Screening against "the nearest row" without naming which row |
 | `aimpoint-without-heightref.json` | [R-C-004] | Orthometric and ellipsoidal height differ by tens of metres |
 | `orthometric-without-geoidmodel.json` | [R-C-004] | An orthometric height without its geoid model cannot be converted |
 | `efficiency-without-endpoints.json` | [R-C-010], [R-M-023] | "70% efficient" between which two points, over what path? |

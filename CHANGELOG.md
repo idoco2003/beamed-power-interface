@@ -27,6 +27,11 @@ Initial publication as a Request for Comments.
 110 identifiers: C 33, S 27, RF 15, M 14, A 12, SEC 5, CONF 4. See
 `conformance/checklist.json`.
 
+### Corrected before adoption
+- [R-A-005] added: where `article21.applicability` is `none`, `marginDb` is also null.
+  The previous worked example declared that no Article 21 row applied and then reported
+  a margin against one. See DISPOSITIONS.md F-2.
+
 ### Known defects carried into this release
 See `DISPOSITIONS.md`. In brief: metering accuracy classes cited from secondary
 knowledge (blocks 0.2); no optical annex; local exposure below 6 GHz not addressed;

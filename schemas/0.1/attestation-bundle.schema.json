@@ -172,8 +172,11 @@
               "maximum": 90
             },
             "marginDb": {
-              "type": "number",
-              "description": "[R-A-004] May be negative. A negative margin is a disclosure."
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "[R-A-004] May be negative \u2014 a negative margin is a disclosure. Null only when applicability is 'none'."
             },
             "basis": {
               "type": "string",
@@ -210,6 +213,34 @@
                 "properties": {
                   "rowRef": {
                     "type": "null"
+                  },
+                  "marginDb": {
+                    "type": "null"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "applicability": {
+                    "enum": [
+                      "exact",
+                      "analogue"
+                    ]
+                  }
+                },
+                "required": [
+                  "applicability"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "rowRef": {
+                    "type": "string"
+                  },
+                  "marginDb": {
+                    "type": "number"
                   }
                 }
               }

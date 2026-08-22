@@ -24,6 +24,17 @@ record the substance without attribution.
 |---|---|---|---|---|---|
 | — | — | — | *No comments received yet. This table is populated as they arrive.* | — | — |
 
+## Findings from implementation
+
+Things that only appeared when an implementation was checked against the schemas.
+`OBJECTIONS.md` §O-1 says a specification with one implementation has not found the
+ambiguities that only appear at an interface; these are the ones that appeared anyway.
+
+| # | Date | Finding | Outcome |
+|---|---|---|---|
+| F-1 | 2026-08-22 | A broker attempted to draft a `SpaceSegmentCapability` on an operator's behalf. The schema rejected it: `ratedDeliveryPower_kW` carries `exclusiveMinimum: 0` and the broker had no value to supply. | **Schema upheld, implementation changed.** A transmitter that delivers zero kilowatts is not a space segment, and a capability whose every power-and-timing field is a placeholder is an empty form. The asymmetry is real and worth stating in the specification: a broker can usefully pre-fill a `ReceivingSegmentCapability` from curated site facts, and has no standing to draft an SSC at all. Considered for §4.1 as a note in 0.2. |
+| F-2 | 2026-08-22 | The worked attestation example declared `article21.applicability: "none"` with `rowRef: null` while reporting `marginDb` computed against a row. | **Specification corrected before adoption.** A margin is a distance from a limit; declaring no limit applies and then reporting a distance from one is incoherent. Added [R-A-005], made `marginDb` null when applicability is `none`, and corrected the example to `analogue` with the row named and labelled as not governing. |
+
 ## Self-identified defects carried into 0.1
 
 These were found by the authors before publication and are recorded here so they are not

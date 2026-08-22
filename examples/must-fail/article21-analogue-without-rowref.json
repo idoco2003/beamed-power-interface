@@ -32,8 +32,8 @@
     "allocationStatus": "ism_not_allocated_for_this_use",
     "ituFilingRef": null,
     "article21": {
-      "applicability": "none",
-      "rowRef": "RR Table 21-4, 8 025-8 500 MHz (nearest tabulated row; does NOT govern 5.8 GHz)",
+      "applicability": "analogue",
+      "rowRef": null,
       "declaredPfd_dBW_m2": 15.3,
       "refBandwidthHz": 4000,
       "arrivalAngleDeg": 65.0,

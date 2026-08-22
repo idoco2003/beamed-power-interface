@@ -45,8 +45,16 @@ spectrum {
 covers this band and service. Where the nearest tabulated row is used as a yardstick,
 it SHALL be `analogue`. Where no row applies, it SHALL be `none`.
 
-**[R-A-002]** `article21.rowRef` SHALL be `null` when `applicability` is `none`. A null
-here is a legal, expected value.
+**[R-A-002]** `article21.rowRef` SHALL be `null` when `applicability` is `none`, and
+SHALL name the row otherwise. A null here is a legal, expected value.
+
+**[R-A-005]** Where `applicability` is `none`, `marginDb` SHALL also be `null`.
+
+*A margin is a distance from a limit. Declaring that no limit applies and then
+reporting a distance from one is incoherent, and an earlier draft of this document did
+exactly that in its own worked example. If you screened against the nearest tabulated
+row, the applicability is `analogue` and the row is named — that is what "used as a
+yardstick" means. `none` is for a system reporting no screening at all.*
 
 **[R-A-003]** `refBandwidthHz` SHALL be present whenever `declaredPfd_dBW_m2` is
 present, per [R-C-008]. There is no exception.
