@@ -39,6 +39,10 @@ Initial publication as a Request for Comments.
   **type tests only** — which a meter class alone therefore cannot settle. [R-M-014]
   added: the legal metrology basis is declared separately, or declared absent.
 
+### Fixed 2026-08-23
+- Schema `$id`s moved from `https://bpi.spec/…` to a URL that resolves. `.spec` is not an
+  IANA top-level domain, so the previous identifiers could never be dereferenced.
+
 ### Known defects carried into this release
 See `DISPOSITIONS.md`. In brief: metering accuracy classes cited from secondary
 knowledge (blocks 0.2); no optical annex; local exposure below 6 GHz not addressed;

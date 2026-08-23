@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bpi.spec/0.1/DeliveryRequest.schema.json",
+  "$id": "https://idoco2003.github.io/beamed-power-interface/schemas/0.1/DeliveryRequest.schema.json",
   "$comment": "SPDX-License-Identifier: Apache-2.0",
   "title": "DeliveryRequest",
   "description": "What the receiving segment wants.",

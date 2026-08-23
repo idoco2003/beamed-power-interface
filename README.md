@@ -68,6 +68,22 @@ DISPOSITIONS.md  what we did about every comment received
 3. [`OBJECTIONS.md`](OBJECTIONS.md) — whether we know what is wrong with it.
 4. [`spec/05-interlock.md`](spec/05-interlock.md) — the part that would matter.
 
+## Schema identifiers
+
+Schemas are identified and served under:
+
+```
+https://idoco2003.github.io/beamed-power-interface/schemas/0.1/<name>.schema.json
+```
+
+Earlier drafts used `https://bpi.spec/…`, which was a mistake: **`.spec` is not in the
+IANA root zone**, so that identifier could never resolve and any validator configured to
+fetch a `$ref` by `$id` would fail. `$id` is not required to be dereferenceable, but one
+that *cannot* be is a dead end for tooling and a small lie to a reader.
+
+Internal `$ref`s are relative, so a copy of `schemas/0.1/` validates offline with no
+network access at all.
+
 ## Validating the schemas
 
 ```sh
