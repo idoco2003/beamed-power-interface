@@ -136,13 +136,28 @@ gap to be softened.
 > were not read from the published documents. A specification that elsewhere refuses to
 > carry a second-hand table has carried one here.
 
-**Response: accepted without reservation.** This is a self-identified defect, flagged in
-§6.2 and in the §1.4 depth table. [R-M-012] should not be relied upon until the class
-designations and editions are verified first-party.
+**Response: accepted, and now resolved — with two errors found and a third thing
+learned.** Verified 2026-08-23 against the issuing bodies' own catalogue entries:
 
-**Status: open. Blocks 0.2.**
+- **IEC 62053-22** — the cited content was from **Edition 1.0 (2003)**, which covers only
+  classes 0,2 S and 0,5 S. **Edition 2.0 (2020) supersedes it** and adds class **0,1 S**.
+  It applies to *transformer-operated* meters, and Edition 2.0 moved the general
+  requirements and test methods out to **IEC 62052-11:2020** — so the original citation
+  was both stale and, on its own, half the applicable text.
+- **ANSI C12.20** — classes are **0.1, 0.2 and 0.5**, not 0.2 and 0.5. The original
+  omitted a class.
+- **The thing worth more than either correction:** IEC 62053-22:2020 states it "applies
+  to their type tests only". A type test qualifies a *design* in a laboratory; it says
+  nothing about whether a particular installed meter's readings are admissible for
+  trade, which is national legal metrology. [R-M-014] now requires that basis to be
+  declared separately or declared absent.
 
----
+**Not closed:** several secondary sources report that ANSI C12.20 was merged into ANSI
+C12.1 in 2022 and is now historical. That was **not** confirmed first-party — the NEMA
+and ANSI pages carrying it returned 403 — so the specification continues to name C12.20
+without asserting its status. Anyone with catalogue access is invited to settle it.
+
+**Status: closed as to the class designations. The C12.20 currency question is open.**
 
 ## O-8 · Direction-neutrality is half-hearted
 

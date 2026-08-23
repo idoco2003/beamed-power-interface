@@ -31,15 +31,33 @@ receiving segment's declared `settlementIntervalMin`.
 supplier delivering four windows inside one 15-minute interval must be able to produce
 both views, because one is the physics and the other is how the money moves.*
 
-**[R-M-012]** A revenue meter SHALL be of accuracy class **IEC 62053-22 class 0.2S or
-0.5S**, or **ANSI C12.20 class 0.2 or 0.5**, and the record SHALL carry its class,
-serial number and calibration certificate date.
+**[R-M-012]** A revenue meter SHALL be of accuracy class **0,1 S, 0,2 S or 0,5 S** per
+IEC 62053-22:2020, or **0.1, 0.2 or 0.5** per ANSI C12.20, and the record SHALL carry
+its class, the standard and edition the class is claimed under, its serial number, and
+its calibration certificate date.
 
-> **Verify before relying on this.** These standard identities and class designations
-> were identified from secondary knowledge and have **not** been confirmed against the
-> published documents. They are exactly the kind of second-hand table this project
-> elsewhere refuses to carry. Tracked as `OBJECTIONS.md` §O-7; do not treat [R-M-012] as
-> settled until that objection is closed.
+**[R-M-014]** A meter accuracy class SHALL NOT be presented as evidence that a
+particular meter's readings are valid for trade. The record SHALL carry the legal
+metrology basis separately, or declare that it holds none.
+
+*Why [R-M-014] exists, and it is the useful half of this section.* IEC 62053-22:2020
+states that it "applies to their type tests only". A type test establishes that a
+**design** of meter meets a class in a laboratory. Whether **this** meter, in this
+cabinet, on this date, produces readings admissible for settlement is a different
+question, governed by national legal metrology — the Measuring Instruments Directive in
+Europe, state regulation in the United States, and their equivalents elsewhere. A
+specification that let an implementer write "class 0,2 S" and consider the matter closed
+would be inviting exactly the wrong inference at exactly the point where money changes
+hands.
+
+Two further consequences of the same reading, worth stating because they are easy to
+miss:
+
+- IEC 62053-22:2020 covers **transformer-operated** meters. A directly-connected meter is
+  a different part of the series.
+- Edition 2.0 moved the general requirements and test methods out to **IEC 62052-11:2020**
+  and left only class-specific requirements behind. Citing 62053-22 alone is therefore
+  citing half of the applicable text.
 
 **[R-M-013]** Every value in the settled energy path SHALL carry provenance per §2.6.
 

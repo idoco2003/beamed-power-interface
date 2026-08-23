@@ -32,6 +32,13 @@ Initial publication as a Request for Comments.
   The previous worked example declared that no Article 21 row applied and then reported
   a margin against one. See DISPOSITIONS.md F-2.
 
+### Verified 2026-08-23
+- The two metering standards were checked first-party, closing OBJECTIONS.md O-7. The
+  IEC citation was stale by an edition (2020 Ed. 2.0 supersedes 2003 Ed. 1.0 and adds
+  class 0,1 S), both class lists were incomplete, and IEC 62053-22 turns out to apply to
+  **type tests only** — which a meter class alone therefore cannot settle. [R-M-014]
+  added: the legal metrology basis is declared separately, or declared absent.
+
 ### Known defects carried into this release
 See `DISPOSITIONS.md`. In brief: metering accuracy classes cited from secondary
 knowledge (blocks 0.2); no optical annex; local exposure below 6 GHz not addressed;

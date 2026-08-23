@@ -66,7 +66,7 @@ nothing does. Each row states how far this document actually goes, using the voc
 | ICNIRP 2020; IEEE C95.1-2019 | Exposure reference levels in §7.3 and Annex RF | consumed | Limit values cited; **not** an exposure assessment |
 | ITU Radio Regulations Art. 21 §21.16 | PFD screening in §7.2 | consumed | Screening only; see the `applicability` field |
 | ITU-R P.525-5, P.618-14, P.676-13, P.837-8, P.838-3, P.839-4 | Atmospheric models named in Annex RF | vocabulary | Named as declarable model references, not implemented here |
-| IEC 62053-22 / ANSI C12.20 | Revenue meter accuracy classes in §6.2 | consumed | **Class designations identified from secondary knowledge; verify first-party before relying on them.** Flagged in `OBJECTIONS.md` §O-7 |
+| IEC 62053-22:2020 (Ed. 2.0) / IEC 62052-11:2020 / ANSI C12.20 | Revenue meter accuracy classes in §6.2 | consumed | Class designations and scope verified 2026-08-23 against the issuing bodies' catalogue entries. ANSI C12.20's current status (reportedly merged into C12.1) is **unconfirmed** — see `OBJECTIONS.md` §O-7 |
 | IEEE 1547 | Named as the reason §5.5 separates beam ramp from plant ramp | vocabulary | Nothing executed |
 
 ## 1.5 Relationship to a commercial agreement (informative)
