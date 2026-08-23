@@ -59,9 +59,14 @@ ext_claims=$(( ext_claims > 2 ? ext_claims - 2 : 0 ))   # header + separator + o
 # notes as evidence that somebody engaged is precisely the inflation this file exists
 # to prevent, so the count is scoped to the Dispositions table and the placeholder row
 # is excluded.
-dispositions=$(awk '/^## Dispositions/,/^## /{print}' DISPOSITIONS.md 2>/dev/null \
-  | grep '^| ' | grep -v -- '---' | grep -vi 'no comments received' \
-  | grep -vi '^| # | Date' | wc -l | tr -d ' ')
+# Rows in the Dispositions table whose id looks like C-<n>. A comment id is the only
+# thing that counts here: implementation findings are F-<n> and self-identified defects
+# are D-<n>, and neither is evidence that somebody outside the project engaged.
+#
+# The first version used an awk range /^## Dispositions/,/^## / and always returned zero,
+# because the start pattern also matches the end pattern and the range closed on its own
+# first line. It reported no comments on the day the first one arrived.
+dispositions=$(grep -cE '^\| C-[0-9]+ \|' DISPOSITIONS.md 2>/dev/null || echo 0)
 dispositions=${dispositions:-0}
 
 # Gap analysis freshness — the kill switch, not a health bar.
@@ -74,7 +79,7 @@ last_check=${last_check:-$DAY}
 age_days=$(( ( $(date -j -f %F "$DAY" +%s 2>/dev/null || date -d "$DAY" +%s) \
              - $(date -j -f %F "$last_check" +%s 2>/dev/null || date -d "$last_check" +%s) ) / 86400 ))
 
-adopted=$(( ext_claims + ext_issues ))
+adopted=$(( ext_claims + ext_issues + dispositions ))
 
 {
 cat <<EOF
