@@ -96,6 +96,23 @@ reference bandwidth, an exposure figure without its averaging time, and a positi
 without its height reference **must** fail validation. If they pass, the schemas are
 broken.
 
+## Measuring whether anyone uses this
+
+`adoption/digests/` records dated snapshots, written by `tools/adoption-scan.sh`.
+GitHub discards traffic data after fourteen days, so a number nobody writes down is
+gone.
+
+The digest keeps two lists apart. **Signals that cost somebody effort** — an
+independent conformance claim, a second implementation, an external issue, a
+substantive comment — are the only ones that mean anything, and all are currently
+zero. **Vanity metrics** are recorded and labelled as such: on publication day this
+repository logged twelve clones from nine unique cloners and zero page views, which is
+the signature of automated scanners rather than readers.
+
+The digest also carries a kill switch rather than a health bar. If `gap-analysis.md`
+goes stale, or any row in it flips because a standards body opened a work item, then
+adoption of this document stops being the goal — see [`spec/00-status.md`](spec/00-status.md).
+
 ## Contributing
 
 Comments are wanted, especially the ones saying this is wrong. See
