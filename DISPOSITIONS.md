@@ -20,9 +20,43 @@ record the substance without attribution.
 
 ## Dispositions
 
-| # | Date | From | Comment | Disposition | Reason |
-|---|---|---|---|---|---|
-| — | — | — | *No comments received yet. This table is populated as they arrive.* | — | — |
+| # | Date | From | Comment | Disposition |
+|---|---|---|---|---|
+| C-1 | 2026-08-23 | RF power-beaming engineer, private correspondence (attribution offered, not yet given) | "This spec presumes optical wavelength and photovoltaics — RF solutions do not have this issue." | **Accepted in part.** See below. |
+
+### C-1 in full
+
+The comment arrived in response to the efficiency-comparability argument in §6, and it
+has two halves that resolve differently.
+
+**Rejected on the facts: the specification does not presume optical.** Annex RF is the
+normative physical-layer annex. Annex OPT is a stub which states that a segment SHALL
+NOT claim it at 0.1 because there is nothing to claim, and which exists to list what it
+cannot yet answer — NOHD, laser aircraft rules, the atmospheric model. No wavelength or
+photovoltaic assumption appears anywhere in the normative text. That the comment was
+made at all is a finding about the writing rather than the content: if an RF engineer
+reads this document and concludes it is an optical spec, something in the framing is
+doing that, and the authors have asked which part.
+
+**Accepted on the substance: the motivating example was poorly chosen.** The example
+set Virtus Solis's ARPA-E target of ≥70% "end to end, source to delivered DC" at 200 m
+against Xidian's 20.8% DC-to-DC at 100 m, and called them incomparable. If "source to
+delivered DC" means DC in to DC out, those are the *same* measurement class, the
+comment is correct, and DOE's description of the target as "roughly a 4× improvement on
+the highest-efficiency DC-to-DC systems to date" is internally consistent rather than a
+category error. An earlier draft of this file and of the outreach around it asserted
+the opposite. That assertion was wrong.
+
+**Open, and the reason the requirement may still be right.** DC-to-DC alone does not
+fix a system's geometry. The two results above were obtained with a 4 m transmitter
+into a 4 m receiver at 200 m, and a 1.2 m transmitter into a 5.2 m rectenna at 100 m.
+Beam coupling depends on the aperture-range product, so two DC-to-DC figures still do
+not separate component efficiency from coupling geometry. [R-C-010] currently requires
+`numeratorPoint`, `denominatorPoint` and `pathLength_m`; it does not require the
+apertures. Whether the correct requirement is "declare DC-to-DC plus transmit and
+receive aperture and range" — which would be a better and simpler rule than the one
+written — is the question put back to the commenter. **No change made pending that
+answer.** Tracked for 0.2.
 
 ## Findings from implementation
 
