@@ -159,6 +159,35 @@ without asserting its status. Anyone with catalogue access is invited to settle 
 
 **Status: closed as to the class designations. The C12.20 currency question is open.**
 
+## O-10 · The gap analysis looked for standards, not for convention
+
+> `gap-analysis.md` proves no standards body covers beamed power. It does not establish
+> that no *methodology* covers it. Those are different claims, and a specification that
+> invents a rule where a published textbook already has one has reinvented rather than
+> profiled — which is the failure its own §1.4 is written to prevent.
+
+**Response: accepted.** Found by the first external reader, who pointed at *Power
+Beaming: History, Theory, and Practice* (Jaffe, Nugent, Strassner II and Szazynski,
+World Scientific, 2024) in response to §6's efficiency requirement. The book sets out a
+subsystem decomposition whose product gives the end-to-end figure, and its stated
+purpose is establishing common nomenclature for assessing power beaming systems.
+
+The survey was scoped to publishers of standards — ITU-R, IEEE, CCSDS, ICNIRP,
+regulators — because the question asked was "is this standardised?". The question that
+should also have been asked is "is there already an accepted way of doing this?". The
+answer for efficiency was yes, and nobody inside the project noticed.
+
+The finding does not weaken the gap analysis's own claim: there is still no standard.
+It weakens the inference drawn from it, that the field has no conventions worth
+profiling.
+
+Fix for 0.2: add a literature row to `gap-analysis.md` for each part, distinct from the
+standards rows, and rewrite §6 to profile the published decomposition.
+
+**Status: open. Fix identified, blocked on reading the source.**
+
+---
+
 ## O-9 · An RF reader can come away thinking this is an optical spec
 
 > Annex OPT exists, Annex RF exists, and the core talks about beams without saying which

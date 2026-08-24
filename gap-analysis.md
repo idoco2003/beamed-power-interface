@@ -10,6 +10,14 @@ be treated as unverified. If any row flips — if a body opens a work item cover
 subject — the correct response is to contribute this document there and archive this
 repository, per `spec/00-status.md`.
 
+**A limitation found by a reader, 2026-08-24.** Every row below asks "is this
+standardised?" and none asks "is there already an accepted way of doing this?". Those
+are different questions, and for efficiency reporting the second one has an answer this
+survey missed: a 2024 textbook whose stated purpose is establishing common nomenclature
+for assessing power beaming systems. The absence of a standard is still established.
+The inference that the field therefore has no conventions worth profiling is not. A
+literature row per part is owed in 0.2 — see `OBJECTIONS.md` O-10.
+
 **Method and limits.** These checks were performed by an automated daily scan against
 issuing-body sites, with the results recorded in dated digests. They establish the
 *absence of a published document or open work item* at the dates shown. They cannot

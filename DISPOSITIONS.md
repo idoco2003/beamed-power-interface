@@ -47,16 +47,39 @@ the highest-efficiency DC-to-DC systems to date" is internally consistent rather
 category error. An earlier draft of this file and of the outreach around it asserted
 the opposite. That assertion was wrong.
 
-**Open, and the reason the requirement may still be right.** DC-to-DC alone does not
+**Resolved 2026-08-24, by the same commenter.** The methodology already exists in the
+literature: *Power Beaming: History, Theory, and Practice* (Jaffe, Nugent, Strassner II
+and Szazynski, World Scientific, 2024, ISBN 9789811243103), which sets out a subsystem
+decomposition where the product of the stage efficiencies yields the total, and whose
+stated purpose is to establish a common nomenclature for assessing power beaming
+systems. The commenter's reading of the ARPA-E figure is that quoting DC-to-DC is a way
+of characterising that end-to-end product.
+
+That makes [R-C-010] and [R-M-023] the wrong shape rather than merely incomplete.
+Requiring an efficiency to name two endpoints is a weaker form of requiring the
+decomposition, and the decomposition also answers the geometry objection below without
+a separate rule, because beam coupling is one of the stages. **The requirement will be
+rewritten to profile the published methodology rather than to invent a parallel one.**
+Blocked on reading the source first: this project does not carry a method it has not
+read, which is the same rule that flagged the metering accuracy classes in O-7.
+
+**A second, larger finding.** `gap-analysis.md` surveyed standards *bodies* — ITU-R,
+IEEE, CCSDS, ICNIRP, the FCC — and did not survey the engineering literature. A 2024
+textbook explicitly written to establish common nomenclature is prior art that the
+specification should profile, and it was missed because the search was scoped to
+publishers of standards rather than to sources of convention. A published method is not
+a standard, but a specification that reinvents one has failed its own stated rule of
+reusing existing work wherever it exists. Recorded as `OBJECTIONS.md` O-10.
+
+**The geometry question, now subsumed.** DC-to-DC alone does not
 fix a system's geometry. The two results above were obtained with a 4 m transmitter
 into a 4 m receiver at 200 m, and a 1.2 m transmitter into a 5.2 m rectenna at 100 m.
 Beam coupling depends on the aperture-range product, so two DC-to-DC figures still do
 not separate component efficiency from coupling geometry. [R-C-010] currently requires
 `numeratorPoint`, `denominatorPoint` and `pathLength_m`; it does not require the
-apertures. Whether the correct requirement is "declare DC-to-DC plus transmit and
-receive aperture and range" — which would be a better and simpler rule than the one
-written — is the question put back to the commenter. **No change made pending that
-answer.** Tracked for 0.2.
+apertures. Under the decomposition above this stops being a separate requirement:
+coupling is one of the stages, so declaring the chain declares the geometry's effect
+without naming apertures at all. Tracked for 0.2 as part of the §6 rewrite.
 
 ## Findings from implementation
 
