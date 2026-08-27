@@ -42,6 +42,14 @@ Comments are wanted, and the useful ones are mostly the ones saying this is wron
 ## Licensing of contributions
 
 By contributing you licence your contribution under the repository's licences:
-CC BY 4.0 for prose, Apache-2.0 for schemas, examples and tooling. See
-`GOVERNANCE.md#ipr` — particularly the part where this project makes no patent claims
-and has done no patent search.
+CC BY 4.0 for prose, Apache-2.0 for schemas, examples and tooling.
+
+**You also take on two patent obligations under [`IPR.md`](IPR.md).** Disclose any patent
+you actually know to be essential to what you are contributing — no search is required,
+and if you cannot describe it, say that a non-disclosable interest exists rather than stay
+silent. And you grant a royalty-free licence under any patent claim your own contribution
+necessarily infringes. If you are not willing to do that, say so before contributing and
+the contribution will be declined rather than accepted on unclear terms.
+
+None of that touches third-party patents. This project has performed no patent search and
+makes no essentiality claim; see `IPR.md` §1.

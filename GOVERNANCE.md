@@ -63,12 +63,21 @@ specification requires a licence from someone. This project has not investigated
 is not in a position to.
 
 Contributors licence their contributions under the repository's licences (`LICENSE-TEXT`
-for prose, `LICENSE-CODE` for schemas, examples and tooling). The Apache-2.0 licence on
-the code half carries an express patent grant from contributors covering their own
-contributions; that is the reason it was chosen over MIT, and it is the only patent
-comfort this repository offers.
+for prose, `LICENSE-CODE` for schemas, examples and tooling).
 
-Implementers should take their own advice.
+**Since 2026-08-27 there is also a patent policy: [`IPR.md`](IPR.md).** Contributors must
+disclose patents they know to be essential to their contribution, and grant a
+royalty-free licence under any patent claim their own contribution necessarily infringes.
+Disclosures are recorded in [`IPR-DISCLOSURES.md`](IPR-DISCLOSURES.md), which is currently
+empty.
+
+It was adopted while the project had zero outside contributors, which is the only moment
+adopting one is easy: a policy agreed before anyone contributes binds everyone who ever
+does, and one proposed afterwards has to be agreed retroactively by people who have
+already handed over their work.
+
+That policy governs contributions. It does nothing about a third party's patent, and no
+standards body's policy ever has. **Implementers should take their own advice.**
 
 ## Licences
 

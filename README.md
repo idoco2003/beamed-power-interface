@@ -161,6 +161,8 @@ retrodirective-array and rectenna patents.
 Every file carries an `SPDX-License-Identifier`, so the split is machine-readable and
 not merely asserted here.
 
-**No patent search has been performed and no essentiality claim is made.** See
-[`GOVERNANCE.md`](GOVERNANCE.md#ipr). Automated tools report one licence per repository
+Contributors disclose known essential patents and grant a royalty-free licence over
+their own contributions, under [`IPR.md`](IPR.md). **No patent search has been performed
+and no essentiality claim is made**, and that policy does nothing about a third party's
+patent. See [`IPR.md`](IPR.md) §1 and §6. Automated tools report one licence per repository
 and will pick one of the two; neither answer is complete.
