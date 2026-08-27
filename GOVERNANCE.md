@@ -8,6 +8,26 @@ This is a draft specification maintained by its named editor. It is **not** the 
 of a standards body, a consortium or a working group, and no such entity exists. See
 `spec/00-status.md`.
 
+## Charter
+
+**In scope.** The interface between a segment that beams power and a segment that receives
+it, where the two are operated by different organisations: what each publishes about
+itself, how a delivery window is agreed, how the beam is kept safe while it radiates, how
+delivered energy is recorded, and on what regulatory basis the whole thing operates.
+
+**Out of scope, and it will stay out.** Physical-layer design. Hardware. The spacecraft
+command and telemetry link, which existing standards already cover and which §3.2 is
+explicit about not respecifying. Licensing, permitting and pricing. Certification, per
+§8.3.
+
+**What this project will not do**, stated so that a future editor cannot quietly start:
+
+- claim conformance, endorsement or review by any body that has not given it
+- offer, imply or charge for certification, or register a conformance mark
+- accept a contribution whose contributor will not make the [IPR.md](IPR.md) grant
+- describe an implementation as certified, including its own
+- remove a recorded disposition or objection because it became inconvenient
+
 ## Decision making
 
 While there is one implementation and no consensus process, decisions are made by the
@@ -23,6 +43,66 @@ end state is one of:
    membership and a real voting rule, at which point this document is replaced.
 3. Nobody adopts it, the gap analysis goes stale, and the repository is archived with a
    note saying so.
+
+### The rule that replaces this one
+
+Today's arrangement is one editor deciding in public. It ends on the first **independent
+implementation**, meaning one produced by an organisation that is not the editor's and
+published with a conformance claim under §8.2. That trigger is deliberate: it is objective, it is
+visible to everyone, and it cannot be reached by the editor deciding it has been.
+
+At that point:
+
+**Co-editors.** The editor invites two, from different organisations, at least one of
+which implements. An invitation is public and is recorded here. A co-editor may resign at
+any time, publicly.
+
+**What a decision needs.** A substantive change needs the agreement of a majority of
+editors, and no change may be merged over the recorded objection of an editor who
+implements it, unless the other editors record why. A change nobody objects to needs one
+editor and a pull request, as now.
+
+**Deadlock.** Where editors cannot agree, the change does not happen and the disagreement
+is recorded in `DISPOSITIONS.md` with both positions. A specification that ships a
+contested requirement because someone had a casting vote has recorded a decision it
+cannot defend. Not shipping is the safe direction.
+
+**Editorial versus normative.** Any editor may make an editorial change alone, and
+editorial means PATCH under the versioning rule above: no `SHALL` gains, loses or changes
+meaning. If there is an argument about whether a change is editorial, it is not.
+
+### Editor succession
+
+Today this project ends if one person stops paying attention, and nothing in the
+repository would say so. That is the single largest risk to anyone building on it.
+
+**If the editor is unreachable for 90 days**, any co-editor may say so in an issue, and
+after a further 30 days without response may take over as editor and record it here.
+
+**With no co-editors and no editor**, the repository should be archived rather than
+adopted by whoever asks first. `spec/00-status.md` already commits to archiving as an
+acceptable outcome, and an unmaintained specification that looks maintained is worse than
+one plainly marked dead. Anyone may fork it; the licences permit that and are chosen so
+they do.
+
+**The editor should name a literary executor for the repository** and has not yet. That is
+an open item against this file, not a solved problem.
+
+### Appeals
+
+A disposition is one person's judgement, and `DISPOSITIONS.md` currently records the
+editor disagreeing with a commenter in public with no way for the commenter to press it.
+
+**Anyone whose comment is dispositioned `rejected` may appeal** by saying so in the issue
+or by email. An appeal is recorded in `DISPOSITIONS.md` alongside the original, whatever
+the outcome, so a reader sees that the disagreement continued.
+
+**Appeals are decided by the editors other than the one who wrote the disposition.** With
+one editor there is nobody to appeal to, and this file should say that plainly rather than
+offer a process that does not exist: **until co-editors are appointed, an appeal is
+recorded and answered by the same person who rejected it.** That is not an appeal. It is
+the honest description of what is currently available, and it is one of the reasons the
+trigger above is worth reaching.
 
 ## Versioning
 

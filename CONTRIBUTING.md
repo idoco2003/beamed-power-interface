@@ -29,6 +29,13 @@ Comments are wanted, and the useful ones are mostly the ones saying this is wron
 - **A conformance claim** — a pull request adding a row to §8.4 with a link to your
   claim document.
 
+## What will not be accepted
+
+[`GOVERNANCE.md`](GOVERNANCE.md) carries a short list of things this project will not do,
+including claiming review it has not had, offering certification, and removing a recorded
+objection because it became inconvenient. Those are not editorial preferences and a pull
+request doing any of them will be declined regardless of its merits.
+
 ## Rules for changes
 
 - A new or changed `SHALL` needs a rationale in the same pull request. A requirement

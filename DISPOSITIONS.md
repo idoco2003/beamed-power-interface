@@ -14,7 +14,13 @@ difference between publishing a draft and publishing a draft you intend to chang
 ## How to comment
 
 Open an issue, or a pull request against `OBJECTIONS.md` if your comment is an argument
-rather than a defect. Comments received privately will be recorded here in summarised
+rather than a defect.
+
+**If your comment is dispositioned `rejected` you may appeal**, and the appeal is recorded
+here next to the original whatever comes of it. One caveat worth stating rather than
+burying: while there is a single editor, an appeal is answered by the same person who
+rejected it, which is not an appeal in any meaningful sense. `GOVERNANCE.md` describes
+what changes when co-editors exist. Comments received privately will be recorded here in summarised
 form unless you ask otherwise; if you would rather not be named, say so and we will
 record the substance without attribution.
 
