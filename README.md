@@ -7,34 +7,56 @@ Version 0.1.0-draft · Published 2026-08-22 · **Request for Comments, not a sta
 
 ---
 
-## The one-paragraph version
+## Nobody has written this down
 
-A spacecraft that beams power to a receiver it does not own needs to agree four things
-with that receiver: what each side can do, when delivery happens, how the beam is kept
-safe while it is on, and how much energy actually arrived. There is today no published
-specification covering any of that. BPI is a draft attempt at one, written because the
-gap is real and dated (see [`gap-analysis.md`](gap-analysis.md)), and published in the
-open so it can be corrected, forked, or superseded by a body that should own it.
+A spacecraft beaming power to a receiver it does not own has to agree four things with
+that receiver: what each side can do, when delivery happens, how the beam is kept safe
+while it is radiating, and how much energy actually arrived. No published specification
+covers any of it.
+
+Checked, with dates and sources, in [`gap-analysis.md`](gap-analysis.md):
+
+- ITU-R's only wireless-power Recommendation is scoped to phones and sensor networks
+- Report SM.2392-2 names the band and recommends nothing, because Reports do
+- the Radio Regulations carry no Article 21 space-to-Earth row for 5.8 GHz
+- WRC-27 has no agenda item, and ITU-R SG3 does not sit again until June 2027
+- IEEE's ICES lists no active projects; CCSDS has nothing power-related
+- no regulator surveyed has an open proceeding
+
+Meanwhile at least seven programmes are building it across two incompatible physical
+layers, and one 2027 flight carries five power-beaming payloads from different companies
+on a single bus. That is the condition in which interfaces get frozen by accident, one
+bilateral integration at a time.
+
+## The idea
+
+**Enable is unanimous. Abort is unilateral.**
+
+Power flows only while both segments continuously consent, expressed as a stream of
+short-lived signed tokens, so the absence of consent is the default state. A naive
+interlock has the ground tell the spacecraft to stop, which needs a message to arrive
+during exactly the failure that stops messages arriving. Inverting it makes silence safe.
+
+Most of the rest follows from that:
+
+- the token carries a power ceiling, so "curtail" and "continue" are one message and
+  therefore one code path
+- its lifetime and the declared intruder speed set the keep-out buffer, so a timing
+  parameter becomes **1,350 m of land** you can see on a map
+- an SGP4 ephemeris is inadmissible as the pointing reference: a 2 km aperture at 547 km
+  subtends 0.21°, and general-perturbations error exceeds that
 
 ## What this is not
 
 It is **not a standard**. No standards body has published, reviewed, endorsed or been
 asked about it. It has one implementation. Several of its numbers are proposals rather
 than measurements, and [`OBJECTIONS.md`](OBJECTIONS.md) lists the strongest arguments
-against it that its own authors could construct. Read
-[`spec/00-status.md`](spec/00-status.md) before anything else.
+against it that its own authors could construct — eight of them open, one with no
+mitigation offered. Read [`spec/00-status.md`](spec/00-status.md) before anything else.
 
 It does **not** grant, imply or substitute for any regulatory permission. A system can
-be fully BPI-conformant and hold no authorisation to transmit at all — the specification
+be fully BPI-conformant and hold no authorisation to transmit at all. The specification
 is designed to make that state *declarable* rather than to prevent it.
-
-## The design in three sentences
-
-**Enable is unanimous; abort is unilateral.** Power flows only while both segments
-continuously consent, expressed as a stream of short-lived signed tokens, so that the
-*absence* of consent is the default and silence is safe. A naive interlock has the
-ground tell the spacecraft to stop, which requires a message to arrive during exactly
-the failure that stops messages arriving; BPI inverts that into a one-way problem.
 
 ## Parts
 
