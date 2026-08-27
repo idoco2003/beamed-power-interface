@@ -10,7 +10,7 @@
   "sig": {
     "alg": "EdDSA",
     "keyId": "test-key-2026-08",
-    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..9CSHiAybBMMgPG8FKB7sHY5RwLRKrJRkZYDqKABxwrz49aeSlNIYbmej3x9qvTmmiI-1sjUjLZykljMmrp6HBg"
+    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..i_9zejvWzSlZkv1bqKdT0c5nf0TYuaBvqkx5ph8NJ-JtEqBkectU-qrxgnQp_AKrJH0lu2uNPsnan3qgBfLJBA"
   },
   "recordId": "mr-2026-08-22-0612",
   "commitmentId": "cmt-88120",
@@ -85,8 +85,8 @@
     {
       "role": "RECEIVING",
       "org": "Kiruna Power Receiving AB",
-      "keyId": "key-2026-08",
-      "sig": "PLACEHOLDER",
+      "keyId": "test-key-2026-08",
+      "sig": "eyJhbGciOiJFZERTQSJ9..TC5zYsnNDpmMRN-mJlOywUTB1wzVxfV-eLQYzEIlICc-Qy-jYjmyvq5KDJU-2QEFtelh7qCzJW0oG2MvZk1UBA",
       "signedAt": "2026-08-22T06:45:00.000Z"
     }
   ],
