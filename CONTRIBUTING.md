@@ -19,6 +19,10 @@ Comments are wanted, and the useful ones are mostly the ones saying this is wron
 
 ## How
 
+- **A comment on the draft while the RFC period is open** — the [RFC comments](https://github.com/BeamDesk/beamed-power-interface/discussions/categories/rfc-comments)
+  category, where there is a thread per part. It gets a dated entry in `DISPOSITIONS.md`
+  by 2026-11-30 whether it is accepted or not. An issue is equally fine; the category
+  exists so a comment is not filed as a bug when it is an argument.
 - **A defect or a question** — open an issue.
 - **An argument against the design** — a pull request against `OBJECTIONS.md`. We would
   rather host the argument than have it made elsewhere. Write it as strongly as you

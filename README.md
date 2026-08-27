@@ -159,7 +159,33 @@ Comments are wanted, especially the ones saying this is wrong. See
 substantive comment gets a public disposition in [`DISPOSITIONS.md`](DISPOSITIONS.md),
 including the ones we reject and why.
 
-**The RFC period for 0.1 closes 2026-11-30.**
+**The RFC period closes 2026-11-30**, when 0.2.0-draft is tagged and every comment has a
+published disposition.
+
+### Where a comment goes
+
+[Discussions](https://github.com/BeamDesk/beamed-power-interface/discussions) has four categories and there is a thread open on each part of the
+specification, each one naming what that part gets wrong rather than asking for general
+feedback.
+
+| Category | For |
+|---|---|
+| [RFC comments](https://github.com/BeamDesk/beamed-power-interface/discussions/categories/rfc-comments) | Comments on the draft. Five threads, one per part. Every comment gets a published disposition by 2026-11-30. |
+| [Implementers](https://github.com/BeamDesk/beamed-power-interface/discussions/categories/implementers) | Questions from people building against BPI. An accepted answer is the closest thing this draft has to an interop ruling. |
+| [Wanted](https://github.com/BeamDesk/beamed-power-interface/discussions/categories/wanted) | The three things this project cannot do itself |
+| [Announcements](https://github.com/BeamDesk/beamed-power-interface/discussions/categories/announcements) | Releases, the RFC close, published dispositions |
+
+**The three asks**, each bounded and each addressed to a different person:
+
+- [An optical annex author](https://github.com/BeamDesk/beamed-power-interface/discussions/6) — seven concerns differ from RF in kind, not
+  magnitude, and ARAQYS-D3 flies both under one integrator in February 2027.
+- [An RF safety review below 6 GHz](https://github.com/BeamDesk/beamed-power-interface/discussions/7) — an hour on one section. The specification
+  works in incident power density; below 6 GHz the basic restriction is SAR.
+- [A second implementation](https://github.com/BeamDesk/beamed-power-interface/discussions/8) — the objection everything else waits on. Signed
+  vectors and the signing key are published so it can be done without talking to anyone.
+
+An issue is equally fine, and a pull request against `OBJECTIONS.md` is better than
+either.
 
 ## Licence
 
