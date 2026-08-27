@@ -61,7 +61,7 @@ nothing does. Each row states how far this document actually goes, using the voc
 | CCSDS 902.0-B-2 (SCCS-SM), 911.x/912.x (SLE) | Named as the existing booking and transfer services BPI does not replace | vocabulary | Nothing executed |
 | NGA.STND.0036 WGS-84 | All positions and the local horizon | implemented | Ellipsoid only; no geoid model shipped |
 | RFC 2119 / RFC 8174 | Requirement keywords | implemented | — |
-| RFC 8785 JSON Canonicalization | Signature canonicalisation | implemented | — |
+| RFC 8785 JSON Canonicalization | Signature canonicalisation | implemented | Yes — `tools/test-jcs.mjs` checks the RFC's own key-ordering and number vectors |
 | RFC 7946 GeoJSON | Aperture and keep-out polygons | profiled | Geometry subset only |
 | ICNIRP 2020; IEEE C95.1-2019 | Exposure reference levels in §7.3 and Annex RF | consumed | Limit values cited; **not** an exposure assessment |
 | ITU Radio Regulations Art. 21 §21.16 | PFD screening in §7.2 | consumed | Screening only; see the `applicability` field |

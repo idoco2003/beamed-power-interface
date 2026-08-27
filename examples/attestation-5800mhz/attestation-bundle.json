@@ -8,9 +8,9 @@
     "role": "RECEIVING"
   },
   "sig": {
-    "alg": "Ed25519",
-    "keyId": "key-2026-08",
-    "value": "BASE64URL_DETACHED_JWS_PLACEHOLDER"
+    "alg": "EdDSA",
+    "keyId": "test-key-2026-08",
+    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..oP6g2sY691CRnLXUycahNf6ajWbqFI27-kD9BiGWbmKntLoaIpv-c1aQpLIObcYrk-kmiX_f_YFCvE2m7Wa1CQ"
   },
   "subject": {
     "segmentId": "RX-ESRANGE-01",
@@ -36,7 +36,7 @@
       "rowRef": "RR Table 21-4, 8 025-8 500 MHz (nearest tabulated row; does NOT govern 5.8 GHz)",
       "declaredPfd_dBW_m2": 15.3,
       "refBandwidthHz": 4000,
-      "arrivalAngleDeg": 65.0,
+      "arrivalAngleDeg": 65,
       "marginDb": -155.3,
       "basis": "screening"
     }

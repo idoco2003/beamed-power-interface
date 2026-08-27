@@ -180,13 +180,14 @@
     },
     "SignatureBlock": {
       "type": "object",
-      "description": "[R-C-015] Detached JWS, Ed25519, over RFC 8785 canonical JSON.",
+      "description": "[R-C-015] Detached JWS, EdDSA over Ed25519, over the RFC 8785 canonicalisation of the message with sig.value absent. sig.alg and sig.keyId are inside the signed content.",
       "properties": {
         "alg": {
           "type": "string",
           "enum": [
-            "Ed25519"
-          ]
+            "EdDSA"
+          ],
+          "description": "RFC 8037 names the algorithm EdDSA. Ed25519 is the curve, and naming the curve here while the JWS protected header names the algorithm made a message disagree with its own signature."
         },
         "keyId": {
           "type": "string"

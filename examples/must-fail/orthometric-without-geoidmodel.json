@@ -8,9 +8,9 @@
     "role": "RECEIVING"
   },
   "sig": {
-    "alg": "Ed25519",
-    "keyId": "key-2026-08",
-    "value": "BASE64URL_DETACHED_JWS_PLACEHOLDER"
+    "alg": "EdDSA",
+    "keyId": "test-key-2026-08",
+    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..zgNN2NSOHUv3n64rCcwoZnyNXZa1oHCDHv_3xJbLbnuTAkV57Po10wOwV9bHO07H7bJW7JfILULnxQGqq92dDw"
   },
   "tokenId": "tok-4211",
   "sessionId": "sess-2026-08-22-0612",
@@ -21,7 +21,7 @@
   "aimPoint": {
     "latDeg": 67.8833,
     "lonDeg": 21.0667,
-    "height_m": 341.0,
+    "height_m": 341,
     "heightRef": "orthometric"
   },
   "constraints": {

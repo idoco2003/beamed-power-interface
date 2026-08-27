@@ -8,9 +8,9 @@
     "role": "RECEIVING"
   },
   "sig": {
-    "alg": "Ed25519",
-    "keyId": "key-2026-08",
-    "value": "BASE64URL_DETACHED_JWS_PLACEHOLDER"
+    "alg": "EdDSA",
+    "keyId": "test-key-2026-08",
+    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..9CSHiAybBMMgPG8FKB7sHY5RwLRKrJRkZYDqKABxwrz49aeSlNIYbmej3x9qvTmmiI-1sjUjLZykljMmrp6HBg"
   },
   "recordId": "mr-2026-08-22-0612",
   "commitmentId": "cmt-88120",
@@ -28,7 +28,7 @@
     "calibrationDate": "2026-03-11"
   },
   "transmitted": {
-    "energy_kWh": 5602.0,
+    "energy_kWh": 5602,
     "_prov": "measured",
     "radiationPointRef": "ANT-RF-OUT"
   },
@@ -39,10 +39,10 @@
   "samples": [
     {
       "t": "2026-08-22T06:12:00.000Z",
-      "receivedPower_kW": 91200.0,
-      "transmittedPower_kW": 130200.0,
-      "elevationDeg": 65.0,
-      "rainRate_mmh": 0.0,
+      "receivedPower_kW": 91200,
+      "transmittedPower_kW": 130200,
+      "elevationDeg": 65,
+      "rainRate_mmh": 0,
       "_prov": "measured"
     }
   ],
@@ -57,7 +57,7 @@
     {
       "start": "2026-08-22T06:14:31.220Z",
       "end": "2026-08-22T06:15:00.000Z",
-      "energy_kWh_shortfall": 742.0,
+      "energy_kWh_shortfall": 742,
       "causeCode": "AVIATION_TRANSIT",
       "bearer": "RECEIVING",
       "evidenceRef": "sessionlog-sess-2026-08-22-0612",

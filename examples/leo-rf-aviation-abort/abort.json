@@ -8,9 +8,9 @@
     "role": "RECEIVING"
   },
   "sig": {
-    "alg": "Ed25519",
-    "keyId": "key-2026-08",
-    "value": "BASE64URL_DETACHED_JWS_PLACEHOLDER"
+    "alg": "EdDSA",
+    "keyId": "test-key-2026-08",
+    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..OlvTM1YFNyHpukJM_XsGe6-ZNQbFBayAlPO7FSk00yJ6BulitaCp4mqTBYkdZR-DJBbdWun9tiVIid5KfGJqBw"
   },
   "abortId": "abt-0091",
   "sessionId": "sess-2026-08-22-0612",

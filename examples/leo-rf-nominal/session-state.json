@@ -8,13 +8,13 @@
     "role": "SPACE"
   },
   "sig": {
-    "alg": "Ed25519",
-    "keyId": "key-2026-08",
-    "value": "BASE64URL_DETACHED_JWS_PLACEHOLDER"
+    "alg": "EdDSA",
+    "keyId": "test-key-2026-08",
+    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..0WRfdl-dSwrXjbYm0g8NO-Z5645oFHBniQJxbEAq1rDSUY-8RSp0y9h0ErAoaeoEYtYhG7fMbrfaQ0VJCzf6Aw"
   },
   "sessionId": "sess-2026-08-22-0612",
   "state": "DELIVERING",
-  "radiatedPower_kW": 94210.0,
+  "radiatedPower_kW": 94210,
   "radiatedPower_kW_prov": "measured",
   "honouringToken": {
     "tokenId": "tok-4211",

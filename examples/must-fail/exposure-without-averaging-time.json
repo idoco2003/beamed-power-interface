@@ -8,9 +8,9 @@
     "role": "RECEIVING"
   },
   "sig": {
-    "alg": "Ed25519",
-    "keyId": "key-2026-08",
-    "value": "BASE64URL_DETACHED_JWS_PLACEHOLDER"
+    "alg": "EdDSA",
+    "keyId": "test-key-2026-08",
+    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..0dWHuPFksnSeOgHuzc4v4qmaPWcNofmI2jyNZLvd0lZKn9aNW4c1n_d2_sIioBIJrPaoQlb6zQbMi0p-E_XqCg"
   },
   "subject": {
     "segmentId": "RX-ESRANGE-01",
@@ -36,7 +36,7 @@
       "rowRef": null,
       "declaredPfd_dBW_m2": 15.3,
       "refBandwidthHz": 4000,
-      "arrivalAngleDeg": 65.0,
+      "arrivalAngleDeg": 65,
       "marginDb": -155.3,
       "basis": "screening"
     }

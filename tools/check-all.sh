@@ -4,6 +4,8 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 echo "== requirement set =="; ./tools/check-requirements.sh
 echo; echo "== cross-file consistency =="; ./tools/check-consistency.sh
+echo; echo "== canonicalisation (RFC 8785) =="; node tools/test-jcs.mjs
+echo; echo "== signatures (RFC 8785 + detached JWS) =="; node tools/verify-signatures.mjs
 echo; echo "== schemas and examples =="; ./tools/validate.sh
 echo; echo "== json well-formedness =="
 find schemas profiles examples conformance -name '*.json' -print0 \
