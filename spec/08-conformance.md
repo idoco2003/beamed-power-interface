@@ -86,8 +86,8 @@ be theatre.
 | BeamDesk | `BPI/0.1 · BROKER · L1 · no-annex` | [bpi-conformance.json](https://github.com/BeamDesk/BeamDesk/blob/master/bpi-conformance.json) |
 
 BeamDesk is the specification's author and its only implementation, which is the
-weakness `OBJECTIONS.md` §O-1 exists to state. Its claim answers 35 of 111 requirements
-`implemented`, 17 `not-implemented`, 56 `not-applicable` (it never radiates), and 3
+weakness `OBJECTIONS.md` §O-1 exists to state. Its claim answers 35 of 112 requirements
+`implemented`, 17 `not-implemented`, 57 `not-applicable` (it never radiates), and 3
 `not-claimed`. It emits five of the thirteen message types, all unsigned.
 
 Anyone may add a row by pull request. There is no gatekeeping and no review beyond

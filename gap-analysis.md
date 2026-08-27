@@ -64,11 +64,17 @@ interfaces are being reconciled.
 | ARAQYS-D3 | **Both** | Five power-beaming payloads, RF and optical, one integrator, Feb 2027 |
 | DIU PROJ00685 | Both | Four lines of effort including space-to-space (to 1,200 km) and space-to-terrestrial; operational capability targeted FY2030 |
 
-Note the unit problem this creates on its own: Xidian's *20.8% DC-to-DC over 100 m* and
-Virtus Solis's *≥70% end-to-end* are not the same measurement and cannot be compared.
-§6 of this specification requires an efficiency figure to name both of its endpoints,
-which would make them comparable. That is a small thing a specification can fix that no
-amount of further demonstration will.
+**A claim that stood here has been withdrawn.** It said Xidian's *20.8% DC-to-DC over
+100 m* and Virtus Solis's *≥70% end-to-end* were not the same measurement and could not
+be compared. An RF power-beaming engineer pointed out that if "source to delivered DC"
+means DC in to DC out then those are the same measurement class, the two figures are
+comparable, and the argument was wrong. He also pointed at the published methodology the
+specification should have profiled instead of inventing a rule beside it: a subsystem
+decomposition whose stage efficiencies multiply to the total, in *Power Beaming: History,
+Theory, and Practice* (Jaffe, Nugent, Strassner II and Szazynski, World Scientific, 2024).
+
+See `DISPOSITIONS.md` C-1 and `OBJECTIONS.md` O-10. §6 is being rewritten to profile that
+decomposition, blocked on reading it.
 
 ---
 
@@ -77,3 +83,5 @@ amount of further demonstration will.
 | Date | Change |
 |---|---|
 | 2026-08-22 | Initial publication. Rows G1–G10 from daily scans 2026-08-13 to 2026-08-22. |
+| 2026-08-24 | Method limitation recorded: the survey asked "is this standardised?" and never asked "is there already an accepted way of doing this?". See O-10. |
+| 2026-08-27 | Withdrew the efficiency-comparability claim below the programme table. It was wrong; see DISPOSITIONS C-1. |

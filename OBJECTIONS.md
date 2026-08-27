@@ -159,6 +159,45 @@ without asserting its status. Anyone with catalogue access is invited to settle 
 
 **Status: closed as to the class designations. The C12.20 currency question is open.**
 
+---
+
+## O-8 · Direction-neutrality is half-hearted
+
+> The information model uses `receivingSegment` to accommodate space-to-space delivery,
+> but every worked example, the keep-out volume, the intruder budget and the entire
+> aviation treatment assume a ground receiver. The neutrality is cosmetic.
+
+**Response: accepted.** v0.1 is scoped to space-to-ground and says so. The naming
+reserves the slot at zero cost; the `RELAXED` timing profile is the only real
+accommodation. A space-to-space profile needs its own hazard analysis — the intruder is
+not a person, the keep-out volume is an orbital volume, and the abort budget is set by
+relative velocity rather than by a jet.
+
+**Status: open, deliberately deferred.**
+
+---
+
+## O-9 · An RF reader can come away thinking this is an optical spec
+
+> Annex OPT exists, Annex RF exists, and the core talks about beams without saying which
+> kind. An engineer who builds RF hardware can read this and conclude it was written for
+> optical systems and that its problems are not theirs.
+
+**Response: accepted as a writing defect, not a content one.** Annex RF is normative,
+Annex OPT is a stub that forbids claiming it at 0.1, and no wavelength or photovoltaic
+assumption appears in the normative text. But this objection came from an RF engineer
+who read the document and concluded otherwise, which makes it real regardless of what
+the text technically says. Recorded as `DISPOSITIONS.md` C-1.
+
+The likely cause is that the physical-layer-agnostic core reads as *unspecified* rather
+than as *deliberately shared*, and the reader supplies the missing PHY themselves.
+Candidate fix for 0.2: state in §1.1 which annex is normative today, and say plainly in
+the core that it is shared by construction rather than vague by omission.
+
+**Status: open. Fix proposed, not written.**
+
+---
+
 ## O-10 · The gap analysis looked for standards, not for convention
 
 > `gap-analysis.md` proves no standards body covers beamed power. It does not establish
@@ -185,40 +224,3 @@ Fix for 0.2: add a literature row to `gap-analysis.md` for each part, distinct f
 standards rows, and rewrite §6 to profile the published decomposition.
 
 **Status: open. Fix identified, blocked on reading the source.**
-
----
-
-## O-9 · An RF reader can come away thinking this is an optical spec
-
-> Annex OPT exists, Annex RF exists, and the core talks about beams without saying which
-> kind. An engineer who builds RF hardware can read this and conclude it was written for
-> optical systems and that its problems are not theirs.
-
-**Response: accepted as a writing defect, not a content one.** Annex RF is normative,
-Annex OPT is a stub that forbids claiming it at 0.1, and no wavelength or photovoltaic
-assumption appears in the normative text. But this objection came from an RF engineer
-who read the document and concluded otherwise, which makes it real regardless of what
-the text technically says. Recorded as `DISPOSITIONS.md` C-1.
-
-The likely cause is that the physical-layer-agnostic core reads as *unspecified* rather
-than as *deliberately shared*, and the reader supplies the missing PHY themselves.
-Candidate fix for 0.2: state in §1.1 which annex is normative today, and say plainly in
-the core that it is shared by construction rather than vague by omission.
-
-**Status: open. Fix proposed, not written.**
-
----
-
-## O-8 · Direction-neutrality is half-hearted
-
-> The information model uses `receivingSegment` to accommodate space-to-space delivery,
-> but every worked example, the keep-out volume, the intruder budget and the entire
-> aviation treatment assume a ground receiver. The neutrality is cosmetic.
-
-**Response: accepted.** v0.1 is scoped to space-to-ground and says so. The naming
-reserves the slot at zero cost; the `RELAXED` timing profile is the only real
-accommodation. A space-to-space profile needs its own hazard analysis — the intruder is
-not a person, the keep-out volume is an orbital volume, and the abort budget is set by
-relative velocity rather than by a jet.
-
-**Status: open, deliberately deferred.**

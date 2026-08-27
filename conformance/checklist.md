@@ -3,7 +3,7 @@
 # Conformance checklist
 
 `checklist.json` is the machine-readable register of every normative requirement in this
-specification — **110 identifiers** across parts C, S, M, A, RF, SEC and CONF. It is
+specification — **112 identifiers** across parts C, S, M, A, RF, SEC and CONF. It is
 generated from `spec/*.md` by `tools/gen-checklist.py`, and `tools/check-requirements.sh`
 fails the build if the two ever disagree.
 

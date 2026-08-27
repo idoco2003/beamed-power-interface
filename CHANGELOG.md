@@ -21,10 +21,10 @@ Initial publication as a Request for Comments.
 - Annex RF (normative), including grating-lobe declaration and screening.
 - Annex OPT (reserved) — states what is missing rather than gesturing at it.
 - `gap-analysis.md`, dated and sourced.
-- `OBJECTIONS.md` with eight objections, five of them open and unanswered.
+- `OBJECTIONS.md` with ten objections, eight of them open, one with no mitigation offered.
 
 ### Normative requirement set
-110 identifiers: C 33, S 27, RF 15, M 14, A 12, SEC 5, CONF 4. See
+112 identifiers: C 33, S 27, M 15, RF 15, A 13, SEC 5, CONF 4. See
 `conformance/checklist.json`.
 
 ### Corrected before adoption
@@ -44,6 +44,10 @@ Initial publication as a Request for Comments.
   IANA top-level domain, so the previous identifiers could never be dereferenced.
 
 ### Known defects carried into this release
-See `DISPOSITIONS.md`. In brief: metering accuracy classes cited from secondary
-knowledge (blocks 0.2); no optical annex; local exposure below 6 GHz not addressed;
-corridor check weak at GEO; CCSDS 902.1 profiling claim not schema-validated.
+See `DISPOSITIONS.md`. In brief: no optical annex; local exposure below 6 GHz not
+addressed; corridor check weak at GEO; CCSDS 902.1 profiling claim not schema-validated.
+
+The metering accuracy classes were verified first-party on 2026-08-23 and are no longer
+a known defect — see DISPOSITIONS F-3. One residual remains: ANSI C12.20's current
+status is unconfirmed because the pages carrying it return 403, so O-7 stays open on
+that point alone.

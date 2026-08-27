@@ -8,6 +8,7 @@ an implementer answering it would be answering the wrong questions.
 tools/check-requirements.sh fails the build if the two sets differ.
 """
 import re, json, os, glob, sys
+from datetime import date
 from collections import Counter
 
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
@@ -28,8 +29,10 @@ for f in sorted(glob.glob('spec/*.md')):
 if dupes:
     print("duplicate requirement ids:", dupes, file=sys.stderr); sys.exit(1)
 reqs.sort(key=lambda r: (r['part'], int(r['id'].split('-')[2])))
+# Stamped at generation. The first version hardcoded a date, so the checklist
+# claimed to have been generated four days before a requirement it contained.
 json.dump({"$comment": "SPDX-License-Identifier: Apache-2.0",
-           "bpiVersion": "0.1.0-draft", "generated": "2026-08-22",
+           "bpiVersion": "0.1.0-draft", "generated": date.today().isoformat(),
            "note": "Generated from spec/*.md by tools/gen-checklist.py. "
                    "tools/check-requirements.sh fails the build if this drifts from the specification.",
            "count": len(reqs), "requirements": reqs},
