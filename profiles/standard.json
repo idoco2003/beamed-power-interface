@@ -1,8 +1,8 @@
 {
   "$comment": "SPDX-License-Identifier: Apache-2.0",
-  "$schema": "../schemas/0.1/profile.schema.json",
+  "$schema": "../schemas/0.2/profile.schema.json",
   "profileId": "STANDARD",
-  "bpiVersion": "0.1.0-draft",
+  "bpiVersion": "0.2.0-draft",
   "description": "Default timing profile. Suitable for a remote site with a co-located safety authority and a direct command path.",
   "tokenRefreshHz": 1,
   "tokenLifetimeS": 5,

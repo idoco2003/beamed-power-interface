@@ -1,8 +1,8 @@
 {
   "$comment": "SPDX-License-Identifier: Apache-2.0",
-  "$schema": "../schemas/0.1/profile.schema.json",
+  "$schema": "../schemas/0.2/profile.schema.json",
   "profileId": "RELAXED",
-  "bpiVersion": "0.1.0-draft",
+  "bpiVersion": "0.2.0-draft",
   "description": "Space-to-space delivery, where there is no ground keep-out volume and no human intruder to budget against. RESERVED: v0.1 is scoped to space-to-ground and this profile has not had a hazard analysis. See OBJECTIONS.md O-8.",
   "tokenRefreshHz": 0.2,
   "tokenLifetimeS": 30,

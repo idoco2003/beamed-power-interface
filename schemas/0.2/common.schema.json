@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://beamdesk.github.io/beamed-power-interface/schemas/0.1/common.schema.json",
+  "$id": "https://beamdesk.github.io/beamed-power-interface/schemas/0.2/common.schema.json",
   "$comment": "SPDX-License-Identifier: Apache-2.0",
   "title": "BPI 0.1 common types",
   "$defs": {
@@ -233,7 +233,7 @@
       "properties": {
         "bpiVersion": {
           "type": "string",
-          "pattern": "^0\\.1\\.[0-9]+(-draft)?$"
+          "pattern": "^0\\.2\\.[0-9]+(-draft)?$"
         },
         "msgType": {
           "type": "string"

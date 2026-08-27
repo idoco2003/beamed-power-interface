@@ -1,5 +1,5 @@
 {
-  "bpiVersion": "0.1.0-draft",
+  "bpiVersion": "0.2.0-draft",
   "msgType": "EnableToken",
   "msgId": "018f3a10-0000-7000-8000-000000000201",
   "issuedAt": "2026-08-22T06:12:04.000Z",
@@ -10,7 +10,7 @@
   "sig": {
     "alg": "EdDSA",
     "keyId": "test-key-2026-08",
-    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..NRSoGG4cqJd5IZgtMtKXphYyRQopfPgaLjXza4VyVwmfPPXdFQK37mG_qBZDrIE2RL60VzyXcl7O-HTpYH01Cg"
+    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..TYa6-uVCVoNiiniEll_nyTn76NVN4wOxRUQnAlTaUTgMHgGJvogtAn70z3CAh6uv_Lq-bJWNKQOmx1xI5780Bg"
   },
   "tokenId": "tok-4211",
   "sessionId": "sess-2026-08-22-0612",

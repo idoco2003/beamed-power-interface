@@ -3,7 +3,13 @@
 **A draft specification for the interface between a power-beaming spacecraft and the
 receiver it delivers to.**
 
-Version 0.1.0-draft · Published 2026-08-22 · **Request for Comments, not a standard**
+Version 0.2.0-draft, unreleased · Last published 0.1.0-draft, 2026-08-22 · **Request for
+Comments, not a standard**
+
+The RFC period closes **2026-11-30**, when 0.2.0-draft is tagged and every comment gets a
+published disposition. What has changed since 0.1.0-draft is in
+[conformance/requirement-diff.md](conformance/requirement-diff.md), generated rather than
+written.
 
 ---
 
@@ -74,7 +80,7 @@ is designed to make that state *declarable* rather than to prevent it.
 
 ```
 spec/            the specification, in reading order
-schemas/0.1/     JSON Schema (draft 2020-12) for every message
+schemas/0.2/     JSON Schema (draft 2020-12) for every message
 profiles/        every tunable number, outside the normative prose
 examples/        worked messages, valid and deliberately invalid
 conformance/     the requirement register and claim template
@@ -95,7 +101,7 @@ DISPOSITIONS.md  what we did about every comment received
 Schemas are identified and served under:
 
 ```
-https://beamdesk.github.io/beamed-power-interface/schemas/0.1/<name>.schema.json
+https://beamdesk.github.io/beamed-power-interface/schemas/0.2/<name>.schema.json
 ```
 
 Earlier drafts used `https://bpi.spec/…`, which was a mistake: **`.spec` is not in the
@@ -103,7 +109,7 @@ IANA root zone**, so that identifier could never resolve and any validator confi
 fetch a `$ref` by `$id` would fail. `$id` is not required to be dereferenceable, but one
 that *cannot* be is a dead end for tooling and a small lie to a reader.
 
-Internal `$ref`s are relative, so a copy of `schemas/0.1/` validates offline with no
+Internal `$ref`s are relative, so a copy of `schemas/0.2/` validates offline with no
 network access at all.
 
 ## For implementers
@@ -120,7 +126,7 @@ is not an independent implementation and does not close `OBJECTIONS.md` O-1.
 ## Validating the schemas
 
 ```sh
-npx --yes ajv-cli@5 validate --spec=draft2020 -s schemas/0.1/<name>.schema.json -d examples/<case>/<file>.json
+npx --yes ajv-cli@5 validate --spec=draft2020 -s schemas/0.2/<name>.schema.json -d examples/<case>/<file>.json
 tools/validate.sh          # everything, including the must-fail cases
 ```
 

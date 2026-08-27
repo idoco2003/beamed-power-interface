@@ -1,5 +1,5 @@
 {
-  "bpiVersion": "0.1.0-draft",
+  "bpiVersion": "0.2.0-draft",
   "msgType": "AttestationBundle",
   "msgId": "018f3a10-0000-7000-8000-000000000101",
   "issuedAt": "2026-08-22T06:12:00.000Z",
@@ -10,7 +10,7 @@
   "sig": {
     "alg": "EdDSA",
     "keyId": "test-key-2026-08",
-    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..CuKcSuk9_TedV_Sbh7mwduTj3_0MdJQ0kQWRqxEx6meDQNgJOfQQI4ow1vwGb00yXpzln6qbon3cZrGHIbR7Aw"
+    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..7ysKRIVd0LaB6UiCG433e_xWQu9QT0j4gGoDHno4EDx2NUg9sS67GZYGy1k64ZlCU2gahza8r00fLvP1iBosCA"
   },
   "subject": {
     "segmentId": "RX-ESRANGE-01",

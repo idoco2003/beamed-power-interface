@@ -1,5 +1,5 @@
 {
-  "bpiVersion": "0.1.0-draft",
+  "bpiVersion": "0.2.0-draft",
   "msgType": "MeteringRecord",
   "msgId": "018f3a10-0000-7000-8000-000000000401",
   "issuedAt": "2026-08-22T06:45:00.000Z",
@@ -10,7 +10,7 @@
   "sig": {
     "alg": "EdDSA",
     "keyId": "test-key-2026-08",
-    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..i_9zejvWzSlZkv1bqKdT0c5nf0TYuaBvqkx5ph8NJ-JtEqBkectU-qrxgnQp_AKrJH0lu2uNPsnan3qgBfLJBA"
+    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ.._X_ZFcArofq2lVNkKtjC5RHh1s2TIFLs7ao3lussduqcyfk4jYKpgtmLrrDRpt4RuQ7Bq8_NG4FAhqCNmbTnCQ"
   },
   "recordId": "mr-2026-08-22-0612",
   "commitmentId": "cmt-88120",

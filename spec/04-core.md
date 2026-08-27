@@ -3,7 +3,7 @@
 # §4 BPI-C — Core information model
 
 Thirteen messages. Each is defined here by purpose and key fields; the authoritative
-field list, types and constraints are in `schemas/0.1/`.
+field list, types and constraints are in `schemas/0.2/`.
 
 | # | Message | Direction | Purpose |
 |---|---|---|---|
@@ -117,4 +117,4 @@ in place of an `Abort`. Amendments are scheduling instruments; stopping a live b
 ## 4.8 Common types
 
 `GeodeticPoint` (§2.3), `Provenance` (§2.6), `Aperture`, `RateProfile`, `SignatureBlock`,
-`ModelRef`, `MeasurementPoint`. All in `schemas/0.1/common.schema.json`.
+`ModelRef`, `MeasurementPoint`. All in `schemas/0.2/common.schema.json`.

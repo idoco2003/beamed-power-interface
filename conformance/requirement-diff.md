@@ -4,13 +4,7 @@
 # Requirement-set diff
 
 `0.1.0-draft` (v0.1.0-draft, 110 requirements) →
-`0.1.0-draft` (working tree, 112 requirements)
-
-> **The requirement set has changed and the version string has not.** Both sides say
-> `0.1.0-draft`. During a draft period that is expected — changes accumulate
-> before a release bumps the version — but it means `bpiVersion` in a message does not
-> currently distinguish these requirement sets, and an implementer cannot tell from the
-> wire which one a peer built against. The version MUST be bumped before release.
+`0.2.0-draft` (working tree, 112 requirements)
 
 This is what [G-1] promises: which normative requirement identifiers were added,
 changed in meaning, or withdrawn. **Whether a text change is a change in meaning is an

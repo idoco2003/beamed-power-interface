@@ -126,7 +126,7 @@ instead of a footnote.*
 **[R-C-013]** Every message SHALL carry the common envelope:
 
 ```json
-{ "bpiVersion": "0.1.0-draft",
+{ "bpiVersion": "0.2.0-draft",
   "msgType": "EnableToken",
   "msgId": "018f3a...",
   "issuedAt": "2026-08-22T06:12:00.000Z",

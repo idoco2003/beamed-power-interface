@@ -1,6 +1,6 @@
 {
   "$comment": "SPDX-License-Identifier: Apache-2.0",
-  "bpiVersion": "0.1.0-draft",
+  "bpiVersion": "0.2.0-draft",
   "generated": "2026-08-27",
   "note": "Generated from spec/*.md by tools/gen-checklist.py. tools/check-requirements.sh fails the build if this drifts from the specification.",
   "count": 112,

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://beamdesk.github.io/beamed-power-interface/schemas/0.1/SessionState.schema.json",
+  "$id": "https://beamdesk.github.io/beamed-power-interface/schemas/0.2/SessionState.schema.json",
   "$comment": "SPDX-License-Identifier: Apache-2.0",
   "title": "SessionState",
   "description": "The space segment's declared state, at the profile refresh rate.",

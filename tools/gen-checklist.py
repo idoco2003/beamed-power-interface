@@ -32,7 +32,7 @@ reqs.sort(key=lambda r: (r['part'], int(r['id'].split('-')[2])))
 # Stamped at generation. The first version hardcoded a date, so the checklist
 # claimed to have been generated four days before a requirement it contained.
 json.dump({"$comment": "SPDX-License-Identifier: Apache-2.0",
-           "bpiVersion": "0.1.0-draft", "generated": date.today().isoformat(),
+           "bpiVersion": "0.2.0-draft", "generated": date.today().isoformat(),
            "note": "Generated from spec/*.md by tools/gen-checklist.py. "
                    "tools/check-requirements.sh fails the build if this drifts from the specification.",
            "count": len(reqs), "requirements": reqs},

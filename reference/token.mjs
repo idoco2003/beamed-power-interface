@@ -10,7 +10,7 @@ import { createHash } from 'node:crypto';
 import { canonicalize } from '../tools/lib/jcs.mjs';
 import { signDetached, verifyDetached } from '../tools/lib/jws.mjs';
 
-export const BPI_VERSION = '0.1.0-draft';
+export const BPI_VERSION = '0.2.0-draft';
 
 /** SHA-256 over the canonicalisation, which is what [R-S-020] chains on. */
 export const tokenHash = (token) =>

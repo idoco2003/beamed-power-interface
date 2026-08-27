@@ -1,8 +1,8 @@
 {
   "$comment": "SPDX-License-Identifier: Apache-2.0",
-  "$schema": "../schemas/0.1/profile.schema.json",
+  "$schema": "../schemas/0.2/profile.schema.json",
   "profileId": "FAST",
-  "bpiVersion": "0.1.0-draft",
+  "bpiVersion": "0.2.0-draft",
   "description": "For constrained sites where a 1350 m dead-man buffer is not available. Requires a co-located token issuer; the latency gate of [R-C-022] excludes any store-and-forward command path.",
   "tokenRefreshHz": 10,
   "tokenLifetimeS": 1,

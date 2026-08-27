@@ -1,6 +1,6 @@
 {
   "$comment": "SPDX-License-Identifier: Apache-2.0",
-  "bpiVersion": "0.1.0-draft",
+  "bpiVersion": "0.2.0-draft",
   "implementation": {
     "name": "YOUR IMPLEMENTATION",
     "org": "YOUR ORG",

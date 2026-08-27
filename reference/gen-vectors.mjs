@@ -79,7 +79,7 @@ add('V-010', 'R-S-021', 'Held token whose notAfter has passed on the wall clock.
 
 const out = {
   $comment: 'SPDX-License-Identifier: Apache-2.0',
-  bpiVersion: '0.1.0-draft',
+  bpiVersion: '0.2.0-draft',
   about: 'Token-chain conformance vectors. Each states the expected verdict AND the acceptable reasons: an implementation that rejects everything passes the weaker test and fails this one. Where an input is invalid on more than one axis, `reasons` lists every reason a conformant verifier might legitimately report, because the specification does not fix a validation order.',
   publicKey: readFileSync('conformance/keys/test-key.pub.pem', 'utf8').trim(),
   keyId: KEY,

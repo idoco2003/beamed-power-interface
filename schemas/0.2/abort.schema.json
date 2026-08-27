@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://beamdesk.github.io/beamed-power-interface/schemas/0.1/Abort.schema.json",
+  "$id": "https://beamdesk.github.io/beamed-power-interface/schemas/0.2/Abort.schema.json",
   "$comment": "SPDX-License-Identifier: Apache-2.0",
   "title": "Abort",
   "description": "[R-S-050][R-S-052] Stop. Reaches probe level within 1 s of receipt.",

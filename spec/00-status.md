@@ -9,9 +9,18 @@ is the most important section in the specification.*
 
 ## What this document is
 
-A **draft specification**, version 0.1.0-draft, published 2026-08-22 as a Request for
-Comments. It describes an interface between a spacecraft that beams power and a segment
-that receives it.
+A **draft specification** describing an interface between a spacecraft that beams power
+and a segment that receives it. Version **0.2.0-draft**, unreleased; the last published
+version is 0.1.0-draft, of 2026-08-22, which opened the Request for Comments.
+
+*Two versions, and the distinction is load-bearing.* The version string names the
+requirement set; the git tag names a release. `0.2.0-draft` is MAJOR under
+`GOVERNANCE.md` — two requirements changed in a way that breaks an implementation
+conformant with 0.1.0-draft on the wire — so it could not keep the old number while the
+RFC period runs. It is tagged and released on **2026-11-30**, when the period closes and
+every comment has a published disposition. Until then, main is the requirement set
+without being the release, and `conformance/requirement-diff.md` says exactly what
+changed.
 
 ## What this document is not
 

@@ -5,6 +5,45 @@
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versioning per `GOVERNANCE.md` — MAJOR breaks the wire, MINOR adds, PATCH is editorial.
 
+## [0.2.0-draft] — unreleased, tags 2026-11-30
+
+**MAJOR, and not by choice.** `GOVERNANCE.md` defines MAJOR as a change that breaks an
+existing conformant implementation on the wire, and two requirements did exactly that.
+The version was bumped when the second one landed rather than at release, because until
+then two different requirement sets were both calling themselves `0.1.0-draft`, and
+`bpiVersion` on the wire could not tell a peer which one it was talking to.
+
+Schemas moved to `schemas/0.2/`, so every `$id` changes.
+
+The authoritative account of what changed is
+[`conformance/requirement-diff.md`](conformance/requirement-diff.md), which is generated
+from the requirement set on every build and refuses to be produced while any text change
+is unclassified. This section summarises it; that file is the record.
+
+### Changed — breaks the wire
+- **`R-A-002`** now requires `article21.rowRef` to name the row wherever `applicability`
+  is not `none`. An implementation emitting `null` everywhere satisfied 0.1.0-draft.
+- **`R-M-012`** widened the permitted accuracy classes to include 0,1 S / 0.1, and now
+  requires the record to carry the standard and edition the class is claimed under. A
+  metering record conformant with 0.1.0-draft can be missing that edition.
+
+### Added
+- **`R-A-005`** — where `applicability` is `none`, `marginDb` SHALL also be `null`.
+- **`R-M-014`** — a meter accuracy class SHALL NOT be presented as evidence that a
+  particular meter's readings are valid for trade.
+
+### Added — machinery rather than requirements
+- `reference/` — the BPI-S interlock as executable code, with signed conformance vectors
+  in `conformance/vectors/`. The author's own, so it does not close `OBJECTIONS.md` O-1.
+- `IPR.md` and `IPR-DISCLOSURES.md` — disclosure duty and a royalty-free commitment.
+- `tools/check-consistency.sh`, `tools/gap-staleness.mjs`, `tools/gen-coverage.mjs`,
+  `tools/gen-requirement-diff.mjs`.
+
+### Fixed
+- The efficiency-comparability argument, withdrawn 2026-08-24, was still standing in the
+  normative rationale of §2.5 and §6.3. `tools/retracted.json` now fails the build if a
+  withdrawn claim reappears.
+
 ## [0.1.0-draft] — 2026-08-22
 
 Initial publication as a Request for Comments.

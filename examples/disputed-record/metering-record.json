@@ -1,5 +1,5 @@
 {
-  "bpiVersion": "0.1.0-draft",
+  "bpiVersion": "0.2.0-draft",
   "msgType": "MeteringRecord",
   "msgId": "018f3a10-0000-7000-8000-000000000401",
   "issuedAt": "2026-08-22T06:45:00.000Z",
@@ -10,7 +10,7 @@
   "sig": {
     "alg": "EdDSA",
     "keyId": "test-key-2026-08",
-    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..TlLJSiRTfHD8e6S1-FzkqGldEYDaTWRCwrJMtEn3ZMiS1xeHUjpWGj-fo6JsDeSw-_ybn3BiLKuWUxMvRmzHDg"
+    "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..wdVLPEgt3G50KVxHPWL4XVLYK1FNAbMUwI289gy9oAuZiSEWmfTsZN0KcZYLR3HTYDzpGYx7rDU1FuJa0zmcDA"
   },
   "recordId": "mr-2026-08-22-0612",
   "commitmentId": "cmt-88120",
@@ -89,7 +89,7 @@
       "role": "RECEIVING",
       "org": "Kiruna Power Receiving AB",
       "keyId": "test-key-2026-08",
-      "sig": "eyJhbGciOiJFZERTQSJ9..6Isxo_nj3G3uGHwJV5-tgZFiE1bBayi882gRGPUuq7Vb1WEUVJO-fcg-pTJrMamSL_dLJYT-cgytZxBDrxAVAQ",
+      "sig": "eyJhbGciOiJFZERTQSJ9..a_VM5vlWd0Zr9K9CRW1VnaKHhuC2fyixEF7bYsjMO02-RCZO9KekPLt2eIERQRffQywey-ffJ2wQX3P1QG99Ag",
       "signedAt": "2026-08-22T06:45:00.000Z"
     }
   ],
