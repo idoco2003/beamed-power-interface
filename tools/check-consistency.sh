@@ -81,6 +81,39 @@ gen=$(python3 -c "import json;print(json.load(open('conformance/checklist.json')
 today=$(date +%F)
 [[ "$gen" > "$today" ]] && note "checklist generated stamp $gen is in the future" || ok "checklist stamp $gen"
 
+# 7. A withdrawn claim has not reappeared anywhere it is not allowed to be.
+#
+#    The efficiency-comparability argument was retracted on 2026-08-24 and went on
+#    standing in the NORMATIVE text of two spec files for three days afterwards,
+#    because the retraction was filed where the error was first noticed rather than
+#    searched for. A retraction that only edits one file is not a retraction.
+#    tools/retracted.json is the register; the check is the enforcement.
+retracted_report=$(python3 - <<'PYEOF'
+import json, pathlib, subprocess, sys
+reg = json.load(open('tools/retracted.json'))['retracted']
+tracked = subprocess.check_output(['git', 'ls-files'], text=True).split()
+bad = []
+for entry in reg:
+    allowed = set(entry['allowedIn'])
+    for f in tracked:
+        if f in allowed or not f.endswith(('.md', '.json', '.mjs', '.py', '.sh')):
+            continue
+        try:
+            text = pathlib.Path(f).read_text(encoding='utf-8')
+        except (UnicodeDecodeError, FileNotFoundError, IsADirectoryError):
+            continue
+        for phrase in entry['phrases']:
+            if phrase in text:
+                bad.append(f"{f} carries {entry['id']}'s withdrawn claim: {phrase!r}")
+print('\n'.join(bad) if bad else f"{len(reg)} retraction(s) registered, none reappearing")
+sys.exit(1 if bad else 0)
+PYEOF
+)
+if [ $? -eq 0 ]; then ok "$retracted_report"; else
+  while IFS= read -r line; do note "$line"; done <<< "$retracted_report"
+fi
+
+
 echo
 [ "$fail" -eq 0 ] && echo "consistency: clean" || echo "consistency: $fail problem(s)"
 [ "$fail" -eq 0 ]

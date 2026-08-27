@@ -92,10 +92,14 @@ Concretely, and enforced by the schemas rather than by good intentions:
 
 *Rationale: −140 dB(W/m²) means nothing until you know whether it is in 4 kHz or 1 MHz.
 10 W/m² means nothing until you know whether it is averaged over 6 minutes or 30, and
-over 1 cm² or 30. "70% efficient" means nothing until you know which two points. Every
-one of these has already caused public confusion in this field: two demonstrations
-currently quote efficiencies that cannot be compared because neither names its
-endpoints. A schema that accepts a bare number invites the ambiguity.*
+over 1 cm² or 30. "70% efficient" means nothing until you know which two points. A schema
+that accepts a bare number invites the ambiguity.*
+
+*[R-C-010] is known to be the wrong shape and is being rewritten for 0.2. Naming two
+endpoints is a weaker form of requiring the stage decomposition already published in the
+literature, which the specification should profile rather than reinvent — see
+`OBJECTIONS.md` O-10 and `DISPOSITIONS.md` C-1. It is left in force here because a weak
+requirement is better than none while the replacement is written.*
 
 ## 2.6 Provenance
 

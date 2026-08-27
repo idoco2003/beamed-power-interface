@@ -100,11 +100,31 @@ both parties.
 **[R-M-023]** `efficiency` SHALL name both endpoints and the path length, per [R-C-010].
 A bare efficiency figure is invalid.
 
-*This last one is worth a sentence of motivation. Two public demonstrations currently
-quote "20.8% DC-to-DC over 100 m" and "≥70% end-to-end". Those are not the same
-measurement and cannot be compared, and there is at present no convention that would
-make them comparable. Requiring both endpoints is a small thing a specification can fix
-that no amount of further demonstration will.*
+*The motivation this rule used to carry was wrong, and the correction is more useful than
+the original.* An earlier draft set Xidian's 20.8% DC-to-DC at 100 m against Virtus
+Solis's ARPA-E target of ≥70% "source to delivered DC" at 200 m and called them
+incomparable. The first external comment this specification received pointed out that if
+"source to delivered DC" means DC in to DC out, those are the **same measurement class**,
+and DOE's description of the target as roughly a 4× improvement on the best DC-to-DC
+systems to date is internally consistent. That comment was correct. See
+`DISPOSITIONS.md` C-1.
+
+What survives the correction is narrower and is the actual reason this requirement
+exists. Those two results were obtained with a 4 m transmitter into a 4 m receiver at
+200 m, and a 1.2 m transmitter into a 5.2 m rectenna at 100 m. Beam coupling depends on
+the aperture-range product, so **two figures of the same measurement class still do not
+separate component efficiency from coupling geometry**. Naming the endpoints and the path
+length is a partial answer to that and is in force today.
+
+*It is not the right answer.* The literature already carries a subsystem decomposition
+whose stage efficiencies multiply to the total, published expressly to establish a common
+nomenclature for assessing power beaming systems — *Power Beaming: History, Theory, and
+Practice* (Jaffe, Nugent, Strassner II and Szazynski, World Scientific, 2024). Under a
+decomposition, coupling is one stage, so declaring the chain declares the geometry's
+effect without a separate rule about apertures. **[R-M-023] and [R-C-010] will be
+rewritten for 0.2 to profile that method rather than to invent a parallel one**, and are
+deliberately not being rewritten from a summary: this project does not carry a method it
+has not read. Recorded as `OBJECTIONS.md` O-10.
 
 ## 6.4 Non-delivery attribution
 

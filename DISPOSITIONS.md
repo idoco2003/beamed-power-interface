@@ -53,6 +53,14 @@ the highest-efficiency DC-to-DC systems to date" is internally consistent rather
 category error. An earlier draft of this file and of the outreach around it asserted
 the opposite. That assertion was wrong.
 
+**Retraction completed 2026-08-27, three days late.** The withdrawal was written into
+`gap-analysis.md` on 2026-08-24 and the same argument went on standing in the
+**normative** text of `spec/02-conventions.md` §2.5 and `spec/06-metering.md` §6.3 until
+found by a repo-wide search. Filing a retraction where the error was noticed is not
+retracting it. `tools/retracted.json` is now a register of withdrawn claims, checked by
+`tools/check-consistency.sh` against every tracked file, and it fails the build on
+reappearance outside the files allowed to quote a claim while correcting it.
+
 **Resolved 2026-08-24, by the same commenter.** The methodology already exists in the
 literature: *Power Beaming: History, Theory, and Practice* (Jaffe, Nugent, Strassner II
 and Szazynski, World Scientific, 2024, ISBN 9789811243103), which sets out a subsystem

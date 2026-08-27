@@ -1,0 +1,22 @@
+{
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
+  "about": "Claims this project has publicly withdrawn. tools/check-consistency.sh fails the build if one reappears outside the files that are allowed to quote it while retracting it. A retraction that lives only in the file where the error was first noticed is not a retraction.",
+  "retracted": [
+    {
+      "id": "C-1",
+      "withdrawnOn": "2026-08-24",
+      "claim": "That Xidian's 20.8% DC-to-DC and Virtus Solis's >=70% source-to-delivered-DC figures are different measurement classes and cannot be compared.",
+      "why": "They are the same measurement class if 'source to delivered DC' means DC in to DC out. The first external commenter established this and was right. What survives is that neither figure separates component efficiency from coupling geometry.",
+      "phrases": [
+        "cannot be compared",
+        "not the same measurement"
+      ],
+      "allowedIn": [
+        "DISPOSITIONS.md",
+        "gap-analysis.md",
+        "spec/06-metering.md",
+        "tools/retracted.json"
+      ]
+    }
+  ]
+}
