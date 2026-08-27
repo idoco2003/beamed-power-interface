@@ -1,0 +1,505 @@
+{
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
+  "bpiVersion": "0.1.0-draft",
+  "about": "Token-chain conformance vectors. Each states the expected verdict AND the acceptable reasons: an implementation that rejects everything passes the weaker test and fails this one. Where an input is invalid on more than one axis, `reasons` lists every reason a conformant verifier might legitimately report, because the specification does not fix a validation order.",
+  "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAmc2IALiW5BV3rzOWiFxT+/9jWZqb6v4iR8YDmTUbCrc=\n-----END PUBLIC KEY-----",
+  "keyId": "test-key-2026-08",
+  "note": "The private key is published in conformance/keys/ on purpose, so these vectors can be regenerated rather than only verified. See that directory README.",
+  "count": 10,
+  "vectors": [
+    {
+      "id": "V-001",
+      "requirement": "R-S-001",
+      "note": "A well-formed first token in a session.",
+      "token": {
+        "bpiVersion": "0.1.0-draft",
+        "msgType": "EnableToken",
+        "msgId": "tok-s-vectors-0",
+        "issuedAt": "2026-08-22T06:12:00.000Z",
+        "issuer": {
+          "org": "Reference Receiving Segment",
+          "role": "RECEIVING"
+        },
+        "tokenId": "tok-0",
+        "sessionId": "s-vectors",
+        "seq": 0,
+        "prevHash": null,
+        "notAfter": "2026-08-22T06:12:05.000Z",
+        "maxPower_kW": 95000,
+        "aimPoint": {
+          "latDeg": 67.8833,
+          "lonDeg": 21.0667,
+          "height_m": 341,
+          "heightRef": "orthometric",
+          "geoidModel": "EGM2008"
+        },
+        "issuerKeyId": "test-key-2026-08",
+        "sig": {
+          "alg": "EdDSA",
+          "keyId": "test-key-2026-08",
+          "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..7b8SNfQ08QCCJdsIrcbGnGFgih4Pz7X3zE8Juwpjcq5NENwBQ7P4QOxy8SESx47YQpJDbipQjLY3L0tZ4ZHXDQ"
+        }
+      },
+      "context": {
+        "sessionId": "s-vectors",
+        "heldToken": null,
+        "nowMs": 1787379120000,
+        "monotonicMs": 0,
+        "lastAcceptedMonotonicMs": null,
+        "tokenLifetimeS": 5
+      },
+      "expect": {
+        "accept": true,
+        "reasons": [
+          "valid"
+        ]
+      }
+    },
+    {
+      "id": "V-002",
+      "requirement": "R-S-020",
+      "note": "The second token, chaining correctly to the first.",
+      "token": {
+        "bpiVersion": "0.1.0-draft",
+        "msgType": "EnableToken",
+        "msgId": "tok-s-vectors-1",
+        "issuedAt": "2026-08-22T06:12:00.000Z",
+        "issuer": {
+          "org": "Reference Receiving Segment",
+          "role": "RECEIVING"
+        },
+        "tokenId": "tok-1",
+        "sessionId": "s-vectors",
+        "seq": 1,
+        "prevHash": "sha256:02ec0ab178a89329caa4a56e10105aa9ee4b258f77a48a544a7e607b17610373",
+        "notAfter": "2026-08-22T06:12:05.000Z",
+        "maxPower_kW": 95000,
+        "aimPoint": {
+          "latDeg": 67.8833,
+          "lonDeg": 21.0667,
+          "height_m": 341,
+          "heightRef": "orthometric",
+          "geoidModel": "EGM2008"
+        },
+        "issuerKeyId": "test-key-2026-08",
+        "sig": {
+          "alg": "EdDSA",
+          "keyId": "test-key-2026-08",
+          "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..fx6ErVrz1GrsTMrJuTUuxf9ni-O7-dTRC2FGGrCWF29llIJ_QJbiJdF7wXXkjA3XEVcj8QtMBUiZ7eXAz8jMCw"
+        }
+      },
+      "context": {
+        "sessionId": "s-vectors",
+        "heldToken": {
+          "seq": 0,
+          "hash": "sha256:02ec0ab178a89329caa4a56e10105aa9ee4b258f77a48a544a7e607b17610373"
+        },
+        "nowMs": 1787379120000,
+        "monotonicMs": 0,
+        "lastAcceptedMonotonicMs": null,
+        "tokenLifetimeS": 5
+      },
+      "expect": {
+        "accept": true,
+        "reasons": [
+          "valid"
+        ]
+      }
+    },
+    {
+      "id": "V-003",
+      "requirement": "R-S-020",
+      "note": "A replay of an already-accepted token.",
+      "token": {
+        "bpiVersion": "0.1.0-draft",
+        "msgType": "EnableToken",
+        "msgId": "tok-s-vectors-0",
+        "issuedAt": "2026-08-22T06:12:00.000Z",
+        "issuer": {
+          "org": "Reference Receiving Segment",
+          "role": "RECEIVING"
+        },
+        "tokenId": "tok-0",
+        "sessionId": "s-vectors",
+        "seq": 0,
+        "prevHash": null,
+        "notAfter": "2026-08-22T06:12:05.000Z",
+        "maxPower_kW": 95000,
+        "aimPoint": {
+          "latDeg": 67.8833,
+          "lonDeg": 21.0667,
+          "height_m": 341,
+          "heightRef": "orthometric",
+          "geoidModel": "EGM2008"
+        },
+        "issuerKeyId": "test-key-2026-08",
+        "sig": {
+          "alg": "EdDSA",
+          "keyId": "test-key-2026-08",
+          "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..7b8SNfQ08QCCJdsIrcbGnGFgih4Pz7X3zE8Juwpjcq5NENwBQ7P4QOxy8SESx47YQpJDbipQjLY3L0tZ4ZHXDQ"
+        }
+      },
+      "context": {
+        "sessionId": "s-vectors",
+        "heldToken": {
+          "seq": 0,
+          "hash": "sha256:02ec0ab178a89329caa4a56e10105aa9ee4b258f77a48a544a7e607b17610373"
+        },
+        "nowMs": 1787379120000,
+        "monotonicMs": 0,
+        "lastAcceptedMonotonicMs": null,
+        "tokenLifetimeS": 5
+      },
+      "expect": {
+        "accept": false,
+        "reasons": [
+          "seq gap: expected 1, got 0"
+        ]
+      }
+    },
+    {
+      "id": "V-004",
+      "requirement": "R-S-020",
+      "note": "A gap in the chain: seq 2 offered while seq 0 is held.",
+      "token": {
+        "bpiVersion": "0.1.0-draft",
+        "msgType": "EnableToken",
+        "msgId": "tok-s-vectors-2",
+        "issuedAt": "2026-08-22T06:12:00.000Z",
+        "issuer": {
+          "org": "Reference Receiving Segment",
+          "role": "RECEIVING"
+        },
+        "tokenId": "tok-2",
+        "sessionId": "s-vectors",
+        "seq": 2,
+        "prevHash": "sha256:1458c02ad6f5ddb800164f6b9c2e4b4a81bfd612c194da8aa95b7c8a32d05ca5",
+        "notAfter": "2026-08-22T06:12:05.000Z",
+        "maxPower_kW": 95000,
+        "aimPoint": {
+          "latDeg": 67.8833,
+          "lonDeg": 21.0667,
+          "height_m": 341,
+          "heightRef": "orthometric",
+          "geoidModel": "EGM2008"
+        },
+        "issuerKeyId": "test-key-2026-08",
+        "sig": {
+          "alg": "EdDSA",
+          "keyId": "test-key-2026-08",
+          "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..PLx40WHVCGTNMmW6EHBwtdFchkjCrXd5ieaIvpKoo85CVsnfGdv0HUmjZUAottb3eoDh4tmzlWnQwgF1kzWmDw"
+        }
+      },
+      "context": {
+        "sessionId": "s-vectors",
+        "heldToken": {
+          "seq": 0,
+          "hash": "sha256:02ec0ab178a89329caa4a56e10105aa9ee4b258f77a48a544a7e607b17610373"
+        },
+        "nowMs": 1787379120000,
+        "monotonicMs": 0,
+        "lastAcceptedMonotonicMs": null,
+        "tokenLifetimeS": 5
+      },
+      "expect": {
+        "accept": false,
+        "reasons": [
+          "seq gap: expected 1, got 2"
+        ]
+      }
+    },
+    {
+      "id": "V-005",
+      "requirement": "R-S-020",
+      "note": "Correct seq, wrong prevHash. Invalid on two axes: the chain no longer matches, and editing prevHash also broke the signature. Either reason is conformant.",
+      "token": {
+        "bpiVersion": "0.1.0-draft",
+        "msgType": "EnableToken",
+        "msgId": "tok-s-vectors-1",
+        "issuedAt": "2026-08-22T06:12:00.000Z",
+        "issuer": {
+          "org": "Reference Receiving Segment",
+          "role": "RECEIVING"
+        },
+        "tokenId": "tok-1",
+        "sessionId": "s-vectors",
+        "seq": 1,
+        "prevHash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "notAfter": "2026-08-22T06:12:05.000Z",
+        "maxPower_kW": 95000,
+        "aimPoint": {
+          "latDeg": 67.8833,
+          "lonDeg": 21.0667,
+          "height_m": 341,
+          "heightRef": "orthometric",
+          "geoidModel": "EGM2008"
+        },
+        "issuerKeyId": "test-key-2026-08",
+        "sig": {
+          "alg": "EdDSA",
+          "keyId": "test-key-2026-08",
+          "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..fx6ErVrz1GrsTMrJuTUuxf9ni-O7-dTRC2FGGrCWF29llIJ_QJbiJdF7wXXkjA3XEVcj8QtMBUiZ7eXAz8jMCw"
+        }
+      },
+      "context": {
+        "sessionId": "s-vectors",
+        "heldToken": {
+          "seq": 0,
+          "hash": "sha256:02ec0ab178a89329caa4a56e10105aa9ee4b258f77a48a544a7e607b17610373"
+        },
+        "nowMs": 1787379120000,
+        "monotonicMs": 0,
+        "lastAcceptedMonotonicMs": null,
+        "tokenLifetimeS": 5
+      },
+      "expect": {
+        "accept": false,
+        "reasons": [
+          "prevHash does not match the held token",
+          "signature does not verify"
+        ]
+      }
+    },
+    {
+      "id": "V-006",
+      "requirement": "R-C-015",
+      "note": "A token whose payload was edited after signing.",
+      "token": {
+        "bpiVersion": "0.1.0-draft",
+        "msgType": "EnableToken",
+        "msgId": "tok-s-vectors-0",
+        "issuedAt": "2026-08-22T06:12:00.000Z",
+        "issuer": {
+          "org": "Reference Receiving Segment",
+          "role": "RECEIVING"
+        },
+        "tokenId": "tok-0",
+        "sessionId": "s-vectors",
+        "seq": 0,
+        "prevHash": null,
+        "notAfter": "2026-08-22T06:12:05.000Z",
+        "maxPower_kW": 999999,
+        "aimPoint": {
+          "latDeg": 67.8833,
+          "lonDeg": 21.0667,
+          "height_m": 341,
+          "heightRef": "orthometric",
+          "geoidModel": "EGM2008"
+        },
+        "issuerKeyId": "test-key-2026-08",
+        "sig": {
+          "alg": "EdDSA",
+          "keyId": "test-key-2026-08",
+          "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..7b8SNfQ08QCCJdsIrcbGnGFgih4Pz7X3zE8Juwpjcq5NENwBQ7P4QOxy8SESx47YQpJDbipQjLY3L0tZ4ZHXDQ"
+        }
+      },
+      "context": {
+        "sessionId": "s-vectors",
+        "heldToken": null,
+        "nowMs": 1787379120000,
+        "monotonicMs": 0,
+        "lastAcceptedMonotonicMs": null,
+        "tokenLifetimeS": 5
+      },
+      "expect": {
+        "accept": false,
+        "reasons": [
+          "signature does not verify"
+        ]
+      }
+    },
+    {
+      "id": "V-007",
+      "requirement": "R-C-015",
+      "note": "A token whose sig.keyId no longer matches its protected header.",
+      "token": {
+        "bpiVersion": "0.1.0-draft",
+        "msgType": "EnableToken",
+        "msgId": "tok-s-vectors-0",
+        "issuedAt": "2026-08-22T06:12:00.000Z",
+        "issuer": {
+          "org": "Reference Receiving Segment",
+          "role": "RECEIVING"
+        },
+        "tokenId": "tok-0",
+        "sessionId": "s-vectors",
+        "seq": 0,
+        "prevHash": null,
+        "notAfter": "2026-08-22T06:12:05.000Z",
+        "maxPower_kW": 95000,
+        "aimPoint": {
+          "latDeg": 67.8833,
+          "lonDeg": 21.0667,
+          "height_m": 341,
+          "heightRef": "orthometric",
+          "geoidModel": "EGM2008"
+        },
+        "issuerKeyId": "test-key-2026-08",
+        "sig": {
+          "alg": "EdDSA",
+          "keyId": "other-key",
+          "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..7b8SNfQ08QCCJdsIrcbGnGFgih4Pz7X3zE8Juwpjcq5NENwBQ7P4QOxy8SESx47YQpJDbipQjLY3L0tZ4ZHXDQ"
+        }
+      },
+      "context": {
+        "sessionId": "s-vectors",
+        "heldToken": null,
+        "nowMs": 1787379120000,
+        "monotonicMs": 0,
+        "lastAcceptedMonotonicMs": null,
+        "tokenLifetimeS": 5
+      },
+      "expect": {
+        "accept": false,
+        "reasons": [
+          "protected kid does not match sig.keyId"
+        ]
+      }
+    },
+    {
+      "id": "V-008",
+      "requirement": "R-S-001",
+      "note": "A token for a different session.",
+      "token": {
+        "bpiVersion": "0.1.0-draft",
+        "msgType": "EnableToken",
+        "msgId": "tok-s-vectors-0",
+        "issuedAt": "2026-08-22T06:12:00.000Z",
+        "issuer": {
+          "org": "Reference Receiving Segment",
+          "role": "RECEIVING"
+        },
+        "tokenId": "tok-0",
+        "sessionId": "someone-elses-session",
+        "seq": 0,
+        "prevHash": null,
+        "notAfter": "2026-08-22T06:12:05.000Z",
+        "maxPower_kW": 95000,
+        "aimPoint": {
+          "latDeg": 67.8833,
+          "lonDeg": 21.0667,
+          "height_m": 341,
+          "heightRef": "orthometric",
+          "geoidModel": "EGM2008"
+        },
+        "issuerKeyId": "test-key-2026-08",
+        "sig": {
+          "alg": "EdDSA",
+          "keyId": "test-key-2026-08",
+          "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..7b8SNfQ08QCCJdsIrcbGnGFgih4Pz7X3zE8Juwpjcq5NENwBQ7P4QOxy8SESx47YQpJDbipQjLY3L0tZ4ZHXDQ"
+        }
+      },
+      "context": {
+        "sessionId": "s-vectors",
+        "heldToken": null,
+        "nowMs": 1787379120000,
+        "monotonicMs": 0,
+        "lastAcceptedMonotonicMs": null,
+        "tokenLifetimeS": 5
+      },
+      "expect": {
+        "accept": false,
+        "reasons": [
+          "wrong session"
+        ]
+      }
+    },
+    {
+      "id": "V-009",
+      "requirement": "R-S-020",
+      "note": "A first token that claims a predecessor. Invalid on two axes, as V-005.",
+      "token": {
+        "bpiVersion": "0.1.0-draft",
+        "msgType": "EnableToken",
+        "msgId": "tok-s-vectors-0",
+        "issuedAt": "2026-08-22T06:12:00.000Z",
+        "issuer": {
+          "org": "Reference Receiving Segment",
+          "role": "RECEIVING"
+        },
+        "tokenId": "tok-0",
+        "sessionId": "s-vectors",
+        "seq": 0,
+        "prevHash": "sha256:abababababababababababababababababababababababababababababababab",
+        "notAfter": "2026-08-22T06:12:05.000Z",
+        "maxPower_kW": 95000,
+        "aimPoint": {
+          "latDeg": 67.8833,
+          "lonDeg": 21.0667,
+          "height_m": 341,
+          "heightRef": "orthometric",
+          "geoidModel": "EGM2008"
+        },
+        "issuerKeyId": "test-key-2026-08",
+        "sig": {
+          "alg": "EdDSA",
+          "keyId": "test-key-2026-08",
+          "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..7b8SNfQ08QCCJdsIrcbGnGFgih4Pz7X3zE8Juwpjcq5NENwBQ7P4QOxy8SESx47YQpJDbipQjLY3L0tZ4ZHXDQ"
+        }
+      },
+      "context": {
+        "sessionId": "s-vectors",
+        "heldToken": null,
+        "nowMs": 1787379120000,
+        "monotonicMs": 0,
+        "lastAcceptedMonotonicMs": null,
+        "tokenLifetimeS": 5
+      },
+      "expect": {
+        "accept": false,
+        "reasons": [
+          "first token must be seq 0 with a null prevHash",
+          "signature does not verify"
+        ]
+      }
+    },
+    {
+      "id": "V-010",
+      "requirement": "R-S-021",
+      "note": "Held token whose notAfter has passed on the wall clock.",
+      "token": {
+        "bpiVersion": "0.1.0-draft",
+        "msgType": "EnableToken",
+        "msgId": "tok-s-vectors-0",
+        "issuedAt": "2026-08-22T06:12:00.000Z",
+        "issuer": {
+          "org": "Reference Receiving Segment",
+          "role": "RECEIVING"
+        },
+        "tokenId": "tok-0",
+        "sessionId": "s-vectors",
+        "seq": 0,
+        "prevHash": null,
+        "notAfter": "2026-08-22T06:12:05.000Z",
+        "maxPower_kW": 95000,
+        "aimPoint": {
+          "latDeg": 67.8833,
+          "lonDeg": 21.0667,
+          "height_m": 341,
+          "heightRef": "orthometric",
+          "geoidModel": "EGM2008"
+        },
+        "issuerKeyId": "test-key-2026-08",
+        "sig": {
+          "alg": "EdDSA",
+          "keyId": "test-key-2026-08",
+          "value": "eyJhbGciOiJFZERTQSIsImtpZCI6InRlc3Qta2V5LTIwMjYtMDgifQ..7b8SNfQ08QCCJdsIrcbGnGFgih4Pz7X3zE8Juwpjcq5NENwBQ7P4QOxy8SESx47YQpJDbipQjLY3L0tZ4ZHXDQ"
+        }
+      },
+      "context": {
+        "sessionId": "s-vectors",
+        "heldToken": null,
+        "nowMs": 1787379125001,
+        "monotonicMs": 5001,
+        "lastAcceptedMonotonicMs": null,
+        "tokenLifetimeS": 5
+      },
+      "expect": {
+        "accept": false,
+        "reasons": [
+          "expired: notAfter has passed"
+        ]
+      }
+    }
+  ]
+}

@@ -30,6 +30,13 @@ implementation expressible rather than forcing a binary claim.
 
 **Status: open. Closes only when a second independent implementation exists.**
 
+*Updated 2026-08-27.* A reference implementation of the interlock now exists
+(`reference/`), along with signed conformance vectors in `conformance/vectors/`. **That
+does not narrow this objection**, because the reference implementation is the author's
+too. What changed is that a second implementer can now check their work against this
+specification without talking to us, so the thing that would close this objection got
+cheaper for someone else to do.
+
 ---
 
 ## O-2 · The numbers are invented

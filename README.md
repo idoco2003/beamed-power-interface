@@ -106,6 +106,17 @@ that *cannot* be is a dead end for tooling and a small lie to a reader.
 Internal `$ref`s are relative, so a copy of `schemas/0.1/` validates offline with no
 network access at all.
 
+## For implementers
+
+[`conformance/vectors/`](conformance/vectors/) carries signed token-chain vectors. Each
+states the expected verdict and every reason a conformant verifier might legitimately
+give, so you can check your implementation against this specification without talking to
+anyone. The signing key is published in [`conformance/keys/`](conformance/keys/) on
+purpose, so the vectors can be regenerated rather than only verified.
+
+[`reference/`](reference/) is the interlock as executable code. It is the author's, so it
+is not an independent implementation and does not close `OBJECTIONS.md` O-1.
+
 ## Validating the schemas
 
 ```sh
