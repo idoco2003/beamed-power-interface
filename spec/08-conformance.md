@@ -83,7 +83,7 @@ be theatre.
 
 | Implementation | Claim | Claim document |
 |---|---|---|
-| BeamDesk | `BPI/0.1 · BROKER · L1 · no-annex` | [bpi-conformance.json](https://github.com/idoco2003/BeamDesk/blob/master/bpi-conformance.json) |
+| BeamDesk | `BPI/0.1 · BROKER · L1 · no-annex` | [bpi-conformance.json](https://github.com/BeamDesk/BeamDesk/blob/master/bpi-conformance.json) |
 
 BeamDesk is the specification's author and its only implementation, which is the
 weakness `OBJECTIONS.md` §O-1 exists to state. Its claim answers 35 of 111 requirements

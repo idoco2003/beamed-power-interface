@@ -79,6 +79,18 @@ Edited by Ido Yahalomi. Drafted with substantial assistance from Claude (Anthrop
 There is no consortium, no working group and no member list; inventing one would be the
 first dishonest thing in the document.
 
+**On the GitHub organisation.** This repository sits under an organisation named
+BeamDesk. That is the authors' own account, not a standards body, not a consortium and
+not a membership organisation, and its name should not be read as an endorsement by
+anything. BeamDesk is also the name of the console that is this specification's only
+implementation, which makes the arrangement exactly as circular as it looks: the author
+of the specification, the author of the sole implementation and the owner of the
+repository are the same people. An organisation account is a place to keep repositories
+and nothing more.
+
+The specification would be better off owned by a body with a membership and a voting
+rule. It is not, and the offer above stands.
+
 ## Comment period
 
 The RFC period for 0.1 closes **2026-11-30**. Every substantive comment received will be

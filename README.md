@@ -73,7 +73,7 @@ DISPOSITIONS.md  what we did about every comment received
 Schemas are identified and served under:
 
 ```
-https://idoco2003.github.io/beamed-power-interface/schemas/0.1/<name>.schema.json
+https://beamdesk.github.io/beamed-power-interface/schemas/0.1/<name>.schema.json
 ```
 
 Earlier drafts used `https://bpi.spec/…`, which was a mistake: **`.spec` is not in the

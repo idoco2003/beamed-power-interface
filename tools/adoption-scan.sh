@@ -23,7 +23,7 @@
 set -uo pipefail
 cd "$(dirname "$0")/.."
 
-REPO="idoco2003/beamed-power-interface"
+REPO="BeamDesk/beamed-power-interface"
 DAY="${1:-$(date +%F)}"
 OUT="adoption/digests/${DAY}.md"
 
@@ -39,8 +39,17 @@ clones=$(j "repos/$REPO/traffic/clones" '.count')
 cuniq=$(j "repos/$REPO/traffic/clones" '.uniques')
 
 # Issues and PRs NOT opened by the repository owner. Ours do not count.
+# "External" means not us, and "us" is now an organisation rather than one account.
+# Members are fetched rather than hardcoded so that adding a maintainer cannot silently
+# turn their issues into evidence of outside interest.
+members=$(api "orgs/BeamDesk/members?per_page=100" \
+  | python3 -c "import json,sys;print(','.join(m['login'] for m in json.load(sys.stdin)))" 2>/dev/null || echo "")
 ext_issues=$(api "repos/$REPO/issues?state=all&per_page=100" \
-  | python3 -c "import json,sys;d=json.load(sys.stdin);print(sum(1 for i in d if i.get('user',{}).get('login')!='idoco2003'))" 2>/dev/null || echo 0)
+  | MEMBERS="$members" python3 -c "
+import json,os,sys
+ours = set(filter(None, os.environ.get('MEMBERS','').split(',')))
+d = json.load(sys.stdin)
+print(sum(1 for i in d if i.get('user',{}).get('login') not in ours))" 2>/dev/null || echo 0)
 
 # Forks that actually diverged. A fork with no commits ahead is a bookmark.
 active_forks=$(api "repos/$REPO/forks?per_page=100" \

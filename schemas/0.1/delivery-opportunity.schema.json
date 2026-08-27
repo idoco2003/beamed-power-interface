@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://idoco2003.github.io/beamed-power-interface/schemas/0.1/DeliveryOpportunity.schema.json",
+  "$id": "https://beamdesk.github.io/beamed-power-interface/schemas/0.1/DeliveryOpportunity.schema.json",
   "$comment": "SPDX-License-Identifier: Apache-2.0",
   "title": "DeliveryOpportunity",
   "description": "[R-C-033] Offers, never commitments. Profiles the CCSDS 902.1 information model; not schema-validated against it.",
