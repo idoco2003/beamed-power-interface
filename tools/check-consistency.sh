@@ -114,6 +114,24 @@ if [ $? -eq 0 ]; then ok "$retracted_report"; else
 fi
 
 
+# 8. The gap analysis has not quietly expired.
+#
+#    gap-analysis.md's own header says a row older than 90 days should be treated
+#    as unverified. Nothing enforced that, so the file could go on presenting
+#    itself as a survey while being a set of assertions about August. Warns at 60
+#    days so an expiry arrives with notice rather than on the day.
+if out=$(node tools/gap-staleness.mjs); then
+  ok "gap analysis: $(printf '%s' "$out" | tail -n 1 | sed 's/^ *//')"
+  # sed rather than head -n -1, which BSD head does not have.
+  warns=$(printf '%s\n' "$out" | sed '$d')
+  [ -n "$warns" ] && printf '%s\n' "$warns"
+else
+  while IFS= read -r line; do
+    printf '%s' "$line" | grep -qE 'checked [0-9]{4}-|no parseable checkedOn' && note "$(printf '%s' "$line" | sed 's/^ *//')" || printf '%s\n' "$line"
+  done <<< "$out"
+fi
+
+
 echo
 [ "$fail" -eq 0 ] && echo "consistency: clean" || echo "consistency: $fail problem(s)"
 [ "$fail" -eq 0 ]

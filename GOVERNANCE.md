@@ -126,6 +126,21 @@ meaning, or withdrawn.
 asking implementers to diff prose. The requirement diff is the technical analogue of a
 published redline on a contract, and exists for the same reason.*
 
+*How [G-1] is met, and the one part a tool cannot do.* `tools/gen-requirement-diff.mjs`
+computes the diff against the `v0.1.0-draft` tag on **every build**, not at release, and
+publishes `conformance/requirement-diff.json` and `.md`. Added and withdrawn identifiers
+are computable. **Changed in meaning is not** — a tool can see that a requirement's text
+differs, not whether the difference obliges an implementer to do something new. That
+judgement is the editor's, recorded once in `tools/requirement-diff-notes.json` with a
+reason, and the build **fails while any text change is unclassified**. Classifications are
+keyed by the text on each side rather than by revision, so a judgement made while drafting
+is not asked again at release under a different name.
+
+Running it every build is deliberate. Classifying two changed requirements today is a few
+minutes; classifying forty on the morning you promised to publish is how an announced date
+slips, and doing process visibly on the date announced is most of what a governance
+document is worth.
+
 ## Requirement identifiers
 
 Identifiers are permanent. A withdrawn requirement keeps its number, marked withdrawn;

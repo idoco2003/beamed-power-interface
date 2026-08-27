@@ -1,0 +1,18 @@
+{
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
+  "about": "Whether a requirement's changed text changes what an implementer must DO. A tool cannot decide this, so the editor does, once, in writing. Keys are the requirement id and a hash of the text on each side, so a judgement made while drafting survives being re-run at release time against a tag.",
+  "baseline": {
+    "ref": "v0.1.0-draft",
+    "why": "The published release. Every diff is against this until 0.2 ships and becomes the new baseline."
+  },
+  "classifications": {
+    "R-A-002@c3d8b5dea7dc->6616fa3df605": {
+      "change": "normative",
+      "why": "Added an obligation that did not exist. The original said only when rowRef must be null; the revision also requires it to name the row in every other case. An implementation that emitted null everywhere satisfied the old text and fails the new one."
+    },
+    "R-M-012@f9e12645b8b5->c749bb34ce1b": {
+      "change": "normative",
+      "why": "Two changes, both binding. Class 0,1 S / 0.1 was added to the permitted set, which relaxes the rule; and the record must now carry the standard and edition the class is claimed under, plus the meter serial and calibration date as before, which adds required fields. A conforming 0.1 record can be missing the edition."
+    }
+  }
+}

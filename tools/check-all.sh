@@ -9,6 +9,9 @@ echo; echo "== signatures (RFC 8785 + detached JWS) =="; node tools/verify-signa
 echo; echo "== interlock (BPI-S) =="; node reference/test-interlock.mjs
 echo; echo "== conformance vectors =="; node reference/gen-vectors.mjs
 echo; echo "== executed coverage =="; node tools/gen-coverage.mjs
+# Run every build, not at release. Classifying two text changes today is work;
+# classifying forty on the day you promised to publish is how a date slips.
+echo; echo "== requirement-set diff [G-1] =="; node tools/gen-requirement-diff.mjs v0.1.0-draft
 echo; echo "== schemas and examples =="; ./tools/validate.sh
 echo; echo "== json well-formedness =="
 find schemas profiles examples conformance -name '*.json' -print0 \

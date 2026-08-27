@@ -5,8 +5,11 @@
 Every row is a first-party check against the issuing body's own site. Secondary
 coverage of a specification is a lead, not a finding, and does not appear here.
 
-**Re-check cadence: monthly.** A row whose `checkedOn` is more than 90 days old should
-be treated as unverified. If any row flips — if a body opens a work item covering its
+**Re-check cadence: monthly, and enforced.** A row whose `checkedOn` is more than 90 days
+old should be treated as unverified, and now `tools/check-consistency.sh` fails the build
+rather than leaving that to a reader's arithmetic. It warns from 60 days, so an expiry
+arrives with a month's notice instead of on the day. **The first row expires 2026-11-13**,
+seventeen days before the RFC period closes. If any row flips — if a body opens a work item covering its
 subject — the correct response is to contribute this document there and archive this
 repository, per `spec/00-status.md`.
 
