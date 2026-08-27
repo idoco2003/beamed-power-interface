@@ -8,6 +8,7 @@ echo; echo "== canonicalisation (RFC 8785) =="; node tools/test-jcs.mjs
 echo; echo "== signatures (RFC 8785 + detached JWS) =="; node tools/verify-signatures.mjs
 echo; echo "== interlock (BPI-S) =="; node reference/test-interlock.mjs
 echo; echo "== conformance vectors =="; node reference/gen-vectors.mjs
+echo; echo "== executed coverage =="; node tools/gen-coverage.mjs
 echo; echo "== schemas and examples =="; ./tools/validate.sh
 echo; echo "== json well-formedness =="
 find schemas profiles examples conformance -name '*.json' -print0 \

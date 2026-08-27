@@ -90,6 +90,13 @@ weakness `OBJECTIONS.md` §O-1 exists to state. Its claim answers 35 of 112 requ
 `implemented`, 17 `not-implemented`, 57 `not-applicable` (it never radiates), and 3
 `not-claimed`. It emits five of the thirteen message types, all unsigned.
 
+**The reference implementation is not in this table, and that is a finding rather than an
+oversight.** `reference/` in this repository executes eleven BPI-S requirements, but every
+role in §8.1 is defined by a physical act and it performs none of them, so no claim it
+could publish would be true. It publishes `reference/COVERAGE.md` instead, which asserts
+only that certain requirements have been executed. That the taxonomy has no honest slot
+for a simulator is recorded as `DISPOSITIONS.md` F-8 and is open for 0.2.
+
 Anyone may add a row by pull request. There is no gatekeeping and no review beyond
 checking the linked claim document parses and enumerates the right identifier set. A
 claim in this table is the claimant's assertion, not this project's endorsement.
