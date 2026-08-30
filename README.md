@@ -141,6 +141,33 @@ your conformance claim before you open a pull request against §8.4.
 [`reference/`](reference/) is the interlock as executable code. It is the author's, so it
 is not an independent implementation and does not close `OBJECTIONS.md` O-1.
 
+### You owe us nothing, and we would still like to know
+
+**Implementing this specification requires no permission and no licence.** Copyright
+covers a specification's text, not its ideas, and `IPR.md` `[IPR-5]` already grants a
+royalty-free, irrevocable patent licence to anyone implementing it. You can build a
+conformant system, sell it, and never mention this project. That is the outcome the
+licensing was chosen to allow, and asking you to notify anyone would have made it a
+different and worse licence.
+
+So this is a request and explicitly **not a condition**:
+
+- **Say you exist** — a post in
+  [Implementers](https://github.com/BeamDesk/beamed-power-interface/discussions/categories/implementers),
+  or an issue, or a one-line email. Even "we read it and went another way" is useful.
+- **Publish a conformance claim** — copy
+  [`conformance/claim-template.json`](conformance/claim-template.json), run
+  `node tools/bpi-validate.mjs claim yours.json`, host it somewhere **publicly readable**
+  (the author's own claim failed that test on 2026-08-30 by living in a private
+  repository), and open a pull request adding a row to §8.4. No gatekeeping, no review
+  beyond checking it parses and enumerates the right identifiers.
+- **Tell us what broke** — a specification with one implementation has never been shown to
+  be interoperable with anything, which is `OBJECTIONS.md` O-1 and the objection everything
+  else waits on. You are the only person who can close it.
+
+Nothing here is tracked, enforced, or checked. The only reason to do any of it is that a
+document nobody has ever contradicted is not the same as a document nobody can contradict.
+
 ## Citing this
 
 `CITATION.cff` carries the citation metadata and GitHub renders a **Cite this repository**
