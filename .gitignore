@@ -1,2 +1,5 @@
 node_modules/
 .DS_Store
+
+# C++ SDK build output. The sources are tracked; the binaries are not.
+sdk/cpp/build/

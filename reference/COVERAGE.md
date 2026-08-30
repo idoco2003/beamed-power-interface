@@ -9,6 +9,14 @@ Before the reference implementation existed the figure for BPI-S, BPI-RF and BPI
 
 By part: BPI-C 2 · BPI-S 11.
 
+**Two implementations, and the number did not move.** The C++ SDK in `sdk/cpp/`
+executes 7 of these 13 requirements, and every one of them was already
+executed by the JavaScript reference. That is the honest result and it is worth stating
+plainly: a second implementation in a second language does not broaden coverage, it raises
+confidence in the coverage already claimed. What it tests is whether the specification says
+the same thing to two readers — different JSON parser, different crypto library, different
+number formatting — which is where interoperability actually fails.
+
 ## What this table is not
 
 Executed is not conformant. These assertions are the author's own, run against the
@@ -23,15 +31,15 @@ executed without hardware.
 | Requirement | Assertions | Text |
 |---|---|---|
 | `R-C-015` | 2 |  |
-| `R-C-022` | 1 |  |
+| `R-C-022` | 4 |  |
 | `R-S-001` | 3 |  |
 | `R-S-002` | 1 |  |
 | `R-S-011` | 1 |  |
 | `R-S-020` | 5 |  |
 | `R-S-021` | 2 |  |
 | `R-S-022` | 1 |  |
-| `R-S-024` | 1 |  |
-| `R-S-033` | 2 |  |
+| `R-S-024` | 3 |  |
+| `R-S-033` | 4 |  |
 | `R-S-043` | 1 |  |
 | `R-S-053` | 1 |  |
 | `R-S-061` | 1 |  |

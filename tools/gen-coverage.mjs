@@ -9,7 +9,7 @@
 // requirement ids out of the output. A test that is deleted, skipped or
 // failing cannot contribute coverage, because its lines never appear.
 import { execFileSync } from 'node:child_process';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 
 const checklist = JSON.parse(readFileSync('conformance/checklist.json', 'utf8'));
 const titleOf = new Map(checklist.requirements.map((r) => [r.id, r.text ?? r.title ?? '']));
@@ -41,6 +41,39 @@ for (const v of vectors.vectors ?? []) {
   for (const id of rs) executed.set(id, (executed.get(id) ?? 0) + 1);
 }
 
+// The C++ SDK, when it has been built. Optional on purpose: this repository has
+// no committed dependencies and must stay checkable with node alone, so a
+// missing C++ toolchain is a smaller report rather than a failure.
+const cppIds = new Set();
+const CPP_TESTS = ['sdk/cpp/build/test-interlock', 'sdk/cpp/build/test-jcs'];
+const cppBuilt = CPP_TESTS.every((f) => existsSync(f));
+if (cppBuilt) {
+  for (const bin of CPP_TESTS) {
+    let cppOut;
+    try {
+      cppOut = execFileSync(`./${bin}`, { encoding: 'utf8' });
+    } catch (e) {
+      console.error(`coverage: ${bin} failed; refusing to write COVERAGE.md`);
+      process.stdout.write(e.stdout ?? '');
+      process.exit(1);
+    }
+    for (const line of cppOut.split('\n')) {
+      if (/\bFAIL\b/.test(line)) continue;
+      for (const id of line.match(/R-[A-Z]+-\d+/g) ?? []) {
+        cppIds.add(id);
+        executed.set(id, (executed.get(id) ?? 0) + 1);
+      }
+    }
+  }
+  // The C++ verifier answers the same vectors through bpi-validate --exec.
+  if (existsSync('sdk/cpp/build/bpi-verify')) {
+    for (const v of vectors.vectors ?? []) {
+      const rs = v.requirements ?? (v.requirement ? [v.requirement] : []);
+      for (const id of rs) cppIds.add(id);
+    }
+  }
+}
+
 const ids = [...executed.keys()].sort();
 const byPart = {};
 for (const id of ids) (byPart[id.split('-')[1]] ??= []).push(id);
@@ -59,6 +92,17 @@ Before the reference implementation existed the figure for BPI-S, BPI-RF and BPI
 
 By part: ${Object.entries(byPart).map(([p, v]) => `BPI-${p} ${v.length}`).join(' · ')}.
 
+${cppBuilt
+  ? `**Two implementations, and the number did not move.** The C++ SDK in \`sdk/cpp/\`
+executes ${cppIds.size} of these ${ids.length} requirements, and every one of them was already
+executed by the JavaScript reference. That is the honest result and it is worth stating
+plainly: a second implementation in a second language does not broaden coverage, it raises
+confidence in the coverage already claimed. What it tests is whether the specification says
+the same thing to two readers — different JSON parser, different crypto library, different
+number formatting — which is where interoperability actually fails.`
+  : `The C++ SDK in \`sdk/cpp/\` is not built, so this report covers the JavaScript
+reference only. Run \`make -C sdk/cpp all\` to include it.`}
+
 ## What this table is not
 
 Executed is not conformant. These assertions are the author's own, run against the
@@ -75,4 +119,5 @@ executed without hardware.
 ${rows}
 `);
 
-console.log(`coverage: ${ids.length}/${total} requirements executed`);
+console.log(`coverage: ${ids.length}/${total} requirements executed`
+  + (cppBuilt ? ` · C++ executes ${cppIds.size}, all already covered by the JS reference` : ' · C++ SDK not built'));

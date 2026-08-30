@@ -9,6 +9,15 @@ echo; echo "== signatures (RFC 8785 + detached JWS) =="; node tools/verify-signa
 echo; echo "== interlock (BPI-S) =="; node reference/test-interlock.mjs
 echo; echo "== conformance vectors =="; node reference/gen-vectors.mjs
 echo; echo "== conformance runner (bpi-validate) =="; node tools/bpi-validate.mjs vectors
+# Optional: this repository must stay checkable with node alone, so a missing C++
+# toolchain is a smaller report rather than a failed build.
+echo; echo "== C++ SDK =="
+if [ -x sdk/cpp/build/bpi-verify ]; then
+  make -s -C sdk/cpp check
+  make -s -C sdk/cpp crosscheck
+else
+  echo "  not built — run 'make -C sdk/cpp all' to include it"
+fi
 echo; echo "== executed coverage =="; node tools/gen-coverage.mjs
 # Run every build, not at release. Classifying two text changes today is work;
 # classifying forty on the day you promised to publish is how a date slips.
