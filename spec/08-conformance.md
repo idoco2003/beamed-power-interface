@@ -83,7 +83,7 @@ be theatre.
 
 | Implementation | Claim | Claim document |
 |---|---|---|
-| BeamDesk | `BPI/0.2 · BROKER · L1 · no-annex` | [bpi-conformance.json](https://github.com/BeamDesk/BeamDesk/blob/master/bpi-conformance.json) |
+| BeamDesk | `BPI/0.2 · BROKER · L1 · no-annex` | [api.beamdesk.space/api/public/v1/bpi/conformance](https://api.beamdesk.space/api/public/v1/bpi/conformance) |
 
 BeamDesk is the specification's author and its only implementation, which is the
 weakness `OBJECTIONS.md` §O-1 exists to state. Its claim answers 35 of 112 requirements
@@ -96,6 +96,14 @@ role in §8.1 is defined by a physical act and it performs none of them, so no c
 could publish would be true. It publishes `reference/COVERAGE.md` instead, which asserts
 only that certain requirements have been executed. That the taxonomy has no honest slot
 for a simulator is recorded as `DISPOSITIONS.md` F-8 and is open for 0.2.
+
+**A claim in a private repository is not published.** This row pointed at
+`github.com/BeamDesk/BeamDesk/blob/master/bpi-conformance.json` until 2026-08-30. That
+repository is private, so the link returned 404 to everyone except its owner, and
+`[R-CONF-001]`'s requirement to publish "in a location they control" was not met by a
+location only they can read. §8.3 rests the whole idea of self-declaration on a claim
+being *"published where anyone can check it against the implementation"*, which a 404 is
+not. The row now points at the public API endpoint, which serves the same document.
 
 Anyone may add a row by pull request. There is no gatekeeping and no review beyond
 checking the linked claim document parses and enumerates the right identifier set. A

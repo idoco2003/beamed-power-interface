@@ -48,6 +48,20 @@ authentication key, even when the key material is identical. Nothing breaks with
 `git tag -v` still verifies against the committed allowed-signers file, which is the
 check that does not depend on a third party.
 
+## Check §8.4's links resolve, anonymously
+
+Not automated on purpose: `check-all.sh` runs offline and with no committed dependencies,
+and making the build depend on the network would trade a real property for a small one. So
+before tagging, fetch every claim-document URL in §8.4 **logged out**:
+
+```sh
+curl -s -o /dev/null -w '%{http_code}\n' -L <each §8.4 link>
+```
+
+The author's own row failed this on 2026-08-30: it pointed into a private repository and
+returned 404 to everyone but its owner, which meant the only published conformance claim in
+existence was not published.
+
 ## DOI
 
 `CITATION.cff` and `.zenodo.json` are in place. A DOI matters more here than any other
