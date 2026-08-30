@@ -116,6 +116,48 @@ one refresh interval, and it doubles as the mechanism for following a derating p
 "Reduce power" and "keep going" become the same message, so there is one code path
 instead of two — and one code path is the one that gets tested.*
 
+### Why not a heartbeat
+
+The obvious alternative to a signed token is a fast bidirectional heartbeat: the two
+segments exchange a liveness signal at some high rate, and the transmitter shuts down when
+it stops arriving. It is the design most people propose first, and this section exists
+because `[R-S-022]`'s rationale should not have to be inferred.
+
+**A liveness proof cannot carry what this interlock needs.** A heartbeat says *something is
+still there*. It does not say who, it does not say how much power is authorised, and it
+does not say that this permission is current rather than a recording. The four properties
+the token carries are each load-bearing:
+
+| Property | Carried by | What a heartbeat gives instead |
+|---|---|---|
+| Authorisation | `maxPower_kW`, signed | Nothing. Liveness is not permission. |
+| Identity | `issuerKeyId` and the detached JWS | Nothing an attacker cannot also emit |
+| Freshness | `seq`, `prevHash`, `notAfter`, monotonic check | A replayed heartbeat is indistinguishable from a live one |
+| Curtailment | A lower `maxPower_kW` in the next token | A separate command path, which is a second code path |
+
+The last row is the one that is easy to miss. Under `[R-S-022]` *"reduce power"* and *"keep
+going"* are the same message, so there is one code path and it is exercised on every
+refresh. A heartbeat needs a separate channel to derate the beam — a channel used rarely,
+under stress, and therefore the one least likely to work.
+
+**The rates usually proposed do not survive arithmetic.** A frequently proposed figure is a
+100 Hz heartbeat with a hard shutdown in under 10 ms. A 100 Hz signal has a 10 ms period,
+and the absence of a 10 ms-period signal cannot be detected in less than 10 ms; one missed
+period plus a detection margin is the floor, so the two numbers contradict each other
+before any hardware is specified.
+
+The round trip settles the rest. At GEO it is about 239 ms (§5.5), so **any refresh rate
+above roughly 4 Hz has its interval inside the round trip** and the sender is waiting on an
+acknowledgement that cannot have been generated yet. `profiles/fast.json` already records
+this for 10 Hz, which it declares unsuitable for GEO. A 100 Hz scheme is 24 times inside
+it. Rate is not the safety property here: a slower token that is signed, sequenced and
+expiring is stronger than a fast one that is none of those things.
+
+**What a heartbeat is good for.** Detecting a dead link quickly, which is a real need — and
+it is already covered, because a token stream *is* a heartbeat with authorisation attached.
+Losing it and having it expire take the same path by construction (`[R-S-002]`), since from
+the spacecraft the two are indistinguishable.
+
 ## 5.5 Timing, and how the numbers were derived
 
 ### The wrong justification, disposed of first
@@ -196,6 +238,15 @@ The *property* is normative. The *mechanism* is not: mandating retrodirective ph
 conjugation would exclude every optical system and break the physical-layer-agnostic
 core. The core defines an abstract reference with `lockState`, `quality`,
 `corridorErrorDeg` and `solutionSource`; Annex RF binds it to a pilot beam.
+
+*A note on vocabulary, because the wrong word costs readers.* What this section describes
+is what optical communications and directed-energy work call **acquisition, tracking and
+pointing (ATP)**. This document does not use the term normatively, because ATP names a
+subsystem and BPI deliberately specifies a property rather than a subsystem — but the
+mapping is exact enough to be worth stating. `lockState` moving from `SEARCHING` through
+`ACQUIRING` to `LOCKED` is acquisition; maintaining it against relative motion is tracking;
+`corridorErrorDeg` against `corridorHalfAngleDeg` is the pointing error budget. An engineer
+who arrives looking for an ATP interface has found it.
 
 ### Two-of-two, because either alone is catastrophic
 

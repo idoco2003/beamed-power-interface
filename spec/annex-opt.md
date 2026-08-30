@@ -19,7 +19,7 @@ produced optical numbers by analogy with Annex RF would be wrong in each case.
 | Safety distance | Keep-out volume from PFD screening | **Nominal Ocular Hazard Distance.** Structurally analogous to the exposure ratio but computed and averaged differently. |
 | Aircraft | Avionics EMC threshold | Laser illumination of aircraft is governed by a **separate and considerably stricter** regime. It is not an EMC question at all. |
 | Atmosphere | ITU-R P-series | **Not** the P-series. Requires a MODTRAN-class model or a stated alternative; cloud and scintillation dominate in a way rain does not. |
-| Pointing reference | Pilot beam, retrodirective | Beacon or cooperative tracking. **The authenticated-pilot construction of [R-S-031] has no worked optical equivalent in this document.** |
+| Pointing reference (ATP) | Pilot beam, retrodirective | Beacon or cooperative tracking, and the acquisition, tracking and pointing problem in its usual optical form. **The authenticated-pilot construction of [R-S-031] has no worked optical equivalent in this document** — an optical ATP chain authenticates differently, or does not authenticate at all, and that gap is the single largest thing this annex is missing. |
 | Probe level | 1/100 of public reference level | Unknown whether the same ratio is appropriate or safe. |
 | Beam description | EIRP, aperture, taper | Wavelength, linewidth, M², beam waist, divergence, scatter and halo. |
 

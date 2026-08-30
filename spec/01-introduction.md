@@ -10,6 +10,22 @@ each side publishes about itself, how a delivery window is agreed, how the beam 
 safe for as long as it is radiating, how much energy is recorded as delivered, and on
 what regulatory basis the whole thing operates.
 
+**Three deployment cases, and the specification is honest about which it has done the work
+for.** Orbit-to-Earth-surface delivery is the case every number in this document was
+derived for. **Space-to-space** delivery — a supplier powering a client spacecraft — is
+represented in the information model and is not yet derived: `profiles/relaxed.json` says
+so on its face, because the intruder budget of `[R-S-024]` presumes a ground keep-out
+volume and the binding constraint there is relative velocity against a cooperative
+receiver, which this document has not analysed. **Surface delivery on an airless body** —
+a rover or a habitat in a permanently shadowed lunar crater, where solar is unavailable by
+definition and the alternatives are mass-limited batteries or an RTG — fits the interface
+shape unchanged, and none of the timing is transferable: there is no aviation, no
+atmosphere and no ITU Article 21, so the intruder model, the propagation model and the
+regulatory declaration all need re-deriving rather than rescaling.
+
+The interface is the same in all three. The numbers are not, and a segment that reused
+Earth-surface figures off-body would be claiming derivations it does not have.
+
 ## 1.2 What this does not specify
 
 - **The physical layer.** How energy is converted, radiated, propagated or rectified.

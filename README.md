@@ -34,6 +34,11 @@ layers, and one 2027 flight carries five power-beaming payloads from different c
 on a single bus. That is the condition in which interfaces get frozen by accident, one
 bilateral integration at a time.
 
+It is not only an Earth-surface problem. The same four agreements are needed by a supplier
+powering a client spacecraft, and by a rover in a permanently shadowed lunar crater where
+solar is unavailable by definition. The interface shape is identical; the numbers are not,
+and §1.1 says which of the three this document has actually derived.
+
 ## The idea
 
 **Enable is unanimous. Abort is unilateral.**
