@@ -11,7 +11,7 @@
     "role": "BROKER",
     "level": "L1",
     "annexes": [],
-    "claimString": "BPI/0.1 \u00b7 BROKER \u00b7 L1 \u00b7 no-annex"
+    "claimString": "BPI/0.2 \u00b7 BROKER \u00b7 L1 \u00b7 no-annex"
   },
   "publishedAt": "YYYY-MM-DDThh:mm:ss.sssZ",
   "requirements": {

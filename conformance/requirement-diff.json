@@ -38,6 +38,15 @@
       "now": "A revenue meter SHALL be of accuracy class **0,1 S, 0,2 S or 0,5 S** per IEC 62053-22:2020, or **0.1, 0.2 or 0.5** per ANSI C12.20, and the record SHALL carry its class, the standard and edition the…"
     }
   ],
-  "editorialOnly": [],
+  "editorialOnly": [
+    {
+      "id": "R-C-013",
+      "why": "The obligation is unchanged: every message SHALL carry the common envelope. Only the illustrative JSON changed, from bpiVersion 0.1.0-draft to 0.2.0-draft, which follows the version bump rather than adding anything an implementer must do."
+    },
+    {
+      "id": "R-M-023",
+      "why": "The normative sentence is byte-identical -- efficiency SHALL name both endpoints and the path length, a bare figure is invalid. What changed is the italic rationale beneath it, which used to carry the efficiency-comparability argument withdrawn on 2026-08-24 and now carries the correction. See DISPOSITIONS C-1. No obligation moved."
+    }
+  ],
   "moved": []
 }

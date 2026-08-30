@@ -1,7 +1,7 @@
 {
   "$comment": "SPDX-License-Identifier: Apache-2.0",
   "bpiVersion": "0.2.0-draft",
-  "generated": "2026-08-27",
+  "generated": "2026-08-30",
   "note": "Generated from spec/*.md by tools/gen-checklist.py. tools/check-requirements.sh fails the build if this drifts from the specification.",
   "count": 112,
   "requirements": [
@@ -159,7 +159,7 @@
       "id": "R-C-013",
       "part": "C",
       "source": "spec/02-conventions.md",
-      "summary": "Every message SHALL carry the common envelope: ```json { \"bpiVersion\": \"0.1.0-draft\", \"msgType\": \"EnableToken\", \"msgId\": \"018f3a...\", \"issuedAt\": \"2026-08-22T06:12:00.000Z\", \"issuer\": { \"org\": \"...\",\u2026"
+      "summary": "Every message SHALL carry the common envelope: ```json { \"bpiVersion\": \"0.2.0-draft\", \"msgType\": \"EnableToken\", \"msgId\": \"018f3a...\", \"issuedAt\": \"2026-08-22T06:12:00.000Z\", \"issuer\": { \"org\": \"...\",\u2026"
     },
     {
       "id": "R-C-014",
@@ -369,7 +369,7 @@
       "id": "R-M-023",
       "part": "M",
       "source": "spec/06-metering.md",
-      "summary": "`efficiency` SHALL name both endpoints and the path length, per [R-C-010]. A bare efficiency figure is invalid. *This last one is worth a sentence of motivation. Two public demonstrations currently\u2026"
+      "summary": "`efficiency` SHALL name both endpoints and the path length, per [R-C-010]. A bare efficiency figure is invalid. *The motivation this rule used to carry was wrong, and the correction is more useful\u2026"
     },
     {
       "id": "R-M-030",

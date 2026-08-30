@@ -40,7 +40,8 @@ Two changes, both binding. Class 0,1 S / 0.1 was added to the permitted set, whi
 
 ## Editorial only
 
-_None._
+- `R-C-013` — The obligation is unchanged: every message SHALL carry the common envelope. Only the illustrative JSON changed, from bpiVersion 0.1.0-draft to 0.2.0-draft, which follows the version bump rather than adding anything an implementer must do.
+- `R-M-023` — The normative sentence is byte-identical -- efficiency SHALL name both endpoints and the path length, a bare figure is invalid. What changed is the italic rationale beneath it, which used to carry the efficiency-comparability argument withdrawn on 2026-08-24 and now carries the correction. See DISPOSITIONS C-1. No obligation moved.
 
 ## Moved between sections
 

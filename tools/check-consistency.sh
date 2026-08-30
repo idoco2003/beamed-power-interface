@@ -142,6 +142,24 @@ say_ros=$(python3 sdk/ros2/generate-msgs.py --check 2>&1) \
   || note "$(printf '%s' "$say_ros" | sed 's/^ *//')"
 
 
+# 10. The generated checklist matches the specification it was generated from.
+#
+#     Found the hard way: spec/02-conventions.md was edited during the 0.2 bump
+#     and conformance/checklist.json was never regenerated, so the checklist
+#     quoted a requirement's text that no longer existed. Check 1 compares id
+#     COUNTS and could not see it. This regenerates into a scratch copy and
+#     compares, so the text cannot drift either.
+scratch=$(mktemp -d)
+cp conformance/checklist.json "$scratch/before.json"
+python3 tools/gen-checklist.py >/dev/null 2>&1
+if diff -q "$scratch/before.json" conformance/checklist.json >/dev/null; then
+  ok "checklist matches the specification text"
+else
+  note "conformance/checklist.json is stale — run tools/gen-checklist.py and classify any text change"
+fi
+rm -rf "$scratch"
+
+
 echo
 [ "$fail" -eq 0 ] && echo "consistency: clean" || echo "consistency: $fail problem(s)"
 [ "$fail" -eq 0 ]
