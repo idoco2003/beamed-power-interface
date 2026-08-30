@@ -132,6 +132,16 @@ else
 fi
 
 
+# 9. The ROS 2 messages have not drifted from the schemas.
+#
+#    They are generated, so the only way they can be wrong is by being stale. A
+#    published interface that silently disagrees with the schema it claims to
+#    mirror is worse than not shipping one.
+say_ros=$(python3 sdk/ros2/generate-msgs.py --check 2>&1) \
+  && ok "$(printf '%s' "$say_ros" | sed 's/^ *//')" \
+  || note "$(printf '%s' "$say_ros" | sed 's/^ *//')"
+
+
 echo
 [ "$fail" -eq 0 ] && echo "consistency: clean" || echo "consistency: $fail problem(s)"
 [ "$fail" -eq 0 ]

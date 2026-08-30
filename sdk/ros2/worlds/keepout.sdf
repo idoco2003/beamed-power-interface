@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<!-- SPDX-License-Identifier: Apache-2.0
+
+     The [R-S-024] dead-man buffer, at 1:1 scale, so it can be looked at.
+
+     Declarative SDF only. There is no plugin here, and the README says why.
+
+     The 1,350 m radius is not chosen, it is derived, and profiles/standard.json
+     carries the same arithmetic in its own $comment:
+
+       5000 ms token lifetime
+       + 100 ms detection
+       +  50 ms defocus
+       + 250 ms ramp
+       = 5400 ms worst-case unsafe duration
+
+     at a declared intruder speed of 250 m/s. 5.4 s x 250 m/s = 1350 m. That is
+     the distance an intruder covers between the last moment permission could
+     have lapsed and the beam actually being safe, which is why it is the
+     minimum keep-out radius rather than a margin on top of one.
+
+     Exposure averaging is NOT the constraint and is a common wrong answer: at
+     41 W/m2 the ICNIRP 30-minute average tolerates a 439 s excursion, eighty
+     times longer. See spec/05-interlock.md 5.5.
+-->
+<sdf version="1.9">
+  <world name="bpi_keepout">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+    </physics>
+    <light type="directional" name="sun">
+      <direction>-0.5 0.1 -0.9</direction>
+      <diffuse>1 1 1 1</diffuse>
+    </light>
+
+    <model name="ground">
+      <static>true</static>
+      <link name="link">
+        <collision name="c">
+          <geometry><plane><normal>0 0 1</normal><size>6000 6000</size></plane></geometry>
+        </collision>
+        <visual name="v">
+          <geometry><plane><normal>0 0 1</normal><size>6000 6000</size></plane></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.4 0.4 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- The rectenna. A 5.2 m aperture, the Xidian figure quoted in
+         gap-analysis.md, so the scale comparison below is against something
+         real rather than something invented. -->
+    <model name="rectenna">
+      <static>true</static>
+      <pose>0 0 0.5 0 0 0</pose>
+      <link name="link">
+        <visual name="v">
+          <geometry><cylinder><radius>2.6</radius><length>1.0</length></cylinder></geometry>
+          <material><ambient>0.1 0.4 0.7 1</ambient><diffuse>0.2 0.5 0.9 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- The keep-out volume: 1,350 m radius. Rendered translucent because the
+         point of drawing it is the ratio — a 5.2 m aperture inside a 2.7 km
+         circle of land nobody may enter while the beam is live. -->
+    <model name="keepout_1350m">
+      <static>true</static>
+      <pose>0 0 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="v">
+          <geometry><cylinder><radius>1350</radius><length>0.1</length></cylinder></geometry>
+          <material>
+            <ambient>0.9 0.3 0.1 0.25</ambient>
+            <diffuse>0.9 0.3 0.1 0.25</diffuse>
+          </material>
+          <transparency>0.75</transparency>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
