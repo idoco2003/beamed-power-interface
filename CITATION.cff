@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: CC-BY-4.0
+#
+# Citation metadata. GitHub renders a "Cite this repository" button from this
+# file, and Zenodo reads it when minting a DOI.
+#
+# Getting cited is worth more to this project than any other form of reach: one
+# citation in a procurement document or a paper outranks a hundred stars, and a
+# specification nobody can cite precisely is one nobody will cite at all.
+cff-version: 1.2.0
+title: "Beamed Power Interface (BPI)"
+message: "If you refer to this specification, please cite it as below."
+type: software
+authors:
+  - family-names: Yahalomi
+    given-names: Ido
+    email: ido@jacob-ai.com
+    affiliation: BeamDesk
+repository-code: "https://github.com/BeamDesk/beamed-power-interface"
+url: "https://beamdesk.github.io/beamed-power-interface"
+abstract: >-
+  A draft specification for the interface between a spacecraft that beams power
+  and the segment that receives it: what each side declares about itself, how a
+  delivery window is agreed, how the beam is kept safe while it radiates, how
+  delivered energy is metered, and on what regulatory basis the whole thing
+  operates. Its safety interlock is built on the principle that enable is
+  unanimous and abort is unilateral, so that silence stops the beam rather than
+  requiring a message to arrive during the failure that stops messages arriving.
+  It is not a standard and has not been published by, submitted to, or endorsed
+  by any standards body.
+keywords:
+  - power beaming
+  - space-based solar power
+  - wireless power transfer
+  - interface specification
+  - safety interlock
+  - conformance
+license: CC-BY-4.0
+version: 0.2.0-draft
+date-released: "2026-11-30"

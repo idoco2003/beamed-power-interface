@@ -141,6 +141,13 @@ your conformance claim before you open a pull request against §8.4.
 [`reference/`](reference/) is the interlock as executable code. It is the author's, so it
 is not an independent implementation and does not close `OBJECTIONS.md` O-1.
 
+## Citing this
+
+`CITATION.cff` carries the citation metadata and GitHub renders a **Cite this repository**
+button from it. Releases are signed tags, verifiable against
+[`conformance/keys/allowed-signers`](conformance/keys/allowed-signers) without trusting
+anyone's badge — see [`RELEASING.md`](RELEASING.md).
+
 ## Validating the schemas
 
 ```sh

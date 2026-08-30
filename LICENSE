@@ -11,7 +11,8 @@ depends on which half of the repository a file is in.
   spec/**                      README.md          GOVERNANCE.md
   gap-analysis.md              OBJECTIONS.md      CONTRIBUTING.md
   CHANGELOG.md                 DISPOSITIONS.md    conformance/checklist.md
-  IPR.md                       IPR-DISCLOSURES.md
+  IPR.md                       IPR-DISCLOSURES.md RELEASING.md
+  CITATION.cff                 .zenodo.json
   examples/**/README.md        reference/*.md     sdk/**/*.md
 -----------------------------------------------------------------------
   SCHEMAS, EXAMPLES, TOOLING   Apache License 2.0

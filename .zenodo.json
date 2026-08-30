@@ -1,0 +1,31 @@
+{
+  "$comment": "SPDX-License-Identifier: CC-BY-4.0",
+  "title": "Beamed Power Interface (BPI) 0.2.0-draft",
+  "upload_type": "publication",
+  "publication_type": "technicalnote",
+  "description": "<p>A draft specification for the interface between a spacecraft that beams power and the segment that receives it: what each side declares about itself, how a delivery window is agreed, how the beam is kept safe while it radiates, how delivered energy is metered, and on what regulatory basis the whole thing operates.</p><p>Its safety interlock is built on the principle that <strong>enable is unanimous and abort is unilateral</strong>. The receiving segment continuously issues signed, hash-chained authorisation tokens; if they stop arriving for any reason the beam shuts itself off. This makes silence safe, rather than requiring a stop message to survive the failure that stops messages arriving.</p><p><strong>This is not a standard.</strong> It has not been published by, submitted to, reviewed by, or endorsed by any standards body. It has one implementation, by its own author, which is stated as the first open objection against it. The repository publishes a gap analysis of the regulatory vacuum it addresses, a register of objections to its own design, and a disposition of every comment received.</p>",
+  "creators": [
+    {
+      "name": "Yahalomi, Ido",
+      "affiliation": "BeamDesk"
+    }
+  ],
+  "keywords": [
+    "power beaming",
+    "space-based solar power",
+    "wireless power transfer",
+    "interface specification",
+    "safety interlock",
+    "RF exposure",
+    "conformance"
+  ],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/BeamDesk/beamed-power-interface",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

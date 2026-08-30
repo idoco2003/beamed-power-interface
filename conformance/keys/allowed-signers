@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: Apache-2.0
+#
+# The key BPI release tags are signed with.
+#
+# This is NOT the test key beside it. test-key.pem signs the conformance
+# vectors and its private half is published on purpose so the vectors can be
+# regenerated; it proves nothing about who wrote anything. This file is the
+# other thing: the public half of the key that signs release tags, so anyone
+# can verify a tag came from the editor without trusting GitHub's badge.
+#
+# Verify a tag with:
+#
+#   git config gpg.ssh.allowedSignersFile conformance/keys/allowed-signers
+#   git tag -v v0.2.0-draft
+#
+ido@jacob-ai.com namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJuIeqdk6WhrH/xDmAdOcowXOrG2ZbcmZqcQnMidbIE2
