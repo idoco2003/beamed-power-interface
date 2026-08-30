@@ -125,6 +125,19 @@ give, so you can check your implementation against this specification without ta
 anyone. The signing key is published in [`conformance/keys/`](conformance/keys/) on
 purpose, so the vectors can be regenerated rather than only verified.
 
+Run them against your own code in any language:
+
+```sh
+node tools/bpi-validate.mjs vectors --exec "./your-verifier"
+```
+
+Your program reads one vector as JSON on stdin and answers
+`{"accepted": bool, "reason": string}` on stdout. That is the entire contract — no library,
+no linkage, no language requirement. The rejection *reason* is checked too, so an
+implementation that refuses everything fails all ten vectors instead of passing eight.
+[`tools/README.md`](tools/README.md) has the details, and `bpi-validate claim` will check
+your conformance claim before you open a pull request against §8.4.
+
 [`reference/`](reference/) is the interlock as executable code. It is the author's, so it
 is not an independent implementation and does not close `OBJECTIONS.md` O-1.
 

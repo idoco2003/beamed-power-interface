@@ -8,6 +8,7 @@ echo; echo "== canonicalisation (RFC 8785) =="; node tools/test-jcs.mjs
 echo; echo "== signatures (RFC 8785 + detached JWS) =="; node tools/verify-signatures.mjs
 echo; echo "== interlock (BPI-S) =="; node reference/test-interlock.mjs
 echo; echo "== conformance vectors =="; node reference/gen-vectors.mjs
+echo; echo "== conformance runner (bpi-validate) =="; node tools/bpi-validate.mjs vectors
 echo; echo "== executed coverage =="; node tools/gen-coverage.mjs
 # Run every build, not at release. Classifying two text changes today is work;
 # classifying forty on the day you promised to publish is how a date slips.
