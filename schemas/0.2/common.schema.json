@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://beamdesk.github.io/beamed-power-interface/schemas/0.2/common.schema.json",
   "$comment": "SPDX-License-Identifier: Apache-2.0",
-  "title": "BPI 0.1 common types",
+  "title": "BPI 0.2 common types",
   "$defs": {
     "Provenance": {
       "type": "string",

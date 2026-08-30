@@ -160,6 +160,25 @@ fi
 rm -rf "$scratch"
 
 
+# 11. Every tracked path is named in LICENSE.
+#
+#     LICENSE says which licence applies by listing paths, so a directory it
+#     does not name is a directory the authoritative statement does not cover.
+#     reference/ and sdk/ were both added and both missed; their files carried
+#     correct SPDX headers, which saved it, but the map is what a lawyer reads.
+say "licence coverage"
+python3 - <<'PYEOF' || fail=1
+import pathlib, subprocess, sys
+EXEMPT = {'LICENSE', 'LICENSE-CODE', 'LICENSE-TEXT', 'NOTICE', '.gitignore'}
+licence = pathlib.Path('LICENSE').read_text()
+tracked = {p.split('/')[0] for p in subprocess.check_output(['git', 'ls-files'], text=True).splitlines() if p}
+missing = sorted(t for t in tracked - EXEMPT if t not in licence)
+if missing:
+    print('  not named in LICENSE: ' + ', '.join(missing))
+    sys.exit(1)
+print(f'  all {len(tracked - EXEMPT)} tracked top-level paths are named in LICENSE')
+PYEOF
+
 echo
 [ "$fail" -eq 0 ] && echo "consistency: clean" || echo "consistency: $fail problem(s)"
 [ "$fail" -eq 0 ]

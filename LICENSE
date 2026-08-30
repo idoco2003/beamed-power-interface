@@ -11,14 +11,16 @@ depends on which half of the repository a file is in.
   spec/**                      README.md          GOVERNANCE.md
   gap-analysis.md              OBJECTIONS.md      CONTRIBUTING.md
   CHANGELOG.md                 DISPOSITIONS.md    conformance/checklist.md
-  examples/**/README.md
+  IPR.md                       IPR-DISCLOSURES.md
+  examples/**/README.md        reference/*.md     sdk/**/*.md
 -----------------------------------------------------------------------
   SCHEMAS, EXAMPLES, TOOLING   Apache License 2.0
   SPDX: Apache-2.0             full text in LICENSE-CODE
 -----------------------------------------------------------------------
   schemas/**                   examples/**/*.json
   profiles/**                  conformance/*.json
-  tools/**
+  tools/**                     reference/*.mjs
+  sdk/**                       adoption/**
 -----------------------------------------------------------------------
 
 WHY TWO LICENCES

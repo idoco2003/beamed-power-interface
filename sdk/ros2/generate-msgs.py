@@ -94,9 +94,20 @@ def camel_to_snake(s: str) -> str:
     return f"{name}_{tail.lower()}" if tail else name
 
 
+def ros_type_name(title: str) -> str:
+    """A ROS 2 message type name, which must be a valid identifier.
+
+    Schema titles are prose — profile.schema.json is titled "Timing profile" —
+    and a title used verbatim produces "Timing profile.msg", which rosidl cannot
+    build. PascalCase the words and drop anything that is not alphanumeric.
+    """
+    parts = [p for p in "".join(c if c.isalnum() else " " for c in title).split() if p]
+    return "".join(p[0].upper() + p[1:] for p in parts)
+
+
 def generate(schema_path: pathlib.Path) -> tuple[str, str]:
     schema = json.loads(schema_path.read_text())
-    title = schema.get("title") or schema_path.stem
+    title = ros_type_name(schema.get("title") or schema_path.stem)
     props = schema.get("properties", {})
     required = set(schema.get("required", []))
 

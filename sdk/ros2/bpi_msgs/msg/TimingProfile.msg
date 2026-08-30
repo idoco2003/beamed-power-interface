@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
-# Timing profile
+# TimingProfile
 #
 # [R-S-025] Every tunable number lives here rather than in a normative sentence.
 #
