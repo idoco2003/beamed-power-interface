@@ -49,6 +49,19 @@ something it has not announced.
 | G9 | FCC | Is there a wireless-power proceeding? | **No.** Checked repeatedly. The Part 25 → Part 100 overhaul does not address wireless power transfer, power beaming, space-based solar power or energy transmission. | 2026-08-22 | fcc.gov |
 | G10 | FCC | Does the one adjacent grant set precedent? | **DA 26-706** (Reflect Orbital, Earendil-1) is the first licence for an orbit-to-ground illumination payload. It was decided by the Commission *disclaiming* that in-space activities' prospective impacts fall within its authority; the challenge arrived via NEPA. That disclaimer does not transfer to an RF power downlink, which is squarely inside FCC authority. | 2026-08-21 | [DA-26-706A1](https://docs.fcc.gov/public/attachments/DA-26-706A1.txt) |
 
+
+## Agencies and specification maintainers
+
+A body can take this ground without being a standards body. NASA's Space Communications
+and Navigation programme maintains a published, multi-agency interoperability
+specification for the lunar theatre, jointly with ESA and JAXA. If a power service appears
+in it, that is the archive trigger in `spec/00-status.md` regardless of whether ITU-R or
+CCSDS ever act.
+
+| # | Body | Question asked | Finding | checkedOn | Source |
+|---|---|---|---|---|---|
+| G11 | NASA SCaN | Does the LunaNet Interoperability Specification define a power delivery service? | **No.** LNIS v5 (29 Jan 2025, NASA/ESA/JAXA, controlled by the NASA HQ SCaN Control Board) defines Communications, Position/Navigation/Timing, Messaging, and Detection and Information services, plus Service Access. No power delivery, power beaming or energy transfer service. Across the document "power" appears only as RF signal level and contingency low-power mode. Changes are submitted to the SCaN Configuration Management Office by Documentation Change Notice, which is a named public route should this row ever need to be acted on rather than reported. | 2026-09-01 | [LNIS v5 baseline](https://www.nasa.gov/wp-content/uploads/2025/02/lunanet-interoperability-specification-v5-baseline.pdf) |
+
 ---
 
 ## What the absence looks like from the other side
@@ -88,3 +101,4 @@ decomposition, blocked on reading it.
 | 2026-08-22 | Initial publication. Rows G1–G10 from daily scans 2026-08-13 to 2026-08-22. |
 | 2026-08-24 | Method limitation recorded: the survey asked "is this standardised?" and never asked "is there already an accepted way of doing this?". See O-10. |
 | 2026-08-27 | Withdrew the efficiency-comparability claim below the programme table. It was wrong; see DISPOSITIONS C-1. |
+| 2026-09-01 | Added **G11 (NASA SCaN / LunaNet)** and the section holding it. The register asked ten questions of standards bodies and regulators and none of an agency that maintains a published interoperability specification for this theatre. Row added on a maintainer's instruction, not by the daily scan; the scan reports, a person edits. |

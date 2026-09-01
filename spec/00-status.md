@@ -28,8 +28,8 @@ changed.
 consensus process. This document has been through no such process. Specifically, it has
 not been published by, submitted to, reviewed by, or endorsed by:
 
-> ITU, ITU-R, CCSDS, IEEE, IEEE-SA, ISO, IEC, ETSI, ANSI, or any national standards
-> body or regulatory authority.
+> ITU, ITU-R, CCSDS, IEEE, IEEE-SA, ISO, IEC, ETSI, ANSI, NASA SCaN, or any national
+> standards body or regulatory authority.
 
 No consensus has been sought or achieved. No working group exists. At the time of
 writing, no person outside the authoring project has reviewed it.
@@ -77,6 +77,7 @@ archived.** The authors would prefer that outcome to adoption of this document.
 | Human exposure (§7.3) | IEEE ICES / ICNIRP |
 | Grid interconnection behaviour (§5.5, §6) | IEEE 1547 neighbourhood / IEC TC 8 |
 | Metering and settlement (§6) | IEC TC 13 |
+| Lunar surface power service definition | NASA SCaN, via the LunaNet Interoperability Specification |
 
 `gap-analysis.md` records the dated basis on which we concluded none of these currently
 covers beamed power. If that file goes stale, it is evidence this project should stop,
