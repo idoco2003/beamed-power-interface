@@ -229,6 +229,18 @@ function runClaim(argv) {
     .filter(([, v]) => v?.status === 'not-applicable' && !String(v.reason ?? '').trim());
   check(naNoReason.length === 0, `[R-CONF-002] every not-applicable carries a reason${naNoReason.length ? ` — ${naNoReason.length} do not, first is ${naNoReason[0][0]}` : ''}`);
 
+  /* Advisory, never a failure. [R-CONF-002] mandates a reason only for
+     not-applicable, so a claim whose not-implemented entries are silent is
+     conformant. It is also less useful than it could be: "not-implemented" with
+     no reason does not tell a reader whether it is a considered decision, an
+     unfilled gap, or a misread requirement. Reported, not enforced -- failing
+     other people's valid claims to make a point about style would be worse. */
+  const silent = Object.entries(have)
+    .filter(([, v]) => v?.status === 'not-implemented' && !String(v.reason ?? '').trim());
+  if (silent.length) {
+    console.log(`  note  ${silent.length} not-implemented entr${silent.length === 1 ? 'y carries' : 'ies carry'} no reason — conformant, but a reader cannot tell a decision from a gap`);
+  }
+
   const counts = {};
   for (const v of Object.values(have)) counts[v?.status] = (counts[v?.status] ?? 0) + 1;
   console.log(`\n        ${Object.entries(counts).map(([k, n]) => `${n} ${k}`).join(' · ')}`);
