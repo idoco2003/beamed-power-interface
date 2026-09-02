@@ -147,18 +147,28 @@ say_ros=$(python3 sdk/ros2/generate-msgs.py --check 2>&1) \
 #     Found the hard way: spec/02-conventions.md was edited during the 0.2 bump
 #     and conformance/checklist.json was never regenerated, so the checklist
 #     quoted a requirement's text that no longer existed. Check 1 compares id
-#     COUNTS and could not see it. This regenerates into a scratch copy and
-#     compares, so the text cannot drift either.
-scratch=$(mktemp -d)
-cp conformance/checklist.json "$scratch/before.json"
+#     COUNTS and could not see it.
+#
+#     Two things this must not do, both learned by doing them. It must not fail
+#     on the `generated` date stamp, which changes every day and is not drift.
+#     And it must not leave the regenerated file behind: a check that mutates
+#     the repository turns every stale-by-a-day checklist into a dirty tree.
+say "checklist freshness"
+checklist_backup=$(mktemp)
+cp conformance/checklist.json "$checklist_backup"
 python3 tools/gen-checklist.py >/dev/null 2>&1
-if diff -q "$scratch/before.json" conformance/checklist.json >/dev/null; then
-  ok "checklist matches the specification text"
-else
-  note "conformance/checklist.json is stale — run tools/gen-checklist.py and classify any text change"
+if python3 - "$checklist_backup" conformance/checklist.json <<'PYEOF'
+import json, sys
+a, b = (json.load(open(f)) for f in sys.argv[1:3])
+# The stamp is a date, not content. Everything else must match exactly.
+a.pop('generated', None); b.pop('generated', None)
+sys.exit(0 if a == b else 1)
+PYEOF
+then ok "checklist matches the specification text"
+else note "conformance/checklist.json is stale — run tools/gen-checklist.py and classify any text change"
 fi
-rm -rf "$scratch"
-
+cp "$checklist_backup" conformance/checklist.json   # no side effects, pass or fail
+rm -f "$checklist_backup"
 
 # 11. Every tracked path is named in LICENSE.
 #
