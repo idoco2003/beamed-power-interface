@@ -50,25 +50,26 @@ something it has not announced.
 | G10 | FCC | Does the one adjacent grant set precedent? | **DA 26-706** (Reflect Orbital, Earendil-1) is the first licence for an orbit-to-ground illumination payload. It was decided by the Commission *disclaiming* that in-space activities' prospective impacts fall within its authority; the challenge arrived via NEPA. That disclaimer does not transfer to an RF power downlink, which is squarely inside FCC authority. | 2026-08-21 | [DA-26-706A1](https://docs.fcc.gov/public/attachments/DA-26-706A1.txt) |
 
 
-## Agencies and specification maintainers
+## Agencies, consortia and specification maintainers
 
-A body can take this ground without being a standards body. NASA's Space Communications
-and Navigation programme maintains a published, multi-agency interoperability
-specification for the lunar theatre, jointly with ESA and JAXA. If a power service appears
-in it, that is the archive trigger in `spec/00-status.md` regardless of whether ITU-R or
-CCSDS ever act.
+A body can take this ground without being a standards body, and the first eleven rows did
+not look for one that had. NASA's SCaN programme maintains a published multi-agency
+interoperability specification for the lunar theatre. LOGIC runs a working group writing
+interoperability requirements for beamed power and feeding them to standards development
+organisations. Either can trigger the archive commitment in `spec/00-status.md` without
+ITU-R or CCSDS ever acting.
 
 | # | Body | Question asked | Finding | checkedOn | Source |
 |---|---|---|---|---|---|
 | G11 | NASA SCaN | Does the LunaNet Interoperability Specification define a power delivery service? | **No.** LNIS v5 (29 Jan 2025, NASA/ESA/JAXA, controlled by the NASA HQ SCaN Control Board) defines Communications, Position/Navigation/Timing, Messaging, and Detection and Information services, plus Service Access. No power delivery, power beaming or energy transfer service. Across the document "power" appears only as RF signal level and contingency low-power mode. Changes are submitted to the SCaN Configuration Management Office by Documentation Change Notice, which is a named public route should this row ever need to be acted on rather than reported. | 2026-09-01 | [LNIS v5 baseline](https://www.nasa.gov/wp-content/uploads/2025/02/lunanet-interoperability-specification-v5-baseline.pdf) |
+| G12 | LOGIC (DARPA / JHU-APL) | Is anyone drafting interoperability requirements for beamed power? | **Yes, and this row is why the claim below the programme table was withdrawn.** LOGIC — Lunar Operating Guidelines for Infrastructure Consortium — runs a Power working group whose use case **P5, "Wireless Rover Charge"** (last updated 2026-05-18) covers receiving power *via power beaming*, explicitly distinguishing short-range induction from "long distance (e.g. laser and microwave)". Its use-case pipeline ends at "Ready for SDO Review". **No standard has been published**: P5's "Recommendations for Standards to Be Authored" reads "In progress", and the standards it can currently cite are induction and EV charging (ISO/IEC 17568, SAE J2954, J2847/6, IEEE 2030-2011). So G1–G11 stand; what does not stand is the claim that nobody is working on it. | 2026-09-01 | [P5 use case](https://logic.jhuapl.edu/Our-Work/Standards-Recommendation/P5.-Wireless-Rover-Charge_830603446.html), [Power report](https://logic.jhuapl.edu/Our-Work/LOGIC-Power-Report-Styling.pdf) |
 
 ---
 
 ## What the absence looks like from the other side
 
 The field is not idle; it is fragmenting. As of August 2026 there are at least two
-mutually incompatible physical layers being flown or funded, and no venue where their
-interfaces are being reconciled.
+mutually incompatible physical layers being flown or funded.
 
 | Programme | Layer | Status as checked |
 |---|---|---|
@@ -79,6 +80,20 @@ interfaces are being reconciled.
 | Volta Space, Mantis, Overview Energy | Optical / NIR | Space-to-space and GEO-to-solar-farm concepts |
 | ARAQYS-D3 | **Both** | Five power-beaming payloads, RF and optical, one integrator, Feb 2027 |
 | DIU PROJ00685 | Both | Four lines of effort including space-to-space (to 1,200 km) and space-to-terrestrial; operational capability targeted FY2030 |
+
+**A second claim has been withdrawn, 2026-09-01.** The sentence above used to end "and no
+venue where their interfaces are being reconciled." That was wrong, and had been since at
+least 2024. **LOGIC** — DARPA-sponsored, managed by JHU-APL, over 900 members — has run a
+Power working group since 2024 whose stated purpose is adopting, adapting or authoring
+interoperability standards, and whose use case P5 covers long-distance beamed power. Its
+working notes pose the metering-dispute question this specification answers in §6, almost
+word for word.
+
+The error says more about this register's method than about the field. Every row above asks
+a *standards body* or a *regulator*. None asked whether a **consortium** had taken the
+ground, and a consortium is what did. G12 records it. The absence of a published standard
+is unaffected; the absence of activity was never established and should not have been
+asserted.
 
 **A claim that stood here has been withdrawn.** It said Xidian's *20.8% DC-to-DC over
 100 m* and Virtus Solis's *≥70% end-to-end* were not the same measurement and could not
@@ -101,4 +116,5 @@ decomposition, blocked on reading it.
 | 2026-08-22 | Initial publication. Rows G1–G10 from daily scans 2026-08-13 to 2026-08-22. |
 | 2026-08-24 | Method limitation recorded: the survey asked "is this standardised?" and never asked "is there already an accepted way of doing this?". See O-10. |
 | 2026-08-27 | Withdrew the efficiency-comparability claim below the programme table. It was wrong; see DISPOSITIONS C-1. |
+| 2026-09-01 | Withdrew the "no venue" claim below the programme table and added **G12 (LOGIC)**. The register had asked eleven questions of standards bodies, regulators and agencies, and none of a consortium. LOGIC's Power working group has been writing beamed-power interoperability requirements since 2024. |
 | 2026-09-01 | Added **G11 (NASA SCaN / LunaNet)** and the section holding it. The register asked ten questions of standards bodies and regulators and none of an agency that maintains a published interoperability specification for this theatre. Row added on a maintainer's instruction, not by the daily scan; the scan reports, a person edits. |
