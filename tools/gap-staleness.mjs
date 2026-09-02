@@ -43,6 +43,22 @@ for (const line of readFileSync('gap-analysis.md', 'utf8').split('\n')) {
   rows.push({ id, checkedOn, age, body: cells[2] });
 }
 
+/* Duplicate ids, which nothing was watching. A row added by hand collided with
+ * one added by the daily scan the day before: both were G11, both parsed, and
+ * the tool reported a row count that quietly included two rows claiming the
+ * same identifier. A register whose ids are not unique cannot be cited. */
+const seen = new Map();
+const dupes = [];
+for (const r of rows) {
+  if (seen.has(r.id)) dupes.push(`${r.id} (${seen.get(r.id)} and ${r.body})`);
+  else seen.set(r.id, r.body);
+}
+if (dupes.length) {
+  for (const d of dupes) console.log(`  duplicate row id: ${d}`);
+  console.log(`  ${dupes.length} duplicate identifier(s)`);
+  process.exit(1);
+}
+
 if (!rows.length) {
   // The table was reformatted and this tool stopped seeing it. That must not
   // read as "nothing is stale".

@@ -159,6 +159,29 @@ a question of fact. Because the chain is signed and sequential, it is answerable
 artefacts created before anyone knew there would be money at stake — which is the only
 kind of evidence worth having.*
 
+### Somebody else has this question open
+
+This section exists because of a dispute nobody had yet written down. Since it was
+written, one has been found on the record. The **LOGIC** consortium (JHU/APL, with DARPA
+involvement) lists this under *Notes / Questions* on its **P5. Wireless Rover Charge**
+use case, verbatim:
+
+> "The power beaming supplier said they delivered 100% of the requested power, but my
+> vehicle's telemetry says it only received 80% of the requested energy. Who is
+> responsible for the difference? Who mediates/moderates disputes"
+
+The same page's *Summary of Derived Interoperability Requirements* reads **"(This section
+is intentionally left blank.) … Content will be posted when available."** Checked
+2026-09-02 at
+<https://logic.jhuapl.edu/Our-Work/Standards-Recommendation/P5.-Wireless-Rover-Charge_830603446.html>.
+
+§6.3 and this section are an answer to that question — two independent energy figures
+reconciled against a propagation model computed from the actual elevation and weather
+`[R-M-021]`, a cause code for every second of shortfall `[R-M-030]`, and, where the cause
+is a lapsed token, the hash-chained sequence numbers on both sides deciding it as a matter
+of fact `[R-M-031]`. **Whether it is the right answer is exactly what this document needs
+told, and by them rather than by us.** See `gap-analysis.md` G12.
+
 **[R-M-032]** A `SessionLog` SHALL be produced by both segments for any session
 containing a non-nominal event, at 1 Hz, signed, and retained for the period declared in
 capability.
