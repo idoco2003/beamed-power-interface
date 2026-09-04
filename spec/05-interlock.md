@@ -339,6 +339,13 @@ the receiving segment's declared `maxDownRamp_kW_per_s` for *nominal* ramps.
 segment's problem to solve with storage, a dump load or ride-through. This specification
 states it here so that nobody discovers it during an incident.*
 
+*Put to an outside engineer working in grid-scale power on 2026-09-03, who reached for
+on-site storage unprompted and did not propose that the interlock warn the grid side
+earlier. They answered on how rarely this should happen rather than on how large the
+transient is, and offered no sizing, so **how much storage a gigawatt-scale receiver needs
+to survive a 250 ms trip to zero remains unanswered here**. Recorded as `DISPOSITIONS.md`
+C-2.*
+
 ## 5.8 Abort
 
 **[R-S-050]** Any of the following SHALL be able to abort:

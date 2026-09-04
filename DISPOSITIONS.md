@@ -29,6 +29,42 @@ record the substance without attribution.
 | # | Date | From | Comment | Disposition |
 |---|---|---|---|---|
 | C-1 | 2026-08-23 | RF power-beaming engineer, private correspondence (attribution offered, not yet given) | "This spec presumes optical wavelength and photovoltaics — RF solutions do not have this issue." | **Accepted in part.** See below. |
+| C-2 | 2026-09-03 | Powertrain and grid-scale energy engineer, private correspondence (attribution not yet offered) | Put to them: [R-S-046] lets a safety abort override the declared down-ramp, so a ~250 ms abort collides with interconnection rules capping a large generator near 10% of rating per minute. Is that realistic at gigawatt scale, or must the interlock warn the grid side earlier? Their answer, in substance: an unplanned beam disconnect is a failure rather than an operating mode and should be extremely rare in mature systems, and early plants would be expected to carry on-site battery storage for emergencies. | **Accepted in part. [R-S-046] unchanged.** See below. |
+
+### C-2 in full
+
+**The requirement stands, and this is the first outside corroboration it has had.**
+`[R-S-046]`'s rationale already says the consequence is "the receiving segment's problem to
+solve with storage, a dump load or ride-through". Someone whose background is batteries and
+grid-scale power, asked cold whether that disposition is realistic, reached for on-site
+storage unprompted and without having read the rationale first. That is weak evidence in the
+statistical sense and the right kind of evidence in every other sense: it was not led.
+
+**They also declined the alternative that was offered.** The question explicitly asked
+whether the interlock should warn the grid side further ahead — which would have meant a new
+message and a new obligation in BPI-S. They did not take it. Silence is not rejection, but
+the opening was there and was not used, so no grid pre-warning is being added.
+
+**Two things the answer did not do, recorded because a disposition that only records
+agreement is not a disposition.**
+
+It answered on **frequency** where the question was about **magnitude**. "Extremely rare in
+mature systems" is true and does not shrink the transient. A safety abort exists for the
+rare case; one that fires once a decade still trips the plant once a decade, and the plant
+still has to survive it. Rarity is an argument for accepting the consequence, not evidence
+that the consequence is survivable.
+
+And it carried **no sizing**. Storage able to absorb a gigawatt-scale step to zero in 250 ms
+is a specific and large quantity, and "early plants would be expected to have on-site
+battery storage" is not a number. The realism question as asked is therefore still open.
+
+The word **"early"** is also doing work that was not explained: it implies mature plants
+might do something else, and what that is was not said.
+
+**Consequence for the document.** `[R-S-046]` is unchanged and §5.7's rationale now notes
+that the disposition has been put to an outside engineer with relevant background. The
+sizing question is recorded as open rather than closed, and is the natural subject of a
+follow-up.
 
 ### C-1 in full
 
