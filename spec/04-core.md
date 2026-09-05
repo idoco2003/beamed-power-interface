@@ -52,6 +52,8 @@ target, and SHALL carry `_prov`. A segment that has not measured it SHALL declar
 - **`keepOutVolume`** — GeoJSON polygon plus `ceiling_m`, and `intruderSpeedMax_m_s`
 - `sensors[]` — what actually watches the keep-out volume, each with type and coverage
 - `safetyAuthority` — `{ org, contact, eStopPresent, eStopWiredToIssuer }`
+- **`gridInterconnection`** — `coupling` (`ac | dc`), `nominalVoltage_V`,
+  `pointOfCommonCoupling`, and the interconnection `standard` claimed
 - `settlementIntervalMin` ∈ {5, 15, 30, 60}
 - `attestationRef`
 
@@ -62,6 +64,29 @@ declared `intruderSpeedMax_m_s` and timing profile imply is invalid.
 **[R-C-032]** A receiving segment SHALL declare `maskBasis`. Where `computed`, it SHALL
 name the models used. A mask presented without its basis is a number with no argument
 behind it.
+
+**[R-C-036]** A receiving segment SHALL declare `gridInterconnection`. Where the plant is
+islanded or otherwise not connected to a distribution or transmission network, it SHALL
+declare `standard: "none"` rather than omit the block.
+
+*This is a declaration, not a behaviour, and the distinction is the whole point. What a
+plant must do at its point of common coupling is IEEE 1547's subject, or IEC 61727's, or
+EN 50549's, and §0 hands that ground to them. What none of them says is which of them a
+given receiver is claiming, which is the one fact a space segment needs in order to reason
+about `maxDownRamp_kW_per_s` as anything other than an unsourced number. So this
+specification records the claim and verifies none of it, exactly as §7 records regulatory
+authorisations it cannot grant.*
+
+*`none` is a positive declaration for the same reason `unclaimed` is in §7. A lunar
+microgrid and a rectenna behind an offshore wind farm's existing grid connection are both
+real, and they are not the same plant. An omitted block cannot tell them apart; a declared
+`none` can.*
+
+*`unstated` exists because the issuer of a capability message is not always the plant
+operator. A broker composing a draft on a site's behalf knows the aperture and the mask and
+does not know what the site is connected to, and inventing a standard for it would be
+exactly the fabrication §7 was built to prevent. `unstated` says so on the wire. A plant
+operator issuing for its own plant has no business using it.*
 
 ## 4.3 AttestationBundle
 

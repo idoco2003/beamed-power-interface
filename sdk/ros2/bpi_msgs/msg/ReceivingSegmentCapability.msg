@@ -38,3 +38,4 @@ string revocation_url  # optional in the schema
 #   sensors
 #   safetyAuthority
 #   keys
+#   gridInterconnection

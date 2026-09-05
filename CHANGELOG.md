@@ -29,6 +29,20 @@ is unclassified. This section summarises it; that file is the record.
 
 ### Added
 - **`R-A-005`** — where `applicability` is `none`, `marginDb` SHALL also be `null`.
+- **`gridInterconnection` on `ReceivingSegmentCapability`, and `[R-C-036]`.** What the
+  receiving plant is connected to, and which interconnection standard it claims: IEEE
+  1547-2018, IEC 61727, EN 50549, `other`, `none` for an islanded plant, or `unstated`
+  where the issuer is not the plant operator and cannot speak for it. A declaration only.
+  §0 hands interconnection *behaviour* to IEEE 1547 and IEC TC 8 and this does not take it
+  back; what no interconnection standard says is which one a given receiver is claiming,
+  and without that `maxDownRamp_kW_per_s` is a number with no provenance.
+- **`GRID_CURTAILMENT_ORDERED` and `GRID_CURTAILMENT_ELECTED` cause codes, and
+  `[R-M-033]`.** The general `GRID_CURTAILMENT` is retained for the case where the
+  distinction is genuinely unknown. All three default to the receiving bearer, so this
+  changes what must be shown rather than who pays: an ordered curtailment SHALL carry
+  `evidenceRef` naming the network operator's instruction, because it is the only cause on
+  the list that implicates a third party who could have refuted it at the time.
+
 - **`R-M-014`** — a meter accuracy class SHALL NOT be presented as evidence that a
   particular meter's readings are valid for trade.
 
@@ -63,7 +77,7 @@ Initial publication as a Request for Comments.
 - `OBJECTIONS.md` with ten objections, eight of them open, one with no mitigation offered.
 
 ### Normative requirement set
-112 identifiers: C 33, S 27, M 15, RF 15, A 13, SEC 5, CONF 4. See
+114 identifiers: C 34, S 27, M 16, RF 15, A 13, SEC 5, CONF 4. See
 `conformance/checklist.json`.
 
 ### Corrected before adoption

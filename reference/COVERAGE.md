@@ -3,7 +3,7 @@
 
 # Executed requirement coverage
 
-**13 of 112** normative requirements are executed by something that runs.
+**13 of 114** normative requirements are executed by something that runs.
 Before the reference implementation existed the figure for BPI-S, BPI-RF and BPI-SEC was
 **zero** — 47 requirements had never been run by anything at all.
 
