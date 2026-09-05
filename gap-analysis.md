@@ -76,9 +76,10 @@ mutually incompatible physical layers being flown or funded.
 | Xidian "Sun Chasing" | RF microwave | 1,180 W at 20.8% DC-to-DC over 100 m; 1.2 m transmitter into a 5.2 m rectenna |
 | Virtus Solis / ARPA-E | RF microwave | >1 kW RF at 200 m, minimum 70% end-to-end source-to-delivered-DC; first US federal award for RF WPT |
 | JAXA OHISAMA | RF microwave | **Planned, not flown.** ~1 kW at 5.8 GHz to a 13-antenna site from ~400 km; FY2026 launch on Space One's Kairos |
-| Star Catcher | Optical | >1.1 kW to commercial off-the-shelf panels at >1 km; >10 MJ total |
+| Star Catcher | Optical | >1.1 kW to commercial off-the-shelf panels at >1 km; >10 MJ total. Its own site adds, checked 2026-09-05: an on-orbit precision acquisition and tracking demonstration on 2026-04-09, $65M raised announced 2026-05-12, a claim to hold the world record for optical power beaming, and **a power purchase by Aethero announced 2026-08-24**. Orbit demonstration stated for 2026. |
 | Volta Space, Mantis, Overview Energy | Optical / NIR | Space-to-space and GEO-to-solar-farm concepts |
 | ARAQYS-D3 | **Both** | Five power-beaming payloads, RF and optical, one integrator, Feb 2027 |
+| Cowboy Space, formerly Aetherflux | Optical, **redirected** | Rebranded 2026-05, and the pitch moved with the name: from beaming power to Earth by infrared laser, to a constellation of megawatt-class orbital data centres called Stampede, sold as "a power grid in outer space for artificial intelligence". Its own site publishes **no demonstrated beaming figure** and disclaims its numbers as "design objectives and goals, not demonstrated or guaranteed outcomes". Checked 2026-09-05. Reported Series B of $275M at a $2B valuation is secondary and not verified here. |
 | DIU PROJ00685 | Both | Four lines of effort including space-to-space (to 1,200 km) and space-to-terrestrial; operational capability targeted FY2030 |
 
 **A second claim has been withdrawn, 2026-09-01.** The sentence above used to end "and no
@@ -117,5 +118,6 @@ decomposition, blocked on reading it.
 | 2026-09-02 | G12 re-checked first-hand and extended with two verbatim quotes: the delivered-versus-received dispute, and the interoperability requirements section being intentionally left blank. |
 | 2026-08-24 | Method limitation recorded: the survey asked "is this standardised?" and never asked "is there already an accepted way of doing this?". See O-10. |
 | 2026-08-27 | Withdrew the efficiency-comparability claim below the programme table. It was wrong; see DISPOSITIONS C-1. |
+| 2026-09-05 | Refreshed two programme rows first-party. Star Catcher's own site now records a tracking demonstration, a raise, and a power purchase by a named customer. Aetherflux is gone: it rebranded to Cowboy Space in May 2026 and redirected from space-to-Earth beaming toward orbital compute, which is the first programme in this table to leave the field rather than enter it. |
 | 2026-09-01 | Withdrew the "no venue" claim below the programme table and added **G12 (LOGIC)**. The register had asked eleven questions of standards bodies, regulators and agencies, and none of a consortium. LOGIC's Power working group has been writing beamed-power interoperability requirements since 2024. |
 | 2026-09-01 | Added **G11 (NASA SCaN / LunaNet)** and the section holding it. The register asked ten questions of standards bodies and regulators and none of an agency that maintains a published interoperability specification for this theatre. Row added on a maintainer's instruction, not by the daily scan; the scan reports, a person edits. |
