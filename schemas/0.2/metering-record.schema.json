@@ -202,7 +202,26 @@
           "causeCode",
           "bearer"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "causeCode": {
+                  "const": "GRID_CURTAILMENT_ORDERED"
+                }
+              },
+              "required": [
+                "causeCode"
+              ]
+            },
+            "then": {
+              "required": [
+                "evidenceRef"
+              ]
+            }
+          }
+        ]
       },
       "description": "[R-M-030] Every second of shortfall carries a cause code."
     },

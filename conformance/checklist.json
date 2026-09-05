@@ -1,9 +1,9 @@
 {
   "$comment": "SPDX-License-Identifier: Apache-2.0",
   "bpiVersion": "0.2.0-draft",
-  "generated": "2026-09-01",
+  "generated": "2026-09-05",
   "note": "Generated from spec/*.md by tools/gen-checklist.py. tools/check-requirements.sh fails the build if this drifts from the specification.",
-  "count": 112,
+  "count": 114,
   "requirements": [
     {
       "id": "R-A-001",
@@ -261,7 +261,7 @@
       "id": "R-C-032",
       "part": "C",
       "source": "spec/04-core.md",
-      "summary": "A receiving segment SHALL declare `maskBasis`. Where `computed`, it SHALL name the models used. A mask presented without its basis is a number with no argument behind it. ## 4.3 AttestationBundle\u2026"
+      "summary": "A receiving segment SHALL declare `maskBasis`. Where `computed`, it SHALL name the models used. A mask presented without its basis is a number with no argument behind it."
     },
     {
       "id": "R-C-033",
@@ -280,6 +280,12 @@
       "part": "C",
       "source": "spec/04-core.md",
       "summary": "An amendment issued after a session has entered `ARMED` SHALL NOT be used in place of an `Abort`. Amendments are scheduling instruments; stopping a live beam is \u00a75.6 and nothing else. ## 4.8 Common\u2026"
+    },
+    {
+      "id": "R-C-036",
+      "part": "C",
+      "source": "spec/04-core.md",
+      "summary": "A receiving segment SHALL declare `gridInterconnection`. Where the plant is islanded or otherwise not connected to a distribution or transmission network, it SHALL declare `standard: \"none\"` rather\u2026"
     },
     {
       "id": "R-CONF-001",
@@ -388,6 +394,12 @@
       "part": "M",
       "source": "spec/06-metering.md",
       "summary": "A `SessionLog` SHALL be produced by both segments for any session containing a non-nominal event, at 1 Hz, signed, and retained for the period declared in capability. ## 6.5 Dispute ladder"
+    },
+    {
+      "id": "R-M-033",
+      "part": "M",
+      "source": "spec/06-metering.md",
+      "summary": "Where the cause is `GRID_CURTAILMENT_ORDERED`, the entry SHALL carry `evidenceRef` identifying the network operator's instruction. *All three curtailment codes default to the receiving side, so this\u2026"
     },
     {
       "id": "R-M-040",

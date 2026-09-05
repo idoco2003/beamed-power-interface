@@ -142,6 +142,8 @@ matter of record, not to decide who pays.
 | `PERSON_INTRUSION` | Receiving |
 | `RECEIVER_PLANT_TRIP` | Receiving |
 | `GRID_CURTAILMENT` | Receiving |
+| `GRID_CURTAILMENT_ORDERED` | Receiving |
+| `GRID_CURTAILMENT_ELECTED` | Receiving |
 | `SPACE_FAULT` | Space |
 | `POINTING_LOSS` | Space |
 | `EFFICIENCY_ANOMALY` | Space |
@@ -149,6 +151,17 @@ matter of record, not to decide who pays.
 | `REGULATORY_ORDER` | Neither |
 | `TOKEN_EXPIRY` | **Determined from evidence** — see below |
 | `SCHEDULED_END` | n/a |
+
+**[R-M-033]** Where the cause is `GRID_CURTAILMENT_ORDERED`, the entry SHALL carry
+`evidenceRef` identifying the network operator's instruction.
+
+*All three curtailment codes default to the receiving side, so this is not a change of
+bearer. It is a change of what has to be shown. "The network operator told us to stop" is
+a claim about a third party, and it is the only cause on the list that another party could
+have refuted at the time and cannot refute afterwards. `GRID_CURTAILMENT_ELECTED` says the
+receiver chose, which needs no citation because nobody else is implicated.
+`GRID_CURTAILMENT` remains for the case where the distinction is genuinely unknown, and a
+record full of the general code where the specific one was available is a signal in itself.*
 
 **[R-M-031]** Where the cause is `TOKEN_EXPIRY`, both segments SHALL produce their
 `SessionLog` covering ±60 s around the event, and the bearer SHALL be determined from

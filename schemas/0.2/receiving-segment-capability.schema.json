@@ -229,6 +229,68 @@
     },
     "revocationUrl": {
       "type": "string"
+    },
+    "gridInterconnection": {
+      "type": "object",
+      "description": "What the receiving plant is connected to, and under which interconnection standard it claims to operate. A declaration only: this specification defines no interconnection behaviour and verifies none.",
+      "properties": {
+        "coupling": {
+          "type": "string",
+          "enum": [
+            "ac",
+            "dc",
+            "unstated"
+          ]
+        },
+        "nominalVoltage_V": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "pointOfCommonCoupling": {
+          "type": "string",
+          "description": "Identifier for the PCC, as used by the network operator. Absent for an island plant."
+        },
+        "standard": {
+          "type": "string",
+          "enum": [
+            "ieee-1547-2018",
+            "iec-61727",
+            "en-50549",
+            "other",
+            "none",
+            "unstated"
+          ],
+          "description": "'none' means the plant is islanded or off-grid. 'unstated' means the issuer is not the plant operator and cannot speak for it, as a broker-authored draft cannot. Both are positive declarations rather than omissions. 'other' requires standardRef."
+        },
+        "standardRef": {
+          "type": "string",
+          "description": "Document and edition, where standard is 'other'."
+        }
+      },
+      "required": [
+        "coupling",
+        "standard"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "standard": {
+                "const": "other"
+              }
+            },
+            "required": [
+              "standard"
+            ]
+          },
+          "then": {
+            "required": [
+              "standardRef"
+            ]
+          }
+        }
+      ],
+      "additionalProperties": false
     }
   },
   "required": [
@@ -249,6 +311,7 @@
     "safetyAuthority",
     "settlementIntervalMin",
     "timingProfiles",
-    "attestationRef"
+    "attestationRef",
+    "gridInterconnection"
   ]
 }

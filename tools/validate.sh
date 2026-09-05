@@ -43,6 +43,7 @@ check_invalid schemas/0.2/attestation-bundle.schema.json examples/must-fail/arti
 check_invalid schemas/0.2/enable-token.schema.json       examples/must-fail/aimpoint-without-heightref.json
 check_invalid schemas/0.2/enable-token.schema.json       examples/must-fail/orthometric-without-geoidmodel.json
 check_invalid schemas/0.2/metering-record.schema.json    examples/must-fail/efficiency-without-endpoints.json
+check_invalid schemas/0.2/metering-record.schema.json    examples/must-fail/ordered-curtailment-without-evidence.json
 
 echo
 echo "passed: $pass   failed: $fail"
